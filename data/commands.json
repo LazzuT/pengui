@@ -1,0 +1,4341 @@
+[
+  {
+    "command": "ls",
+    "slug": "ls",
+    "description_tr": "Dizin içeriğini listeler",
+    "detail_tr": "ls komutu, belirtilen dizindeki dosya ve klasörleri listeler. Parametresiz kullanıldığında bulunduğunuz dizinin içeriğini gösterir. Farklı seçeneklerle dosya boyutları, izinleri, değiştirilme tarihleri gibi detaylı bilgiler de görüntülenebilir.",
+    "syntax": "ls [seçenekler] [dizin]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "ls",
+        "desc_tr": "Bulunduğunuz dizindeki dosya ve klasörleri listeler"
+      },
+      {
+        "code": "ls -la",
+        "desc_tr": "Gizli dosyalar dahil tüm dosyaları ayrıntılı listeler"
+      },
+      {
+        "code": "ls -lh /var/log",
+        "desc_tr": "/var/log dizinindeki dosyaları okunabilir boyutlarla listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Ayrıntılı format ile listeler"
+      },
+      {
+        "flag": "-a",
+        "desc_tr": "Gizli dosyaları da gösterir"
+      },
+      {
+        "flag": "-h",
+        "desc_tr": "Dosya boyutlarını okunabilir formatta gösterir"
+      },
+      {
+        "flag": "-R",
+        "desc_tr": "Alt dizinleri özyinelemeli listeler"
+      },
+      {
+        "flag": "-t",
+        "desc_tr": "Değiştirilme tarihine göre sıralar"
+      },
+      {
+        "flag": "-S",
+        "desc_tr": "Dosya boyutuna göre sıralar"
+      }
+    ],
+    "related": [
+      "cd",
+      "pwd",
+      "find",
+      "tree"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "cd",
+    "slug": "cd",
+    "description_tr": "Çalışma dizinini değiştirir",
+    "detail_tr": "cd komutu, terminaldeki mevcut çalışma dizinini değiştirmek için kullanılır. Mutlak veya göreli yol belirleyerek farklı dizinlere geçiş yapabilirsiniz.",
+    "syntax": "cd [dizin]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "cd /var/log",
+        "desc_tr": "/var/log dizinine geçiş yapar"
+      },
+      {
+        "code": "cd ..",
+        "desc_tr": "Bir üst dizine çıkar"
+      },
+      {
+        "code": "cd ~",
+        "desc_tr": "Ev dizinine döner"
+      }
+    ],
+    "options": [],
+    "related": [
+      "pwd",
+      "ls",
+      "pushd"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "pwd",
+    "slug": "pwd",
+    "description_tr": "Mevcut çalışma dizinini gösterir",
+    "detail_tr": "pwd komutu, terminalde o anda bulunduğunuz dizinin tam yolunu ekrana yazdırır.",
+    "syntax": "pwd [seçenekler]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "pwd",
+        "desc_tr": "Mevcut dizinin tam yolunu gösterir"
+      },
+      {
+        "code": "pwd -P",
+        "desc_tr": "Sembolik bağlantıları çözerek gerçek yolu gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-L",
+        "desc_tr": "Mantıksal yolu gösterir"
+      },
+      {
+        "flag": "-P",
+        "desc_tr": "Fiziksel yolu gösterir"
+      }
+    ],
+    "related": [
+      "cd",
+      "ls"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "cp",
+    "slug": "cp",
+    "description_tr": "Dosya ve dizinleri kopyalar",
+    "detail_tr": "cp komutu, dosya ve dizinleri bir konumdan başka bir konuma kopyalamak için kullanılır.",
+    "syntax": "cp [seçenekler] kaynak hedef",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "cp dosya.txt yedek.txt",
+        "desc_tr": "Dosyayı kopyalar"
+      },
+      {
+        "code": "cp -r klasor/ yedek/",
+        "desc_tr": "Klasörü tüm içeriğiyle kopyalar"
+      },
+      {
+        "code": "cp -i dosya.txt /tmp/",
+        "desc_tr": "Üzerine yazmadan önce onay ister"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-r",
+        "desc_tr": "Dizinleri özyinelemeli kopyalar"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Üzerine yazmadan önce onay ister"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Kopyalanan dosyaları gösterir"
+      },
+      {
+        "flag": "-p",
+        "desc_tr": "Dosya izinlerini korur"
+      }
+    ],
+    "related": [
+      "mv",
+      "rm",
+      "rsync"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "mv",
+    "slug": "mv",
+    "description_tr": "Dosya ve dizinleri taşır veya yeniden adlandırır",
+    "detail_tr": "mv komutu, dosya ve dizinleri taşımak veya yeniden adlandırmak için kullanılır.",
+    "syntax": "mv [seçenekler] kaynak hedef",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "mv eski.txt yeni.txt",
+        "desc_tr": "Dosyanın adını değiştirir"
+      },
+      {
+        "code": "mv dosya.txt /tmp/",
+        "desc_tr": "Dosyayı /tmp dizinine taşır"
+      },
+      {
+        "code": "mv -i kaynak.txt hedef.txt",
+        "desc_tr": "Üzerine yazmadan önce onay ister"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Üzerine yazmadan önce onay ister"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Taşınan dosyaları gösterir"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Var olan dosyaların üzerine yazmaz"
+      }
+    ],
+    "related": [
+      "cp",
+      "rm",
+      "rename"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "rm",
+    "slug": "rm",
+    "description_tr": "Dosya ve dizinleri siler",
+    "detail_tr": "rm komutu, dosya ve dizinleri kalıcı olarak silmek için kullanılır. Silinen dosyalar çöp kutusuna gitmez. Dikkatli kullanılmalıdır.",
+    "syntax": "rm [seçenekler] dosya...",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "rm dosya.txt",
+        "desc_tr": "Dosyayı siler"
+      },
+      {
+        "code": "rm -r klasor/",
+        "desc_tr": "Klasörü tüm içeriğiyle siler"
+      },
+      {
+        "code": "rm -i *.tmp",
+        "desc_tr": "Her dosya için silme onayı ister"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-r",
+        "desc_tr": "Dizinleri özyinelemeli siler"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Onay sormadan zorla siler"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Her dosya için onay ister"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Silinen dosyaları gösterir"
+      }
+    ],
+    "related": [
+      "rmdir",
+      "shred",
+      "unlink"
+    ],
+    "difficulty": "kolay",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "mkdir",
+    "slug": "mkdir",
+    "description_tr": "Yeni dizin oluşturur",
+    "detail_tr": "mkdir komutu, yeni dizinler oluşturmak için kullanılır. -p ile iç içe dizin yapıları oluşturabilirsiniz.",
+    "syntax": "mkdir [seçenekler] dizin...",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "mkdir projeler",
+        "desc_tr": "Yeni bir dizin oluşturur"
+      },
+      {
+        "code": "mkdir -p a/b/c",
+        "desc_tr": "İç içe dizin yapısı oluşturur"
+      },
+      {
+        "code": "mkdir -m 755 web",
+        "desc_tr": "Belirtilen izinlerle dizin oluşturur"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-p",
+        "desc_tr": "Gerekli üst dizinleri de oluşturur"
+      },
+      {
+        "flag": "-m",
+        "desc_tr": "Dizin izinlerini belirler"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Oluşturulan dizinleri gösterir"
+      }
+    ],
+    "related": [
+      "rmdir",
+      "ls",
+      "cd"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "touch",
+    "slug": "touch",
+    "description_tr": "Boş dosya oluşturur veya zaman damgasını günceller",
+    "detail_tr": "touch komutu, yeni boş dosya oluşturmak veya mevcut dosyanın zaman damgasını güncellemek için kullanılır.",
+    "syntax": "touch [seçenekler] dosya...",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "touch yeni.txt",
+        "desc_tr": "Boş bir dosya oluşturur"
+      },
+      {
+        "code": "touch -t 202301011200 dosya.txt",
+        "desc_tr": "Belirli bir tarih/saat atar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Sadece erişim zamanını günceller"
+      },
+      {
+        "flag": "-m",
+        "desc_tr": "Sadece değiştirilme zamanını günceller"
+      },
+      {
+        "flag": "-t",
+        "desc_tr": "Belirtilen zamanı kullanır"
+      }
+    ],
+    "related": [
+      "mkdir",
+      "cat",
+      "ls"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "find",
+    "slug": "find",
+    "description_tr": "Dosya ve dizinleri arar",
+    "detail_tr": "find komutu, dosya sisteminde belirli kriterlere göre dosya ve dizin aramak için kullanılır. İsim, boyut, tarih ve izinlere göre filtreleme yapabilir.",
+    "syntax": "find [yol] [ifade]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "find . -name '*.txt'",
+        "desc_tr": "Mevcut dizinde tüm .txt dosyalarını bulur"
+      },
+      {
+        "code": "find /home -size +100M",
+        "desc_tr": "100MB'den büyük dosyaları bulur"
+      },
+      {
+        "code": "find . -type d -name src",
+        "desc_tr": "src adlı dizinleri bulur"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-name",
+        "desc_tr": "Dosya adına göre arar"
+      },
+      {
+        "flag": "-type",
+        "desc_tr": "Dosya tipine göre filtreler (f=dosya, d=dizin)"
+      },
+      {
+        "flag": "-size",
+        "desc_tr": "Dosya boyutuna göre filtreler"
+      },
+      {
+        "flag": "-mtime",
+        "desc_tr": "Değiştirilme tarihine göre filtreler"
+      },
+      {
+        "flag": "-exec",
+        "desc_tr": "Bulunan dosyalarda komut çalıştırır"
+      }
+    ],
+    "related": [
+      "grep",
+      "locate",
+      "ls"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "tree",
+    "slug": "tree",
+    "description_tr": "Dizin yapısını ağaç şeklinde gösterir",
+    "detail_tr": "tree komutu, dizin yapısını görsel bir ağaç formatında gösterir. Proje yapılarını anlamak için çok faydalıdır.",
+    "syntax": "tree [seçenekler] [dizin]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "tree",
+        "desc_tr": "Mevcut dizinin ağaç yapısını gösterir"
+      },
+      {
+        "code": "tree -L 2",
+        "desc_tr": "Maksimum 2 seviye derinlikte gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-L",
+        "desc_tr": "Maksimum derinlik seviyesini belirler"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Sadece dizinleri gösterir"
+      },
+      {
+        "flag": "-a",
+        "desc_tr": "Gizli dosyaları da gösterir"
+      }
+    ],
+    "related": [
+      "ls",
+      "find"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "cat",
+    "slug": "cat",
+    "description_tr": "Dosya içeriğini görüntüler",
+    "detail_tr": "cat komutu, dosya içeriğini terminale yazdırmak için kullanılır. Birden fazla dosyayı birleştirebilir.",
+    "syntax": "cat [seçenekler] [dosya...]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "cat dosya.txt",
+        "desc_tr": "Dosya içeriğini gösterir"
+      },
+      {
+        "code": "cat -n dosya.txt",
+        "desc_tr": "Satır numaralarıyla gösterir"
+      },
+      {
+        "code": "cat dosya1.txt dosya2.txt",
+        "desc_tr": "İki dosyayı arka arkaya gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-n",
+        "desc_tr": "Tüm satırları numaralar"
+      },
+      {
+        "flag": "-b",
+        "desc_tr": "Boş olmayan satırları numaralar"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Ardışık boş satırları birleştirir"
+      }
+    ],
+    "related": [
+      "less",
+      "more",
+      "head",
+      "tail"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "grep",
+    "slug": "grep",
+    "description_tr": "Dosyalarda metin arar",
+    "detail_tr": "grep komutu, dosyalar içinde belirli bir metin kalıbı aramak için kullanılır. Düzenli ifadeler destekler.",
+    "syntax": "grep [seçenekler] kalıp [dosya...]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "grep 'hata' log.txt",
+        "desc_tr": "Dosyada 'hata' kelimesini arar"
+      },
+      {
+        "code": "grep -i 'error' *.log",
+        "desc_tr": "Büyük/küçük harf duyarsız arama"
+      },
+      {
+        "code": "grep -r 'TODO' .",
+        "desc_tr": "Tüm alt dizinlerde arar"
+      },
+      {
+        "code": "ps aux | grep nginx",
+        "desc_tr": "Çalışan süreçlerde nginx arar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Büyük/küçük harf duyarsız arama"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Özyinelemeli arama"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Satır numaralarını gösterir"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Eşleşen satır sayısını gösterir"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Eşleşmeyen satırları gösterir"
+      },
+      {
+        "flag": "-l",
+        "desc_tr": "Sadece dosya adlarını gösterir"
+      }
+    ],
+    "related": [
+      "sed",
+      "awk",
+      "find"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "head",
+    "slug": "head",
+    "description_tr": "Dosyanın ilk satırlarını gösterir",
+    "detail_tr": "head komutu, dosyanın başından itibaren belirtilen sayıda satırı gösterir. Varsayılan olarak ilk 10 satırı gösterir.",
+    "syntax": "head [seçenekler] [dosya...]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "head dosya.txt",
+        "desc_tr": "İlk 10 satırı gösterir"
+      },
+      {
+        "code": "head -n 20 dosya.txt",
+        "desc_tr": "İlk 20 satırı gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-n",
+        "desc_tr": "Gösterilecek satır sayısını belirler"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Gösterilecek bayt sayısını belirler"
+      }
+    ],
+    "related": [
+      "tail",
+      "cat",
+      "less"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "tail",
+    "slug": "tail",
+    "description_tr": "Dosyanın son satırlarını gösterir",
+    "detail_tr": "tail komutu, dosyanın sonundan itibaren belirtilen sayıda satırı gösterir. Log dosyalarını canlı izlemek için -f seçeneği çok kullanılır.",
+    "syntax": "tail [seçenekler] [dosya...]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "tail dosya.txt",
+        "desc_tr": "Son 10 satırı gösterir"
+      },
+      {
+        "code": "tail -f /var/log/syslog",
+        "desc_tr": "Log dosyasını canlı izler"
+      },
+      {
+        "code": "tail -n 50 log.txt",
+        "desc_tr": "Son 50 satırı gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-n",
+        "desc_tr": "Gösterilecek satır sayısını belirler"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Dosyayı canlı izler (follow)"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Gösterilecek bayt sayısını belirler"
+      }
+    ],
+    "related": [
+      "head",
+      "cat",
+      "less"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "less",
+    "slug": "less",
+    "description_tr": "Dosya içeriğini sayfa sayfa görüntüler",
+    "detail_tr": "less komutu, büyük dosyaları sayfa sayfa görüntülemek için kullanılır. Yukarı-aşağı kaydırma ve arama yapabilirsiniz.",
+    "syntax": "less [dosya]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "less /var/log/syslog",
+        "desc_tr": "Log dosyasını sayfa sayfa görüntüler"
+      },
+      {
+        "code": "cat dosya.txt | less",
+        "desc_tr": "Uzun çıktıyı sayfalayarak gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-N",
+        "desc_tr": "Satır numaralarını gösterir"
+      },
+      {
+        "flag": "-S",
+        "desc_tr": "Uzun satırları kesmez, kaydırır"
+      }
+    ],
+    "related": [
+      "more",
+      "cat",
+      "head",
+      "tail"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "sed",
+    "slug": "sed",
+    "description_tr": "Metin akışında düzenleme yapar",
+    "detail_tr": "sed (stream editor) komutu, metin dosyalarında arama-değiştirme, silme ve ekleme işlemleri yapar. Boru hattında kullanımı yaygındır.",
+    "syntax": "sed [seçenekler] 'komut' [dosya]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "sed 's/eski/yeni/g' dosya.txt",
+        "desc_tr": "'eski' kelimesini 'yeni' ile değiştirir"
+      },
+      {
+        "code": "sed -n '5,10p' dosya.txt",
+        "desc_tr": "5. ile 10. satır arasını gösterir"
+      },
+      {
+        "code": "sed -i 's/hata/düzeltme/g' dosya.txt",
+        "desc_tr": "Dosyada yerinde değişiklik yapar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Dosyayı yerinde düzenler"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Sadece eşleşen satırları gösterir"
+      },
+      {
+        "flag": "-e",
+        "desc_tr": "Birden fazla düzenleme komutu verir"
+      }
+    ],
+    "related": [
+      "awk",
+      "grep",
+      "tr"
+    ],
+    "difficulty": "zor",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "awk",
+    "slug": "awk",
+    "description_tr": "Metin işleme ve rapor oluşturma aracı",
+    "detail_tr": "awk komutu, yapılandırılmış metin verilerini işlemek için kullanılan güçlü bir araçtır. Sütun bazlı filtreleme ve hesaplama yapabilir.",
+    "syntax": "awk 'kalıp {eylem}' [dosya]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "awk '{print $1}' dosya.txt",
+        "desc_tr": "Her satırın ilk sütununu gösterir"
+      },
+      {
+        "code": "awk -F: '{print $1}' /etc/passwd",
+        "desc_tr": "Kullanıcı adlarını listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-F",
+        "desc_tr": "Alan ayırıcıyı belirler"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Değişken tanımlar"
+      }
+    ],
+    "related": [
+      "sed",
+      "grep",
+      "cut"
+    ],
+    "difficulty": "zor",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "wc",
+    "slug": "wc",
+    "description_tr": "Satır, kelime ve karakter sayısını gösterir",
+    "detail_tr": "wc (word count) komutu, dosyadaki satır, kelime ve karakter sayısını hesaplar.",
+    "syntax": "wc [seçenekler] [dosya...]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "wc dosya.txt",
+        "desc_tr": "Satır, kelime ve karakter sayısını gösterir"
+      },
+      {
+        "code": "wc -l dosya.txt",
+        "desc_tr": "Sadece satır sayısını gösterir"
+      },
+      {
+        "code": "ls | wc -l",
+        "desc_tr": "Dizindeki dosya sayısını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Sadece satır sayısını gösterir"
+      },
+      {
+        "flag": "-w",
+        "desc_tr": "Sadece kelime sayısını gösterir"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Sadece bayt sayısını gösterir"
+      }
+    ],
+    "related": [
+      "cat",
+      "grep"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "sort",
+    "slug": "sort",
+    "description_tr": "Satırları sıralar",
+    "detail_tr": "sort komutu, dosya içeriğini veya standart girdideki satırları alfabetik veya sayısal olarak sıralar.",
+    "syntax": "sort [seçenekler] [dosya...]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "sort dosya.txt",
+        "desc_tr": "Satırları alfabetik sıralar"
+      },
+      {
+        "code": "sort -n sayilar.txt",
+        "desc_tr": "Sayısal olarak sıralar"
+      },
+      {
+        "code": "sort -r dosya.txt",
+        "desc_tr": "Ters sıralama yapar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-n",
+        "desc_tr": "Sayısal sıralama yapar"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Ters sıralama yapar"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "Tekrarlayan satırları kaldırır"
+      },
+      {
+        "flag": "-k",
+        "desc_tr": "Belirtilen sütuna göre sıralar"
+      }
+    ],
+    "related": [
+      "uniq",
+      "wc"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "chmod",
+    "slug": "chmod",
+    "description_tr": "Dosya izinlerini değiştirir",
+    "detail_tr": "chmod komutu, dosya ve dizinlerin erişim izinlerini değiştirmek için kullanılır. İzinler sayısal veya sembolik gösterimle belirlenebilir.",
+    "syntax": "chmod [seçenekler] mod dosya...",
+    "category": "izinler",
+    "examples": [
+      {
+        "code": "chmod 755 script.sh",
+        "desc_tr": "Script'e çalıştırma izni verir"
+      },
+      {
+        "code": "chmod +x program",
+        "desc_tr": "Herkese çalıştırma izni ekler"
+      },
+      {
+        "code": "chmod -R 644 belgeler/",
+        "desc_tr": "Özyinelemeli izin atar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-R",
+        "desc_tr": "Özyinelemeli uygular"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Değişiklikleri gösterir"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Sadece değişenleri gösterir"
+      }
+    ],
+    "related": [
+      "chown",
+      "chgrp",
+      "umask"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "chown",
+    "slug": "chown",
+    "description_tr": "Dosya sahibini değiştirir",
+    "detail_tr": "chown komutu, dosya ve dizinlerin sahibini ve grubunu değiştirmek için kullanılır. Genellikle root yetkisi gerektirir.",
+    "syntax": "chown [seçenekler] sahip[:grup] dosya...",
+    "category": "izinler",
+    "examples": [
+      {
+        "code": "chown ali dosya.txt",
+        "desc_tr": "Dosyanın sahibini ali yapar"
+      },
+      {
+        "code": "chown ali:developers proje/",
+        "desc_tr": "Sahip ve grubu değiştirir"
+      },
+      {
+        "code": "chown -R www-data:www-data /var/www",
+        "desc_tr": "Web dizininin sahipliğini değiştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-R",
+        "desc_tr": "Özyinelemeli uygular"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Değişiklikleri gösterir"
+      }
+    ],
+    "related": [
+      "chmod",
+      "chgrp"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "chgrp",
+    "slug": "chgrp",
+    "description_tr": "Dosya grubunu değiştirir",
+    "detail_tr": "chgrp komutu, dosya ve dizinlerin grup sahipliğini değiştirmek için kullanılır.",
+    "syntax": "chgrp [seçenekler] grup dosya...",
+    "category": "izinler",
+    "examples": [
+      {
+        "code": "chgrp developers proje/",
+        "desc_tr": "Dizinin grubunu değiştirir"
+      },
+      {
+        "code": "chgrp -R staff belgeler/",
+        "desc_tr": "Özyinelemeli grup değiştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-R",
+        "desc_tr": "Özyinelemeli uygular"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Değişiklikleri gösterir"
+      }
+    ],
+    "related": [
+      "chmod",
+      "chown"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "umask",
+    "slug": "umask",
+    "description_tr": "Varsayılan dosya izinlerini ayarlar",
+    "detail_tr": "umask komutu, yeni oluşturulan dosya ve dizinlerin varsayılan izinlerini belirleyen maskeyi ayarlar.",
+    "syntax": "umask [mod]",
+    "category": "izinler",
+    "examples": [
+      {
+        "code": "umask",
+        "desc_tr": "Mevcut umask değerini gösterir"
+      },
+      {
+        "code": "umask 022",
+        "desc_tr": "Varsayılan izinleri ayarlar"
+      }
+    ],
+    "options": [],
+    "related": [
+      "chmod",
+      "chown"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ping",
+    "slug": "ping",
+    "description_tr": "Ağ bağlantısını test eder",
+    "detail_tr": "ping komutu, belirtilen bir sunucuya ICMP paketleri göndererek ağ bağlantısını test eder.",
+    "syntax": "ping [seçenekler] hedef",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "ping google.com",
+        "desc_tr": "Google'a bağlantıyı test eder"
+      },
+      {
+        "code": "ping -c 4 192.168.1.1",
+        "desc_tr": "4 paket gönderir ve durur"
+      },
+      {
+        "code": "ping -i 2 server.com",
+        "desc_tr": "2 saniye aralıkla ping atar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-c",
+        "desc_tr": "Gönderilecek paket sayısını belirler"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Paketler arası süreyi belirler"
+      },
+      {
+        "flag": "-t",
+        "desc_tr": "TTL değerini ayarlar"
+      }
+    ],
+    "related": [
+      "traceroute",
+      "curl",
+      "wget"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "curl",
+    "slug": "curl",
+    "description_tr": "URL üzerinden veri transfer eder",
+    "detail_tr": "curl komutu, URL'ler üzerinden veri indirmek veya göndermek için kullanılır. HTTP, FTP ve diğer protokolleri destekler.",
+    "syntax": "curl [seçenekler] URL",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "curl https://api.example.com",
+        "desc_tr": "URL'den veri çeker"
+      },
+      {
+        "code": "curl -o dosya.zip URL",
+        "desc_tr": "Dosyayı indirir ve kaydeder"
+      },
+      {
+        "code": "curl -X POST -d 'data' URL",
+        "desc_tr": "POST isteği gönderir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-o",
+        "desc_tr": "Çıktıyı dosyaya kaydeder"
+      },
+      {
+        "flag": "-O",
+        "desc_tr": "Orijinal dosya adıyla kaydeder"
+      },
+      {
+        "flag": "-X",
+        "desc_tr": "HTTP metodunu belirler"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "POST verisi gönderir"
+      },
+      {
+        "flag": "-H",
+        "desc_tr": "HTTP başlığı ekler"
+      }
+    ],
+    "related": [
+      "wget",
+      "ping",
+      "ssh"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "wget",
+    "slug": "wget",
+    "description_tr": "Dosya indirir",
+    "detail_tr": "wget komutu, web üzerinden dosya indirmek için kullanılır. Kesilen indirmeleri devam ettirebilir ve özyinelemeli indirme yapabilir.",
+    "syntax": "wget [seçenekler] URL",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "wget https://example.com/dosya.zip",
+        "desc_tr": "Dosyayı indirir"
+      },
+      {
+        "code": "wget -c URL",
+        "desc_tr": "Kesilen indirmeyi devam ettirir"
+      },
+      {
+        "code": "wget -r URL",
+        "desc_tr": "Siteyi özyinelemeli indirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-c",
+        "desc_tr": "Kesilen indirmeyi devam ettirir"
+      },
+      {
+        "flag": "-O",
+        "desc_tr": "Farklı isimle kaydeder"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Özyinelemeli indirir"
+      },
+      {
+        "flag": "-q",
+        "desc_tr": "Sessiz mod"
+      }
+    ],
+    "related": [
+      "curl",
+      "scp"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ssh",
+    "slug": "ssh",
+    "description_tr": "Uzak sunucuya güvenli bağlantı kurar",
+    "detail_tr": "ssh komutu, uzak bir sunucuya şifreli bağlantı kurarak terminal erişimi sağlar.",
+    "syntax": "ssh [seçenekler] kullanıcı@sunucu",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "ssh ali@server.com",
+        "desc_tr": "Uzak sunucuya bağlanır"
+      },
+      {
+        "code": "ssh -p 2222 ali@server.com",
+        "desc_tr": "Farklı port ile bağlanır"
+      },
+      {
+        "code": "ssh -i key.pem ubuntu@ec2.aws",
+        "desc_tr": "Anahtar dosyasıyla bağlanır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-p",
+        "desc_tr": "Port numarasını belirler"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Kimlik dosyasını belirler"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Ayrıntılı çıktı gösterir"
+      }
+    ],
+    "related": [
+      "scp",
+      "sftp",
+      "ping"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "scp",
+    "slug": "scp",
+    "description_tr": "Dosyaları güvenli şekilde kopyalar",
+    "detail_tr": "scp komutu, SSH protokolü üzerinden yerel ve uzak sunucular arasında dosya kopyalamak için kullanılır.",
+    "syntax": "scp [seçenekler] kaynak hedef",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "scp dosya.txt ali@server:/tmp/",
+        "desc_tr": "Dosyayı uzak sunucuya kopyalar"
+      },
+      {
+        "code": "scp ali@server:/var/log/app.log .",
+        "desc_tr": "Uzak sunucudan dosya indirir"
+      },
+      {
+        "code": "scp -r klasor/ ali@server:/home/",
+        "desc_tr": "Dizini özyinelemeli kopyalar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-r",
+        "desc_tr": "Dizinleri özyinelemeli kopyalar"
+      },
+      {
+        "flag": "-P",
+        "desc_tr": "Port numarasını belirler"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Kimlik dosyasını belirler"
+      }
+    ],
+    "related": [
+      "ssh",
+      "rsync",
+      "sftp"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ifconfig",
+    "slug": "ifconfig",
+    "description_tr": "Ağ arayüzlerini yapılandırır",
+    "detail_tr": "ifconfig komutu, ağ arayüzlerinin IP adresi, ağ maskesi gibi bilgilerini görüntüler ve yapılandırır.",
+    "syntax": "ifconfig [arayüz] [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "ifconfig",
+        "desc_tr": "Tüm ağ arayüzlerini gösterir"
+      },
+      {
+        "code": "ifconfig eth0",
+        "desc_tr": "Belirli arayüzü gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "up",
+        "desc_tr": "Arayüzü etkinleştirir"
+      },
+      {
+        "flag": "down",
+        "desc_tr": "Arayüzü devre dışı bırakır"
+      }
+    ],
+    "related": [
+      "ip",
+      "ping",
+      "netstat"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "top",
+    "slug": "top",
+    "description_tr": "Sistem süreçlerini canlı izler",
+    "detail_tr": "top komutu, çalışan süreçleri CPU ve bellek kullanımıyla birlikte canlı olarak izler.",
+    "syntax": "top [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "top",
+        "desc_tr": "Süreçleri canlı izler"
+      },
+      {
+        "code": "top -u ali",
+        "desc_tr": "Belirli kullanıcının süreçlerini izler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-u",
+        "desc_tr": "Belirli kullanıcıyı filtreler"
+      },
+      {
+        "flag": "-p",
+        "desc_tr": "Belirli PID'yi izler"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Güncelleme aralığını belirler"
+      }
+    ],
+    "related": [
+      "htop",
+      "ps",
+      "kill"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "htop",
+    "slug": "htop",
+    "description_tr": "Gelişmiş süreç izleyici",
+    "detail_tr": "htop, top komutunun gelişmiş ve renkli bir alternatifidir. Fare desteği ve kolay süreç yönetimi sunar.",
+    "syntax": "htop [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "htop",
+        "desc_tr": "Gelişmiş süreç izleyiciyi başlatır"
+      },
+      {
+        "code": "htop -u ali",
+        "desc_tr": "Belirli kullanıcının süreçlerini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-u",
+        "desc_tr": "Belirli kullanıcıyı filtreler"
+      },
+      {
+        "flag": "-t",
+        "desc_tr": "Ağaç görünümünde gösterir"
+      }
+    ],
+    "related": [
+      "top",
+      "ps",
+      "kill"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ps",
+    "slug": "ps",
+    "description_tr": "Çalışan süreçleri listeler",
+    "detail_tr": "ps komutu, sistemde çalışan süreçlerin anlık bir görüntüsünü verir.",
+    "syntax": "ps [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "ps aux",
+        "desc_tr": "Tüm süreçleri ayrıntılı listeler"
+      },
+      {
+        "code": "ps -ef",
+        "desc_tr": "Tüm süreçleri tam formatta listeler"
+      },
+      {
+        "code": "ps aux | grep nginx",
+        "desc_tr": "Belirli bir süreci arar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "a",
+        "desc_tr": "Tüm kullanıcıların süreçlerini gösterir"
+      },
+      {
+        "flag": "u",
+        "desc_tr": "Kullanıcı odaklı format kullanır"
+      },
+      {
+        "flag": "x",
+        "desc_tr": "Terminal dışı süreçleri de gösterir"
+      },
+      {
+        "flag": "-e",
+        "desc_tr": "Tüm süreçleri gösterir"
+      }
+    ],
+    "related": [
+      "top",
+      "htop",
+      "kill"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "df",
+    "slug": "df",
+    "description_tr": "Disk kullanımını gösterir",
+    "detail_tr": "df komutu, dosya sistemlerinin disk alanı kullanımını gösterir.",
+    "syntax": "df [seçenekler] [dosya sistemi]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "df -h",
+        "desc_tr": "Disk kullanımını okunabilir formatta gösterir"
+      },
+      {
+        "code": "df -T",
+        "desc_tr": "Dosya sistemi tipini de gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-h",
+        "desc_tr": "Okunabilir boyut formatı"
+      },
+      {
+        "flag": "-T",
+        "desc_tr": "Dosya sistemi tipini gösterir"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Inode bilgilerini gösterir"
+      }
+    ],
+    "related": [
+      "du",
+      "mount",
+      "lsblk"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "du",
+    "slug": "du",
+    "description_tr": "Dizin boyutunu gösterir",
+    "detail_tr": "du komutu, dosya ve dizinlerin disk kullanımını hesaplar.",
+    "syntax": "du [seçenekler] [dizin]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "du -sh *",
+        "desc_tr": "Mevcut dizindeki her öğenin boyutunu gösterir"
+      },
+      {
+        "code": "du -h --max-depth=1",
+        "desc_tr": "İlk seviye dizinlerin boyutlarını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-s",
+        "desc_tr": "Sadece toplam boyutu gösterir"
+      },
+      {
+        "flag": "-h",
+        "desc_tr": "Okunabilir boyut formatı"
+      },
+      {
+        "flag": "--max-depth",
+        "desc_tr": "Derinlik seviyesini sınırlar"
+      }
+    ],
+    "related": [
+      "df",
+      "ls"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "free",
+    "slug": "free",
+    "description_tr": "Bellek kullanımını gösterir",
+    "detail_tr": "free komutu, sistemdeki fiziksel bellek (RAM) ve takas alanı (swap) kullanımını gösterir.",
+    "syntax": "free [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "free -h",
+        "desc_tr": "Bellek kullanımını okunabilir formatta gösterir"
+      },
+      {
+        "code": "free -m",
+        "desc_tr": "Megabayt olarak gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-h",
+        "desc_tr": "Okunabilir formatta gösterir"
+      },
+      {
+        "flag": "-m",
+        "desc_tr": "Megabayt olarak gösterir"
+      },
+      {
+        "flag": "-g",
+        "desc_tr": "Gigabayt olarak gösterir"
+      }
+    ],
+    "related": [
+      "top",
+      "vmstat"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "uname",
+    "slug": "uname",
+    "description_tr": "Sistem bilgilerini gösterir",
+    "detail_tr": "uname komutu, işletim sistemi adı, çekirdek sürümü ve mimari gibi sistem bilgilerini gösterir.",
+    "syntax": "uname [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "uname -a",
+        "desc_tr": "Tüm sistem bilgilerini gösterir"
+      },
+      {
+        "code": "uname -r",
+        "desc_tr": "Çekirdek sürümünü gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Tüm bilgileri gösterir"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Çekirdek sürümünü gösterir"
+      },
+      {
+        "flag": "-m",
+        "desc_tr": "Donanım mimarisini gösterir"
+      }
+    ],
+    "related": [
+      "hostname",
+      "uptime"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "uptime",
+    "slug": "uptime",
+    "description_tr": "Sistemin çalışma süresini gösterir",
+    "detail_tr": "uptime komutu, sistemin ne kadar süredir çalıştığını, kaç kullanıcının bağlı olduğunu ve yük ortalamasını gösterir.",
+    "syntax": "uptime",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "uptime",
+        "desc_tr": "Sistem çalışma süresini gosteir"
+      },
+      {
+        "code": "uptime -p",
+        "desc_tr": "Okunabilir formatta gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-p",
+        "desc_tr": "Okunabilir formatta gösterir"
+      }
+    ],
+    "related": [
+      "uname",
+      "top"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "apt",
+    "slug": "apt",
+    "description_tr": "Debian/Ubuntu paket yöneticisi",
+    "detail_tr": "apt komutu, Debian tabanlı sistemlerde yazılım paketlerini kurmak, güncellemek ve kaldırmak için kullanılır.",
+    "syntax": "apt [komut] [paket]",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "sudo apt update",
+        "desc_tr": "Paket listesini günceller"
+      },
+      {
+        "code": "sudo apt install nginx",
+        "desc_tr": "nginx paketini kurar"
+      },
+      {
+        "code": "sudo apt remove firefox",
+        "desc_tr": "firefox paketini kaldırır"
+      },
+      {
+        "code": "sudo apt upgrade",
+        "desc_tr": "Tüm paketleri günceller"
+      }
+    ],
+    "options": [
+      {
+        "flag": "update",
+        "desc_tr": "Paket listesini günceller"
+      },
+      {
+        "flag": "install",
+        "desc_tr": "Paket kurar"
+      },
+      {
+        "flag": "remove",
+        "desc_tr": "Paket kaldırır"
+      },
+      {
+        "flag": "upgrade",
+        "desc_tr": "Paketleri günceller"
+      },
+      {
+        "flag": "search",
+        "desc_tr": "Paket arar"
+      }
+    ],
+    "related": [
+      "dpkg",
+      "snap"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "ubuntu",
+      "debian"
+    ]
+  },
+  {
+    "command": "dpkg",
+    "slug": "dpkg",
+    "description_tr": "Debian paket yöneticisi (düşük seviye)",
+    "detail_tr": "dpkg, Debian paket sisteminin düşük seviyeli aracıdır. .deb dosyalarını doğrudan yönetir.",
+    "syntax": "dpkg [seçenekler] paket",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "dpkg -i paket.deb",
+        "desc_tr": ".deb paketini kurar"
+      },
+      {
+        "code": "dpkg -l",
+        "desc_tr": "Kurulu paketleri listeler"
+      },
+      {
+        "code": "dpkg -r paket",
+        "desc_tr": "Paketi kaldırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Paket kurar"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Paket kaldırır"
+      },
+      {
+        "flag": "-l",
+        "desc_tr": "Kurulu paketleri listeler"
+      },
+      {
+        "flag": "-S",
+        "desc_tr": "Dosyanın hangi pakete ait olduğunu gösterir"
+      }
+    ],
+    "related": [
+      "apt"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "ubuntu",
+      "debian"
+    ]
+  },
+  {
+    "command": "tar",
+    "slug": "tar",
+    "description_tr": "Dosyaları arşivler ve sıkıştırır",
+    "detail_tr": "tar komutu, birden fazla dosyayı tek bir arşiv dosyasında birleştirmek ve sıkıştırmak için kullanılır.",
+    "syntax": "tar [seçenekler] arşiv dosyalar...",
+    "category": "arsivleme",
+    "examples": [
+      {
+        "code": "tar -czf arsiv.tar.gz klasor/",
+        "desc_tr": "Gzip ile sıkıştırılmış arşiv oluşturur"
+      },
+      {
+        "code": "tar -xzf arsiv.tar.gz",
+        "desc_tr": "Gzip arşivini açar"
+      },
+      {
+        "code": "tar -tf arsiv.tar.gz",
+        "desc_tr": "Arşiv içeriğini listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-c",
+        "desc_tr": "Yeni arşiv oluşturur"
+      },
+      {
+        "flag": "-x",
+        "desc_tr": "Arşivi açar"
+      },
+      {
+        "flag": "-z",
+        "desc_tr": "Gzip sıkıştırma kullanır"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Arşiv dosya adını belirler"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "İşlenen dosyaları gösterir"
+      },
+      {
+        "flag": "-t",
+        "desc_tr": "Arşiv içeriğini listeler"
+      }
+    ],
+    "related": [
+      "gzip",
+      "zip",
+      "unzip"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "gzip",
+    "slug": "gzip",
+    "description_tr": "Dosyaları sıkıştırır",
+    "detail_tr": "gzip komutu, dosyaları Lempel-Ziv algoritmasıyla sıkıştırır. Sıkıştırılan dosyanın uzantısı .gz olur.",
+    "syntax": "gzip [seçenekler] dosya...",
+    "category": "arsivleme",
+    "examples": [
+      {
+        "code": "gzip dosya.txt",
+        "desc_tr": "Dosyayı sıkıştırır (dosya.txt.gz oluşturur)"
+      },
+      {
+        "code": "gzip -d dosya.txt.gz",
+        "desc_tr": "Sıkıştırılmış dosyayı açar"
+      },
+      {
+        "code": "gzip -k dosya.txt",
+        "desc_tr": "Orijinal dosyayı koruyarak sıkıştırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Sıkıştırılmış dosyayı açar"
+      },
+      {
+        "flag": "-k",
+        "desc_tr": "Orijinal dosyayı korur"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Sıkıştırma oranını gösterir"
+      }
+    ],
+    "related": [
+      "tar",
+      "zip",
+      "bzip2"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "zip",
+    "slug": "zip",
+    "description_tr": "ZIP arşivi oluşturur",
+    "detail_tr": "zip komutu, dosya ve dizinleri ZIP formatında arşivler ve sıkıştırır.",
+    "syntax": "zip [seçenekler] arşiv.zip dosyalar...",
+    "category": "arsivleme",
+    "examples": [
+      {
+        "code": "zip arsiv.zip dosya1.txt dosya2.txt",
+        "desc_tr": "İki dosyayı zip'ler"
+      },
+      {
+        "code": "zip -r arsiv.zip klasor/",
+        "desc_tr": "Klasörü özyinelemeli zip'ler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-r",
+        "desc_tr": "Dizinleri özyinelemeli ekler"
+      },
+      {
+        "flag": "-e",
+        "desc_tr": "Şifreli arşiv oluşturur"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "Var olan arşivi günceller"
+      }
+    ],
+    "related": [
+      "unzip",
+      "tar",
+      "gzip"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "unzip",
+    "slug": "unzip",
+    "description_tr": "ZIP arşivini açar",
+    "detail_tr": "unzip komutu, ZIP formatındaki arşiv dosyalarını açar.",
+    "syntax": "unzip [seçenekler] arşiv.zip",
+    "category": "arsivleme",
+    "examples": [
+      {
+        "code": "unzip arsiv.zip",
+        "desc_tr": "ZIP arşivini açar"
+      },
+      {
+        "code": "unzip arsiv.zip -d hedef/",
+        "desc_tr": "Belirtilen dizine açar"
+      },
+      {
+        "code": "unzip -l arsiv.zip",
+        "desc_tr": "Arşiv içeriğini listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Hedef dizini belirler"
+      },
+      {
+        "flag": "-l",
+        "desc_tr": "İçeriği listeler"
+      },
+      {
+        "flag": "-o",
+        "desc_tr": "Üzerine yazarak açar"
+      }
+    ],
+    "related": [
+      "zip",
+      "tar"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "kill",
+    "slug": "kill",
+    "description_tr": "Süreçlere sinyal gönderir",
+    "detail_tr": "kill komutu, çalışan süreçlere sinyal göndererek sonlandırma veya kontrol işlemleri yapar.",
+    "syntax": "kill [sinyal] PID",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "kill 1234",
+        "desc_tr": "PID 1234 numaralı süreci sonlandırır"
+      },
+      {
+        "code": "kill -9 1234",
+        "desc_tr": "Süreci zorla sonlandırır (SIGKILL)"
+      },
+      {
+        "code": "kill -l",
+        "desc_tr": "Tüm sinyalleri listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-9",
+        "desc_tr": "SIGKILL - Süreci zorla sonlandırır"
+      },
+      {
+        "flag": "-15",
+        "desc_tr": "SIGTERM - Düzgün sonlandırma ister"
+      },
+      {
+        "flag": "-l",
+        "desc_tr": "Sinyal listesini gösterir"
+      }
+    ],
+    "related": [
+      "ps",
+      "top",
+      "killall"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "killall",
+    "slug": "killall",
+    "description_tr": "İsme göre süreçleri sonlandırır",
+    "detail_tr": "killall komutu, belirtilen isimdeki tüm süreçleri sonlandırır.",
+    "syntax": "killall [seçenekler] süreç_adı",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "killall firefox",
+        "desc_tr": "Tüm firefox süreçlerini sonlandırır"
+      },
+      {
+        "code": "killall -9 node",
+        "desc_tr": "Tüm node süreçlerini zorla sonlandırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-9",
+        "desc_tr": "SIGKILL sinyali gönderir"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Onay ister"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Sonlandırılan süreçleri gösterir"
+      }
+    ],
+    "related": [
+      "kill",
+      "ps",
+      "pkill"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "bg",
+    "slug": "bg",
+    "description_tr": "Süreci arka plana gönderir",
+    "detail_tr": "bg komutu, durdurulan bir süreci arka planda çalışmaya devam ettirir.",
+    "syntax": "bg [iş_numarası]",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "bg",
+        "desc_tr": "Son durdurulan süreci arka planda çalıştırır"
+      },
+      {
+        "code": "bg %1",
+        "desc_tr": "1 numaralı işi arka planda çalıştırır"
+      }
+    ],
+    "options": [],
+    "related": [
+      "fg",
+      "jobs",
+      "nohup"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "fg",
+    "slug": "fg",
+    "description_tr": "Arka plan sürecini ön plana getirir",
+    "detail_tr": "fg komutu, arka planda çalışan bir süreci ön plana (aktif terminale) getirir.",
+    "syntax": "fg [iş_numarası]",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "fg",
+        "desc_tr": "Son arka plan sürecini ön plana getirir"
+      },
+      {
+        "code": "fg %2",
+        "desc_tr": "2 numaralı işi ön plana getirir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "bg",
+      "jobs"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "nohup",
+    "slug": "nohup",
+    "description_tr": "Terminal kapansa da süreç çalışmaya devam eder",
+    "detail_tr": "nohup komutu, bir süreci terminal oturumu kapandığında bile çalışmaya devam edecek şekilde başlatır.",
+    "syntax": "nohup komut [argümanlar] &",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "nohup ./script.sh &",
+        "desc_tr": "Script'i arka planda kalıcı çalıştırır"
+      },
+      {
+        "code": "nohup python app.py > log.txt &",
+        "desc_tr": "Çıktıyı dosyaya yönlendirerek çalıştırır"
+      }
+    ],
+    "options": [],
+    "related": [
+      "bg",
+      "screen",
+      "tmux"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "useradd",
+    "slug": "useradd",
+    "description_tr": "Yeni kullanıcı oluşturur",
+    "detail_tr": "useradd komutu, sisteme yeni bir kullanıcı hesabı eklemek için kullanılır.",
+    "syntax": "useradd [seçenekler] kullanıcı_adı",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo useradd ali",
+        "desc_tr": "ali adında yeni kullanıcı oluşturur"
+      },
+      {
+        "code": "sudo useradd -m -s /bin/bash ali",
+        "desc_tr": "Ev dizini ve bash shell ile oluşturur"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-m",
+        "desc_tr": "Ev dizini oluşturur"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Varsayılan shell'i belirler"
+      },
+      {
+        "flag": "-g",
+        "desc_tr": "Birincil grubu belirler"
+      },
+      {
+        "flag": "-G",
+        "desc_tr": "Ek grupları belirler"
+      }
+    ],
+    "related": [
+      "userdel",
+      "passwd",
+      "usermod"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "passwd",
+    "slug": "passwd",
+    "description_tr": "Kullanıcı şifresini değiştirir",
+    "detail_tr": "passwd komutu, kullanıcı hesabının şifresini değiştirmek için kullanılır.",
+    "syntax": "passwd [kullanıcı_adı]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "passwd",
+        "desc_tr": "Kendi şifrenizi değiştirir"
+      },
+      {
+        "code": "sudo passwd ali",
+        "desc_tr": "ali kullanıcısının şifresini değiştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Hesabı kilitler"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "Hesap kilidini açar"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Şifreyi kaldırır"
+      }
+    ],
+    "related": [
+      "useradd",
+      "usermod"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "sudo",
+    "slug": "sudo",
+    "description_tr": "Komutu yönetici yetkisiyle çalıştırır",
+    "detail_tr": "sudo komutu, normal kullanıcıların belirli komutları root (yönetici) yetkisiyle çalıştırmasını sağlar.",
+    "syntax": "sudo [seçenekler] komut",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo apt update",
+        "desc_tr": "apt update komutunu root olarak çalıştırır"
+      },
+      {
+        "code": "sudo -i",
+        "desc_tr": "Root oturumu başlatır"
+      },
+      {
+        "code": "sudo -u ali komut",
+        "desc_tr": "ali kullanıcısı olarak komut çalıştırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Root shell başlatır"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "Belirtilen kullanıcı olarak çalıştırır"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Shell başlatır"
+      }
+    ],
+    "related": [
+      "su",
+      "passwd"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "su",
+    "slug": "su",
+    "description_tr": "Kullanıcı değiştirir",
+    "detail_tr": "su komutu, mevcut oturumda başka bir kullanıcıya geçiş yapmak için kullanılır.",
+    "syntax": "su [seçenekler] [kullanıcı]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "su",
+        "desc_tr": "Root kullanıcısına geçer"
+      },
+      {
+        "code": "su - ali",
+        "desc_tr": "ali kullanıcısına tam geçiş yapar"
+      },
+      {
+        "code": "su -c 'komut' ali",
+        "desc_tr": "ali olarak tek komut çalıştırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-",
+        "desc_tr": "Tam oturum geçişi yapar"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Tek komut çalıştırır"
+      }
+    ],
+    "related": [
+      "sudo",
+      "passwd"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "mount",
+    "slug": "mount",
+    "description_tr": "Dosya sistemini bağlar",
+    "detail_tr": "mount komutu, dosya sistemlerini (disk bölümleri, USB, ISO) belirtilen dizine bağlamak için kullanılır.",
+    "syntax": "mount [seçenekler] aygıt dizin",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "mount",
+        "desc_tr": "Bağlı dosya sistemlerini listeler"
+      },
+      {
+        "code": "sudo mount /dev/sdb1 /mnt/usb",
+        "desc_tr": "USB diskini /mnt/usb'ye bağlar"
+      },
+      {
+        "code": "sudo mount -o loop disk.iso /mnt/iso",
+        "desc_tr": "ISO dosyasını bağlar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-t",
+        "desc_tr": "Dosya sistemi tipini belirler"
+      },
+      {
+        "flag": "-o",
+        "desc_tr": "Bağlama seçeneklerini belirler"
+      },
+      {
+        "flag": "-a",
+        "desc_tr": "fstab'daki tüm sistemleri bağlar"
+      }
+    ],
+    "related": [
+      "umount",
+      "lsblk",
+      "df"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "umount",
+    "slug": "umount",
+    "description_tr": "Dosya sistemini ayırır",
+    "detail_tr": "umount komutu, bağlı bir dosya sistemini güvenli şekilde ayırmak için kullanılır.",
+    "syntax": "umount [seçenekler] dizin",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo umount /mnt/usb",
+        "desc_tr": "USB diskini güvenli şekilde ayırır"
+      },
+      {
+        "code": "sudo umount -l /mnt/disk",
+        "desc_tr": "Tembel ayırma yapar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Tembel ayırma yapar"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Zorla ayırır"
+      }
+    ],
+    "related": [
+      "mount",
+      "lsblk"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "lsblk",
+    "slug": "lsblk",
+    "description_tr": "Blok aygıtlarını listeler",
+    "detail_tr": "lsblk komutu, sistemdeki tüm blok aygıtlarını (diskler, bölümler) ağaç yapısında listeler.",
+    "syntax": "lsblk [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "lsblk",
+        "desc_tr": "Tüm blok aygıtlarını listeler"
+      },
+      {
+        "code": "lsblk -f",
+        "desc_tr": "Dosya sistemi bilgilerini de gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-f",
+        "desc_tr": "Dosya sistemi bilgilerini gösterir"
+      },
+      {
+        "flag": "-o",
+        "desc_tr": "Gösterilecek sütunları belirler"
+      }
+    ],
+    "related": [
+      "fdisk",
+      "mount",
+      "df"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "dd",
+    "slug": "dd",
+    "description_tr": "Blok düzeyinde veri kopyalar",
+    "detail_tr": "dd komutu, dosyalar veya aygıtlar arasında blok düzeyinde veri kopyalar. Disk imajı oluşturmak veya USB'ye yazmak için kullanılır. Yanlış kullanımda veri kaybına neden olabilir.",
+    "syntax": "dd if=kaynak of=hedef [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "dd if=/dev/sda of=disk.img bs=4M",
+        "desc_tr": "Disk imajı oluşturur"
+      },
+      {
+        "code": "dd if=ubuntu.iso of=/dev/sdb bs=4M status=progress",
+        "desc_tr": "ISO'yu USB'ye yazar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "if",
+        "desc_tr": "Giriş dosyası/aygıtı"
+      },
+      {
+        "flag": "of",
+        "desc_tr": "Çıkış dosyası/aygıtı"
+      },
+      {
+        "flag": "bs",
+        "desc_tr": "Blok boyutu"
+      },
+      {
+        "flag": "status",
+        "desc_tr": "İlerleme durumunu gösterir"
+      }
+    ],
+    "related": [
+      "mount",
+      "fdisk"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "mkfs",
+    "slug": "mkfs",
+    "description_tr": "Dosya sistemi oluşturur",
+    "detail_tr": "mkfs komutu, disk bölümünde yeni bir dosya sistemi oluşturur. Bu işlem disk bölümündeki tüm verileri siler.",
+    "syntax": "mkfs [seçenekler] aygıt",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo mkfs.ext4 /dev/sdb1",
+        "desc_tr": "ext4 dosya sistemi oluşturur"
+      },
+      {
+        "code": "sudo mkfs.vfat /dev/sdc1",
+        "desc_tr": "FAT32 dosya sistemi oluşturur"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-t",
+        "desc_tr": "Dosya sistemi tipini belirler"
+      },
+      {
+        "flag": "-L",
+        "desc_tr": "Etiket belirler"
+      }
+    ],
+    "related": [
+      "fdisk",
+      "mount",
+      "dd"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "echo",
+    "slug": "echo",
+    "description_tr": "Metni terminale yazdırır",
+    "detail_tr": "echo komutu, belirtilen metni veya değişken değerini terminale yazdırır. Shell scriptlerinde sıkça kullanılır.",
+    "syntax": "echo [seçenekler] [metin]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "echo 'Merhaba Dünya'",
+        "desc_tr": "Metni ekrana yazdırır"
+      },
+      {
+        "code": "echo $HOME",
+        "desc_tr": "HOME değişkeninin değerini gösterir"
+      },
+      {
+        "code": "echo 'metin' > dosya.txt",
+        "desc_tr": "Metni dosyaya yazar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-n",
+        "desc_tr": "Sonuna yeni satır eklemez"
+      },
+      {
+        "flag": "-e",
+        "desc_tr": "Kaçış karakterlerini yorumlar"
+      }
+    ],
+    "related": [
+      "cat",
+      "printf"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "cut",
+    "slug": "cut",
+    "description_tr": "Satırlardan belirli alanları keser",
+    "detail_tr": "cut komutu, metin dosyalarındaki satırlardan belirli sütunları, karakterleri veya alanları kesmek için kullanılır. CSV veya TSV gibi yapılandırılmış verileri işlemekte çok faydalıdır.",
+    "syntax": "cut [seçenekler] [dosya]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "cut -d: -f1 /etc/passwd",
+        "desc_tr": "Kullanıcı adlarını keser"
+      },
+      {
+        "code": "cut -c1-10 dosya.txt",
+        "desc_tr": "İlk 10 karakteri keser"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Alan ayırıcıyı belirler"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Alan numaralarını belirler"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Karakter konumlarını belirler"
+      }
+    ],
+    "related": [
+      "awk",
+      "paste",
+      "tr"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "tr",
+    "slug": "tr",
+    "description_tr": "Karakterleri dönüştürür veya siler",
+    "detail_tr": "tr komutu, standart girdideki karakterleri dönüştürmek, silmek veya sıkıştırmak için kullanılır. Büyük-küçük harf dönüşümü ve karakter silme işlemlerinde çok kullanışlıdır.",
+    "syntax": "tr [seçenekler] küme1 [küme2]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "echo 'merhaba' | tr 'a-z' 'A-Z'",
+        "desc_tr": "Küçük harfleri büyük harfe çevirir"
+      },
+      {
+        "code": "echo 'hello  world' | tr -s ' '",
+        "desc_tr": "Ardışık boşlukları birleştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Belirtilen karakterleri siler"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Tekrarlayan karakterleri birleştirir"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Kümenin tamamlayıcısını kullanır"
+      }
+    ],
+    "related": [
+      "sed",
+      "awk",
+      "cut"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "uniq",
+    "slug": "uniq",
+    "description_tr": "Tekrarlayan satırları filtreler",
+    "detail_tr": "uniq komutu, ardışık tekrarlayan satırları filtreler. Genellikle sort komutuyla birlikte kullanılır.",
+    "syntax": "uniq [seçenekler] [dosya]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "sort dosya.txt | uniq",
+        "desc_tr": "Tekrarlayan satırları kaldırır"
+      },
+      {
+        "code": "sort dosya.txt | uniq -c",
+        "desc_tr": "Her satırın tekrar sayısını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-c",
+        "desc_tr": "Tekrar sayısını gösterir"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Sadece tekrarlayan satırları gösterir"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "Sadece benzersiz satırları gösterir"
+      }
+    ],
+    "related": [
+      "sort",
+      "wc"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "diff",
+    "slug": "diff",
+    "description_tr": "İki dosya arasındaki farkları gösterir",
+    "detail_tr": "diff komutu, iki dosya veya dizin arasındaki farkları satır satır karşılaştırarak gösterir. Kod değişikliklerini incelemek için çok kullanışlıdır.",
+    "syntax": "diff [seçenekler] dosya1 dosya2",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "diff dosya1.txt dosya2.txt",
+        "desc_tr": "İki dosyayı karşılaştırır"
+      },
+      {
+        "code": "diff -u eski.txt yeni.txt",
+        "desc_tr": "Unified format ile farkları gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-u",
+        "desc_tr": "Unified format kullanır"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Dizinleri özyinelemeli karşılaştırır"
+      },
+      {
+        "flag": "-q",
+        "desc_tr": "Sadece farklı dosyaları listeler"
+      }
+    ],
+    "related": [
+      "patch",
+      "cmp"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "paste",
+    "slug": "paste",
+    "description_tr": "Dosya satırlarını yan yana birleştirir",
+    "detail_tr": "paste komutu, birden fazla dosyanın satırlarını yan yana birleştirir. Tab karakteri varsayılan ayırıcıdır.",
+    "syntax": "paste [seçenekler] dosya...",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "paste isimler.txt numaralar.txt",
+        "desc_tr": "İki dosyayı yan yana birleştirir"
+      },
+      {
+        "code": "paste -d, dosya1.txt dosya2.txt",
+        "desc_tr": "Virgülle ayırarak birleştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Ayırıcı karakteri belirler"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Satırları seri olarak birleştirir"
+      }
+    ],
+    "related": [
+      "cut",
+      "join"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "stat",
+    "slug": "stat",
+    "description_tr": "Dosya bilgilerini ayrıntılı gösterir",
+    "detail_tr": "stat komutu, dosya ve dizinlerin boyut, izinler, zaman damgaları gibi ayrıntılı bilgilerini gösterir.",
+    "syntax": "stat [seçenekler] dosya...",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "stat dosya.txt",
+        "desc_tr": "Dosyanın ayrıntılı bilgilerini gösterir"
+      },
+      {
+        "code": "stat -f /",
+        "desc_tr": "Dosya sistemi bilgilerini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-f",
+        "desc_tr": "Dosya sistemi bilgilerini gösterir"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Özel format belirler"
+      }
+    ],
+    "related": [
+      "ls",
+      "file"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "file",
+    "slug": "file",
+    "description_tr": "Dosya tipini belirler",
+    "detail_tr": "file komutu, dosyanın içeriğini analiz ederek dosya tipini belirler. Uzantıya bakmaksızın gerçek dosya tipini söyler.",
+    "syntax": "file [seçenekler] dosya...",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "file resim.jpg",
+        "desc_tr": "Dosya tipini gösterir"
+      },
+      {
+        "code": "file -i dosya.txt",
+        "desc_tr": "MIME tipini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "MIME tipini gösterir"
+      },
+      {
+        "flag": "-b",
+        "desc_tr": "Dosya adını göstermez"
+      }
+    ],
+    "related": [
+      "stat",
+      "ls"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ln",
+    "slug": "ln",
+    "description_tr": "Bağlantı (link) oluşturur",
+    "detail_tr": "ln komutu, dosyalar arasında sabit (hard) veya sembolik (soft) bağlantılar oluşturur. Sembolik bağlantılar kısayollar gibi çalışır.",
+    "syntax": "ln [seçenekler] hedef bağlantı_adı",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "ln -s /var/log/syslog log",
+        "desc_tr": "Sembolik bağlantı oluşturur"
+      },
+      {
+        "code": "ln dosya.txt dosya_link.txt",
+        "desc_tr": "Sabit bağlantı oluşturur"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-s",
+        "desc_tr": "Sembolik bağlantı oluşturur"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Var olan bağlantıyı üzerine yazar"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Oluşturulan bağlantıları gösterir"
+      }
+    ],
+    "related": [
+      "cp",
+      "mv",
+      "readlink"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "basename",
+    "slug": "basename",
+    "description_tr": "Yol adından dosya adını çıkarır",
+    "detail_tr": "basename komutu, tam dosya yolundan sadece dosya adını çıkarır. Shell scriptlerinde dosya adı manipülasyonu için kullanılır.",
+    "syntax": "basename yol [uzantı]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "basename /home/ali/dosya.txt",
+        "desc_tr": "dosya.txt çıktısını verir"
+      },
+      {
+        "code": "basename /home/ali/dosya.txt .txt",
+        "desc_tr": "Uzantıyı kaldırarak dosya çıktısını verir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "dirname",
+      "readlink"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "dirname",
+    "slug": "dirname",
+    "description_tr": "Yol adından dizin kısmını çıkarır",
+    "detail_tr": "dirname komutu, tam dosya yolundan dizin kısmını çıkarır.",
+    "syntax": "dirname yol",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "dirname /home/ali/dosya.txt",
+        "desc_tr": "/home/ali çıktısını verir"
+      },
+      {
+        "code": "dirname /var/log/syslog",
+        "desc_tr": "/var/log çıktısını verir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "basename",
+      "pwd"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "whoami",
+    "slug": "whoami",
+    "description_tr": "Mevcut kullanıcı adını gösterir",
+    "detail_tr": "whoami komutu, terminalde o an hangi kullanıcı olarak oturum açtığınızı gösterir.",
+    "syntax": "whoami",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "whoami",
+        "desc_tr": "Kullanıcı adınızı gösterir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "id",
+      "who",
+      "sudo"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "hostname",
+    "slug": "hostname",
+    "description_tr": "Bilgisayar adını gösterir veya ayarlar",
+    "detail_tr": "hostname komutu, bilgisayarın ağ adını gösterir veya değiştirir.",
+    "syntax": "hostname [seçenekler] [yeni_ad]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "hostname",
+        "desc_tr": "Bilgisayar adını gösterir"
+      },
+      {
+        "code": "hostname -I",
+        "desc_tr": "IP adreslerini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-I",
+        "desc_tr": "Tüm IP adreslerini gösterir"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Tam nitelikli alan adını gösterir"
+      }
+    ],
+    "related": [
+      "uname",
+      "ifconfig"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "date",
+    "slug": "date",
+    "description_tr": "Tarih ve saati gösterir veya ayarlar",
+    "detail_tr": "date komutu, sistem tarihini ve saatini gösterir. Farklı formatlarla özelleştirilebilir.",
+    "syntax": "date [seçenekler] [+format]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "date",
+        "desc_tr": "Mevcut tarih ve saati gösterir"
+      },
+      {
+        "code": "date '+%Y-%m-%d %H:%M:%S'",
+        "desc_tr": "Özel formatta gösterir"
+      },
+      {
+        "code": "date -d '+3 days'",
+        "desc_tr": "3 gün sonrasını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Belirtilen tarihi gösterir"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "UTC zamanını gösterir"
+      }
+    ],
+    "related": [
+      "cal",
+      "timedatectl"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "cal",
+    "slug": "cal",
+    "description_tr": "Takvim gösterir",
+    "detail_tr": "cal komutu, terminalde takvim görüntüler. Ay ve yıl belirterek farklı dönemlerin takvimini görebilirsiniz.",
+    "syntax": "cal [seçenekler] [ay] [yıl]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "cal",
+        "desc_tr": "Bu ayın takvimini gösterir"
+      },
+      {
+        "code": "cal 2026",
+        "desc_tr": "2026 yılının takvimini gösterir"
+      },
+      {
+        "code": "cal 3 2026",
+        "desc_tr": "Mart 2026 takvimini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-3",
+        "desc_tr": "Önceki, bu ve sonraki ayı gösterir"
+      },
+      {
+        "flag": "-y",
+        "desc_tr": "Tüm yılı gösterir"
+      }
+    ],
+    "related": [
+      "date"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "history",
+    "slug": "history",
+    "description_tr": "Komut geçmişini gösterir",
+    "detail_tr": "history komutu, daha önce çalıştırılan komutların listesini gösterir. Ünlem işareti ile geçmişteki komutları tekrar çalıştırabilirsiniz.",
+    "syntax": "history [seçenekler] [sayı]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "history",
+        "desc_tr": "Tüm komut geçmişini gösterir"
+      },
+      {
+        "code": "history 20",
+        "desc_tr": "Son 20 komutu gösterir"
+      },
+      {
+        "code": "!42",
+        "desc_tr": "42 numaralı komutu tekrar çalıştırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-c",
+        "desc_tr": "Geçmişi temizler"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Belirtilen numaralı komutu siler"
+      }
+    ],
+    "related": [
+      "alias"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ip",
+    "slug": "ip",
+    "description_tr": "Ağ yapılandırmasını yönetir",
+    "detail_tr": "ip komutu, ağ arayüzleri, routing tabloları ve ağ yapılandırmasını yönetmek için kullanılan modern bir araçtır. ifconfig'in yerini almıştır.",
+    "syntax": "ip [seçenekler] nesne komut",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "ip addr show",
+        "desc_tr": "Tüm ağ arayüzlerini gösterir"
+      },
+      {
+        "code": "ip route show",
+        "desc_tr": "Routing tablosunu gösterir"
+      },
+      {
+        "code": "ip link set eth0 up",
+        "desc_tr": "Ağ arayüzünü etkinleştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "addr",
+        "desc_tr": "IP adresi yönetimi"
+      },
+      {
+        "flag": "route",
+        "desc_tr": "Routing tablosu yönetimi"
+      },
+      {
+        "flag": "link",
+        "desc_tr": "Ağ arayüzü yönetimi"
+      }
+    ],
+    "related": [
+      "ifconfig",
+      "ping",
+      "ss"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ss",
+    "slug": "ss",
+    "description_tr": "Soket bağlantılarını gösterir",
+    "detail_tr": "ss komutu, ağ soketlerini, bağlantıları ve dinleyen portları gösterir. netstat'ın modern ve hızlı alternatifidir.",
+    "syntax": "ss [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "ss -tlnp",
+        "desc_tr": "Dinleyen TCP portlarını gösterir"
+      },
+      {
+        "code": "ss -s",
+        "desc_tr": "Soket istatistiklerini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-t",
+        "desc_tr": "TCP bağlantılarını gösterir"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "UDP bağlantılarını gösterir"
+      },
+      {
+        "flag": "-l",
+        "desc_tr": "Dinleyen soketleri gösterir"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Sayısal adresleri gösterir"
+      },
+      {
+        "flag": "-p",
+        "desc_tr": "Süreç bilgisini gösterir"
+      }
+    ],
+    "related": [
+      "netstat",
+      "ip",
+      "lsof"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "netstat",
+    "slug": "netstat",
+    "description_tr": "Ağ bağlantılarını ve istatistikleri gösterir",
+    "detail_tr": "netstat komutu, ağ bağlantılarını, routing tablosunu, arayüz istatistiklerini ve dinleyen portları gösterir.",
+    "syntax": "netstat [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "netstat -tlnp",
+        "desc_tr": "Dinleyen TCP portlarını gösterir"
+      },
+      {
+        "code": "netstat -an",
+        "desc_tr": "Tüm bağlantıları sayısal gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-t",
+        "desc_tr": "TCP bağlantılarını gösterir"
+      },
+      {
+        "flag": "-l",
+        "desc_tr": "Dinleyen portları gösterir"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Sayısal adresleri gösterir"
+      },
+      {
+        "flag": "-p",
+        "desc_tr": "Süreç bilgisini gösterir"
+      }
+    ],
+    "related": [
+      "ss",
+      "ip"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "dig",
+    "slug": "dig",
+    "description_tr": "DNS sorguları yapar",
+    "detail_tr": "dig komutu, DNS sunucularına sorgular göndererek alan adı çözümlemesi yapar. DNS sorunlarını teşhis etmek için kullanılır.",
+    "syntax": "dig [seçenekler] alan_adı [tip]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "dig google.com",
+        "desc_tr": "A kaydını sorgular"
+      },
+      {
+        "code": "dig google.com MX",
+        "desc_tr": "MX kayıtlarını sorgular"
+      },
+      {
+        "code": "dig +short google.com",
+        "desc_tr": "Kısa çıktı verir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "+short",
+        "desc_tr": "Kısa çıktı verir"
+      },
+      {
+        "flag": "+trace",
+        "desc_tr": "DNS çözümleme yolunu izler"
+      },
+      {
+        "flag": "@",
+        "desc_tr": "Belirli DNS sunucusunu kullanır"
+      }
+    ],
+    "related": [
+      "nslookup",
+      "host",
+      "ping"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "nslookup",
+    "slug": "nslookup",
+    "description_tr": "DNS adı çözümler",
+    "detail_tr": "nslookup komutu, alan adlarını IP adreslerine veya IP adreslerini alan adlarına çözümler.",
+    "syntax": "nslookup [alan_adı] [dns_sunucu]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "nslookup google.com",
+        "desc_tr": "Google'ın IP adresini çözümler"
+      },
+      {
+        "code": "nslookup 8.8.8.8",
+        "desc_tr": "IP'nin alan adını çözümler"
+      }
+    ],
+    "options": [],
+    "related": [
+      "dig",
+      "host",
+      "ping"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "nice",
+    "slug": "nice",
+    "description_tr": "Süreç önceliğini ayarlayarak çalıştırır",
+    "detail_tr": "nice komutu, bir süreci belirli bir öncelik değeriyle başlatır. Düşük öncelik değeri daha yüksek öncelik anlamına gelir.",
+    "syntax": "nice [seçenekler] komut",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "nice -n 10 ./script.sh",
+        "desc_tr": "Düşük öncelikle çalıştırır"
+      },
+      {
+        "code": "nice -n -5 ./onemli.sh",
+        "desc_tr": "Yüksek öncelikle çalıştırır (root)"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-n",
+        "desc_tr": "Öncelik değerini belirler (-20 ile 19)"
+      }
+    ],
+    "related": [
+      "renice",
+      "top",
+      "ps"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "renice",
+    "slug": "renice",
+    "description_tr": "Çalışan sürecin önceliğini değiştirir",
+    "detail_tr": "renice komutu, zaten çalışan bir sürecin öncelik değerini değiştirmek için kullanılır.",
+    "syntax": "renice öncelik [seçenekler]",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "renice 10 -p 1234",
+        "desc_tr": "PID 1234'ün önceliğini değiştirir"
+      },
+      {
+        "code": "renice -5 -u ali",
+        "desc_tr": "ali'nin tüm süreçlerinin önceliğini değiştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-p",
+        "desc_tr": "PID belirler"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "Kullanıcı belirler"
+      }
+    ],
+    "related": [
+      "nice",
+      "kill",
+      "top"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "jobs",
+    "slug": "jobs",
+    "description_tr": "Arka plan işlerini listeler",
+    "detail_tr": "jobs komutu, mevcut shell oturumundaki arka plan işlerini listeler.",
+    "syntax": "jobs [seçenekler]",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "jobs",
+        "desc_tr": "Arka plan işlerini listeler"
+      },
+      {
+        "code": "jobs -l",
+        "desc_tr": "PID bilgisiyle listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "PID bilgisini gösterir"
+      }
+    ],
+    "related": [
+      "bg",
+      "fg",
+      "kill"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "disown",
+    "slug": "disown",
+    "description_tr": "İşi shell'den ayırır",
+    "detail_tr": "disown komutu, arka plandaki bir işi shell oturumundan ayırır. Shell kapansa bile süreç çalışmaya devam eder.",
+    "syntax": "disown [seçenekler] [iş_no]",
+    "category": "surec-yonetimi",
+    "examples": [
+      {
+        "code": "disown %1",
+        "desc_tr": "1 numaralı işi shell'den ayırır"
+      },
+      {
+        "code": "disown -a",
+        "desc_tr": "Tüm işleri ayırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Tüm işleri ayırır"
+      },
+      {
+        "flag": "-h",
+        "desc_tr": "SIGHUP sinyalini engeller"
+      }
+    ],
+    "related": [
+      "nohup",
+      "bg",
+      "jobs"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "bzip2",
+    "slug": "bzip2",
+    "description_tr": "Dosyaları bzip2 ile sıkıştırır",
+    "detail_tr": "bzip2 komutu, dosyaları Burrows-Wheeler algoritmasıyla sıkıştırır. gzip'e göre daha iyi sıkıştırma oranı sağlar.",
+    "syntax": "bzip2 [seçenekler] dosya...",
+    "category": "arsivleme",
+    "examples": [
+      {
+        "code": "bzip2 dosya.txt",
+        "desc_tr": "Dosyayı sıkıştırır (.bz2)"
+      },
+      {
+        "code": "bzip2 -d dosya.txt.bz2",
+        "desc_tr": "Sıkıştırılmış dosyayı açar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Açma işlemi yapar"
+      },
+      {
+        "flag": "-k",
+        "desc_tr": "Orijinal dosyayı korur"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Sıkıştırma bilgisini gösterir"
+      }
+    ],
+    "related": [
+      "gzip",
+      "xz",
+      "tar"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "xz",
+    "slug": "xz",
+    "description_tr": "Dosyaları xz ile sıkıştırır",
+    "detail_tr": "xz komutu, LZMA2 algoritmasıyla yüksek sıkıştırma oranı sağlar. .tar.xz arşivlerinde yaygın kullanılır.",
+    "syntax": "xz [seçenekler] dosya...",
+    "category": "arsivleme",
+    "examples": [
+      {
+        "code": "xz dosya.txt",
+        "desc_tr": "Dosyayı sıkıştırır (.xz)"
+      },
+      {
+        "code": "xz -d dosya.txt.xz",
+        "desc_tr": "Sıkıştırılmış dosyayı açar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Açma işlemi yapar"
+      },
+      {
+        "flag": "-k",
+        "desc_tr": "Orijinal dosyayı korur"
+      },
+      {
+        "flag": "-9",
+        "desc_tr": "Maksimum sıkıştırma"
+      }
+    ],
+    "related": [
+      "gzip",
+      "bzip2",
+      "tar"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "fdisk",
+    "slug": "fdisk",
+    "description_tr": "Disk bölümlerini yönetir",
+    "detail_tr": "fdisk komutu, disk bölümlerini oluşturmak, silmek ve yönetmek için kullanılan interaktif bir araçtır. Dikkatli kullanılmalıdır.",
+    "syntax": "fdisk [seçenekler] aygıt",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo fdisk -l",
+        "desc_tr": "Tüm disk bölümlerini listeler"
+      },
+      {
+        "code": "sudo fdisk /dev/sdb",
+        "desc_tr": "Disk bölümleme aracını başlatır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Bölümleri listeler"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Yeni bölüm oluşturur"
+      }
+    ],
+    "related": [
+      "parted",
+      "lsblk",
+      "mkfs"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "blkid",
+    "slug": "blkid",
+    "description_tr": "Blok aygıtlarının UUID bilgilerini gösterir",
+    "detail_tr": "blkid komutu, disk bölümlerinin UUID, dosya sistemi tipi ve etiket bilgilerini gösterir.",
+    "syntax": "blkid [seçenekler] [aygıt]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "blkid",
+        "desc_tr": "Tüm blok aygıtlarının bilgilerini gösterir"
+      },
+      {
+        "code": "blkid /dev/sda1",
+        "desc_tr": "Belirli bölümün UUID'sini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-o",
+        "desc_tr": "Çıktı formatını belirler"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Belirli etiketi gösterir"
+      }
+    ],
+    "related": [
+      "lsblk",
+      "fdisk",
+      "mount"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "parted",
+    "slug": "parted",
+    "description_tr": "Gelişmiş disk bölümleme aracı",
+    "detail_tr": "parted komutu, GPT ve MBR bölüm tablolarını yönetmek için kullanılan gelişmiş bir disk bölümleme aracıdır.",
+    "syntax": "parted [seçenekler] [aygıt]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo parted -l",
+        "desc_tr": "Tüm disklerin bölümlerini listeler"
+      },
+      {
+        "code": "sudo parted /dev/sdb mklabel gpt",
+        "desc_tr": "GPT bölüm tablosu oluşturur"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Tüm bölümleri listeler"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Script modunda çalışır"
+      }
+    ],
+    "related": [
+      "fdisk",
+      "mkfs",
+      "lsblk"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "pacman",
+    "slug": "pacman",
+    "description_tr": "Arch Linux paket yöneticisi",
+    "detail_tr": "pacman, Arch Linux'un resmi paket yöneticisidir. Paket kurma, kaldırma, güncelleme ve arama işlemleri yapar.",
+    "syntax": "pacman [seçenekler] [paket]",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "sudo pacman -S firefox",
+        "desc_tr": "firefox paketini kurar"
+      },
+      {
+        "code": "sudo pacman -Syu",
+        "desc_tr": "Sistemi günceller"
+      },
+      {
+        "code": "pacman -Ss vim",
+        "desc_tr": "vim paketini depoda arar"
+      },
+      {
+        "code": "sudo pacman -R paket",
+        "desc_tr": "Paketi kaldırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-S",
+        "desc_tr": "Paket kurar"
+      },
+      {
+        "flag": "-R",
+        "desc_tr": "Paket kaldırır"
+      },
+      {
+        "flag": "-Syu",
+        "desc_tr": "Sistemi günceller"
+      },
+      {
+        "flag": "-Ss",
+        "desc_tr": "Paket arar"
+      },
+      {
+        "flag": "-Q",
+        "desc_tr": "Kurulu paketleri sorgular"
+      }
+    ],
+    "related": [
+      "yay",
+      "makepkg"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "arch"
+    ]
+  },
+  {
+    "command": "yay",
+    "slug": "yay",
+    "description_tr": "Arch Linux AUR yardımcısı",
+    "detail_tr": "yay, Arch User Repository (AUR) paketlerini kolayca kurmak için kullanılan bir yardımcı araçtır. pacman ile uyumlu sözdizimi kullanır.",
+    "syntax": "yay [seçenekler] [paket]",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "yay -S google-chrome",
+        "desc_tr": "AUR'dan paket kurar"
+      },
+      {
+        "code": "yay -Syu",
+        "desc_tr": "AUR dahil sistemi günceller"
+      },
+      {
+        "code": "yay paket_adi",
+        "desc_tr": "AUR'da paket arar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-S",
+        "desc_tr": "Paket kurar"
+      },
+      {
+        "flag": "-Syu",
+        "desc_tr": "Sistemi günceller"
+      },
+      {
+        "flag": "-R",
+        "desc_tr": "Paket kaldırır"
+      }
+    ],
+    "related": [
+      "pacman",
+      "makepkg"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "arch"
+    ]
+  },
+  {
+    "command": "makepkg",
+    "slug": "makepkg",
+    "description_tr": "Arch Linux paket oluşturur",
+    "detail_tr": "makepkg, PKGBUILD dosyasından Arch Linux paketi derler ve oluşturur. AUR paketlerini kaynak koddan derlemek için kullanılır.",
+    "syntax": "makepkg [seçenekler]",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "makepkg -si",
+        "desc_tr": "Paketi derler ve kurar"
+      },
+      {
+        "code": "makepkg -s",
+        "desc_tr": "Bağımlılıkları çözerek derler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-s",
+        "desc_tr": "Bağımlılıkları otomatik kurar"
+      },
+      {
+        "flag": "-i",
+        "desc_tr": "Derleme sonrası kurar"
+      },
+      {
+        "flag": "-c",
+        "desc_tr": "Derleme sonrası temizler"
+      }
+    ],
+    "related": [
+      "pacman",
+      "yay"
+    ],
+    "difficulty": "zor",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "arch"
+    ]
+  },
+  {
+    "command": "apt-get",
+    "slug": "apt-get",
+    "description_tr": "Debian/Ubuntu düşük seviye paket yöneticisi",
+    "detail_tr": "apt-get, APT paket yönetim sisteminin komut satırı aracıdır. apt komutunun daha eski ve script-dostu versiyonudur.",
+    "syntax": "apt-get [komut] [paket]",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "sudo apt-get update",
+        "desc_tr": "Paket listesini günceller"
+      },
+      {
+        "code": "sudo apt-get install nginx",
+        "desc_tr": "nginx paketini kurar"
+      },
+      {
+        "code": "sudo apt-get dist-upgrade",
+        "desc_tr": "Dağıtımı günceller"
+      }
+    ],
+    "options": [
+      {
+        "flag": "update",
+        "desc_tr": "Paket listesini günceller"
+      },
+      {
+        "flag": "install",
+        "desc_tr": "Paket kurar"
+      },
+      {
+        "flag": "remove",
+        "desc_tr": "Paket kaldırır"
+      },
+      {
+        "flag": "dist-upgrade",
+        "desc_tr": "Dağıtımı günceller"
+      }
+    ],
+    "related": [
+      "apt",
+      "dpkg"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "ubuntu",
+      "debian"
+    ]
+  },
+  {
+    "command": "add-apt-repository",
+    "slug": "add-apt-repository",
+    "description_tr": "PPA deposu ekler",
+    "detail_tr": "add-apt-repository komutu, Ubuntu'da üçüncü taraf PPA (Personal Package Archive) depolarını sisteme eklemek için kullanılır.",
+    "syntax": "add-apt-repository [seçenekler] depo",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "sudo add-apt-repository ppa:user/ppa-name",
+        "desc_tr": "PPA deposunu ekler"
+      },
+      {
+        "code": "sudo add-apt-repository --remove ppa:user/ppa-name",
+        "desc_tr": "PPA'yı kaldırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "--remove",
+        "desc_tr": "Depoyu kaldırır"
+      },
+      {
+        "flag": "-y",
+        "desc_tr": "Onay sormadan ekler"
+      }
+    ],
+    "related": [
+      "apt",
+      "apt-get"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "ubuntu"
+    ]
+  },
+  {
+    "command": "dnf",
+    "slug": "dnf",
+    "description_tr": "Fedora paket yöneticisi",
+    "detail_tr": "dnf, Fedora ve RHEL tabanlı sistemlerin paket yöneticisidir. yum'un modern ve gelişmiş versiyonudur.",
+    "syntax": "dnf [komut] [paket]",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "sudo dnf install firefox",
+        "desc_tr": "firefox paketini kurar"
+      },
+      {
+        "code": "sudo dnf update",
+        "desc_tr": "Tüm paketleri günceller"
+      },
+      {
+        "code": "dnf search vim",
+        "desc_tr": "vim paketini arar"
+      },
+      {
+        "code": "sudo dnf remove paket",
+        "desc_tr": "Paketi kaldırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "install",
+        "desc_tr": "Paket kurar"
+      },
+      {
+        "flag": "remove",
+        "desc_tr": "Paket kaldırır"
+      },
+      {
+        "flag": "update",
+        "desc_tr": "Paketleri günceller"
+      },
+      {
+        "flag": "search",
+        "desc_tr": "Paket arar"
+      },
+      {
+        "flag": "info",
+        "desc_tr": "Paket bilgisi gösterir"
+      }
+    ],
+    "related": [
+      "rpm",
+      "yum"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "fedora"
+    ]
+  },
+  {
+    "command": "rpm",
+    "slug": "rpm",
+    "description_tr": "RPM paket yöneticisi",
+    "detail_tr": "rpm, Red Hat tabanlı sistemlerin düşük seviye paket aracıdır. .rpm dosyalarını doğrudan yönetir.",
+    "syntax": "rpm [seçenekler] paket",
+    "category": "paket-yonetimi",
+    "examples": [
+      {
+        "code": "rpm -ivh paket.rpm",
+        "desc_tr": ".rpm paketini kurar"
+      },
+      {
+        "code": "rpm -qa",
+        "desc_tr": "Kurulu paketleri listeler"
+      },
+      {
+        "code": "rpm -e paket",
+        "desc_tr": "Paketi kaldırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Paket kurar"
+      },
+      {
+        "flag": "-e",
+        "desc_tr": "Paket kaldırır"
+      },
+      {
+        "flag": "-q",
+        "desc_tr": "Paket sorgular"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Ayrıntılı çıktı"
+      },
+      {
+        "flag": "-h",
+        "desc_tr": "İlerleme çubuğu gösterir"
+      }
+    ],
+    "related": [
+      "dnf",
+      "yum"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "distro",
+    "distros": [
+      "fedora"
+    ]
+  },
+  {
+    "command": "alias",
+    "slug": "alias",
+    "description_tr": "Komut kısayolu tanımlar",
+    "detail_tr": "alias komutu, sık kullanılan uzun komutlar için kısa takma adlar tanımlamak için kullanılır.",
+    "syntax": "alias [ad='komut']",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "alias ll='ls -la'",
+        "desc_tr": "ll yazınca ls -la çalışır"
+      },
+      {
+        "code": "alias gs='git status'",
+        "desc_tr": "git status için kısayol"
+      },
+      {
+        "code": "alias",
+        "desc_tr": "Tanımlı tüm alias'ları gösterir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "unalias",
+      "history"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "which",
+    "slug": "which",
+    "description_tr": "Komutun tam yolunu gösterir",
+    "detail_tr": "which komutu, çalıştırılabilir bir komutun dosya sistemindeki tam yolunu gösterir.",
+    "syntax": "which komut",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "which python",
+        "desc_tr": "python'un tam yolunu gösterir"
+      },
+      {
+        "code": "which -a node",
+        "desc_tr": "node'un tüm konumlarını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Tüm eşleşmeleri gösterir"
+      }
+    ],
+    "related": [
+      "whereis",
+      "type"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "xargs",
+    "slug": "xargs",
+    "description_tr": "Standart girdiden argüman oluşturur",
+    "detail_tr": "xargs komutu, standart girdiden okuduğu verileri başka bir komuta argüman olarak aktarır. Pipe ile birlikte güçlü kombinasyonlar oluşturur.",
+    "syntax": "xargs [seçenekler] komut",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "find . -name '*.tmp' | xargs rm",
+        "desc_tr": "Bulunan dosyaları siler"
+      },
+      {
+        "code": "echo 'a b c' | xargs -n 1",
+        "desc_tr": "Her öğeyi ayrı satırda gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-n",
+        "desc_tr": "Her seferinde kaç argüman kullanılacağını belirler"
+      },
+      {
+        "flag": "-I",
+        "desc_tr": "Yer tutucu belirler"
+      },
+      {
+        "flag": "-p",
+        "desc_tr": "Her komut için onay ister"
+      }
+    ],
+    "related": [
+      "find",
+      "grep"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "tee",
+    "slug": "tee",
+    "description_tr": "Çıktıyı hem ekrana hem dosyaya yazar",
+    "detail_tr": "tee komutu, standart girdiyi hem standart çıktıya hem de dosyaya yazar. Komut çıktısını görmek ve kaydetmek istediğinizde kullanışlıdır.",
+    "syntax": "tee [seçenekler] dosya",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "ls | tee liste.txt",
+        "desc_tr": "ls çıktısını hem ekrana hem dosyaya yazar"
+      },
+      {
+        "code": "echo 'yeni satır' | tee -a dosya.txt",
+        "desc_tr": "Dosyanın sonuna ekler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Dosyanın sonuna ekler (append)"
+      }
+    ],
+    "related": [
+      "cat",
+      "echo"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "rsync",
+    "slug": "rsync",
+    "description_tr": "Dosyaları senkronize eder",
+    "detail_tr": "rsync komutu, dosya ve dizinleri yerel veya uzak makineler arasında verimli şekilde senkronize eder. Sadece değişen kısımları transfer eder.",
+    "syntax": "rsync [seçenekler] kaynak hedef",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "rsync -avz kaynak/ hedef/",
+        "desc_tr": "Dizini senkronize eder"
+      },
+      {
+        "code": "rsync -avz dosya ali@sunucu:/tmp/",
+        "desc_tr": "Uzak sunucuya senkronize eder"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Arşiv modu (izinleri korur)"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Ayrıntılı çıktı"
+      },
+      {
+        "flag": "-z",
+        "desc_tr": "Sıkıştırma kullanır"
+      },
+      {
+        "flag": "--delete",
+        "desc_tr": "Hedefte fazla dosyaları siler"
+      }
+    ],
+    "related": [
+      "scp",
+      "cp"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "lsof",
+    "slug": "lsof",
+    "description_tr": "Açık dosyaları listeler",
+    "detail_tr": "lsof komutu, sistemde açık olan dosyaları ve bunları kullanan süreçleri listeler. Hangi portun hangi süreç tarafından kullanıldığını bulmak için de kullanılır.",
+    "syntax": "lsof [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "lsof -i :80",
+        "desc_tr": "80 portunu kullanan süreci gösterir"
+      },
+      {
+        "code": "lsof -u ali",
+        "desc_tr": "ali'nin açık dosyalarını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Ağ bağlantılarını filtreler"
+      },
+      {
+        "flag": "-u",
+        "desc_tr": "Kullanıcıya göre filtreler"
+      },
+      {
+        "flag": "-p",
+        "desc_tr": "PID'ye göre filtreler"
+      }
+    ],
+    "related": [
+      "ss",
+      "ps",
+      "fuser"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "crontab",
+    "slug": "crontab",
+    "description_tr": "Zamanlanmış görevleri yönetir",
+    "detail_tr": "crontab komutu, belirli zamanlarda otomatik olarak çalışacak görevleri tanımlar. Yedekleme, log temizleme gibi tekrarlayan işler için kullanılır.",
+    "syntax": "crontab [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "crontab -l",
+        "desc_tr": "Zamanlanmış görevleri listeler"
+      },
+      {
+        "code": "crontab -e",
+        "desc_tr": "Görevleri düzenler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Görevleri listeler"
+      },
+      {
+        "flag": "-e",
+        "desc_tr": "Görevleri düzenler"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Tüm görevleri siler"
+      }
+    ],
+    "related": [
+      "at",
+      "systemctl"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "systemctl",
+    "slug": "systemctl",
+    "description_tr": "Systemd servislerini yönetir",
+    "detail_tr": "systemctl komutu, systemd init sistemindeki servisleri (daemon) başlatmak, durdurmak, yeniden başlatmak ve durumlarını kontrol etmek için kullanılır.",
+    "syntax": "systemctl [komut] [servis]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "systemctl status nginx",
+        "desc_tr": "nginx servisinin durumunu gösterir"
+      },
+      {
+        "code": "sudo systemctl start nginx",
+        "desc_tr": "nginx servisini başlatır"
+      },
+      {
+        "code": "sudo systemctl enable nginx",
+        "desc_tr": "Açılışta otomatik başlatır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "start",
+        "desc_tr": "Servisi başlatır"
+      },
+      {
+        "flag": "stop",
+        "desc_tr": "Servisi durdurur"
+      },
+      {
+        "flag": "restart",
+        "desc_tr": "Servisi yeniden başlatır"
+      },
+      {
+        "flag": "status",
+        "desc_tr": "Servis durumunu gösterir"
+      },
+      {
+        "flag": "enable",
+        "desc_tr": "Açılışta başlatır"
+      }
+    ],
+    "related": [
+      "journalctl",
+      "service"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "journalctl",
+    "slug": "journalctl",
+    "description_tr": "Systemd loglarını görüntüler",
+    "detail_tr": "journalctl komutu, systemd tarafından toplanan sistem loglarını görüntüler ve filtreler.",
+    "syntax": "journalctl [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "journalctl -u nginx",
+        "desc_tr": "nginx loglarını gösterir"
+      },
+      {
+        "code": "journalctl -f",
+        "desc_tr": "Logları canlı izler"
+      },
+      {
+        "code": "journalctl --since '1 hour ago'",
+        "desc_tr": "Son 1 saatin loglarını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-u",
+        "desc_tr": "Belirli servisi filtreler"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Canlı izleme"
+      },
+      {
+        "flag": "--since",
+        "desc_tr": "Başlangıç zamanını belirler"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Son N satırı gösterir"
+      }
+    ],
+    "related": [
+      "systemctl",
+      "dmesg"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "userdel",
+    "slug": "userdel",
+    "description_tr": "Kullanıcı hesabını siler",
+    "detail_tr": "userdel komutu, sistemden bir kullanıcı hesabını kaldırmak için kullanılır.",
+    "syntax": "userdel [seçenekler] kullanıcı",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo userdel ali",
+        "desc_tr": "ali kullanıcısını siler"
+      },
+      {
+        "code": "sudo userdel -r ali",
+        "desc_tr": "Kullanıcıyı ev diziniyle birlikte siler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-r",
+        "desc_tr": "Ev dizinini de siler"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Zorla siler"
+      }
+    ],
+    "related": [
+      "useradd",
+      "usermod",
+      "passwd"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "usermod",
+    "slug": "usermod",
+    "description_tr": "Kullanıcı hesabını düzenler",
+    "detail_tr": "usermod komutu, mevcut kullanıcı hesabının shell, grup, ev dizini gibi özelliklerini değiştirmek için kullanılır.",
+    "syntax": "usermod [seçenekler] kullanıcı",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo usermod -aG docker ali",
+        "desc_tr": "ali'yi docker grubuna ekler"
+      },
+      {
+        "code": "sudo usermod -s /bin/zsh ali",
+        "desc_tr": "ali'nin shell'ini zsh yapar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-aG",
+        "desc_tr": "Ek gruba ekler"
+      },
+      {
+        "flag": "-s",
+        "desc_tr": "Shell değiştirir"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Ev dizinini değiştirir"
+      },
+      {
+        "flag": "-l",
+        "desc_tr": "Kullanıcı adını değiştirir"
+      }
+    ],
+    "related": [
+      "useradd",
+      "userdel",
+      "passwd"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  }
+]
