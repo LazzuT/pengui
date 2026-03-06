@@ -27,7 +27,7 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/kategori/dosya-yonetimi" className="text-sm text-slate-400 hover:text-terminal-green transition-colors">
+                                <Link href="/kategori" className="text-sm text-slate-400 hover:text-terminal-green transition-colors">
                                     Kategoriler
                                 </Link>
                             </li>

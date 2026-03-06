@@ -32,14 +32,14 @@ Amaç:
 
 ## ✨ Özellikler
 
-- 📚 **105 Linux komutu**
+- 📚 **300 Linux komutu** (Detaylı parametre ve güvenilirlik notlarıyla)
 - 🔎 **Akıllı komut arama**
-- ⚡ **Fuzzy search destekli komut asistanı**
+- ⚡ **Fuzzy search destekli komut asistanı** (410+ alias ve keyword)
 - 📖 **Detaylı komut açıklamaları**
-- 🧭 **Kategori sistemi**
-- 🐧 **Linux dağıtımlarına göre filtreleme**
-- 🎓 **Adım adım öğrenme modülleri**
-- 📱 **Mobil uyumlu modern arayüz**
+- 🧭 **Kategori sistemi** (12 ana kategori, `/kategori` hub sayfası)
+- 🐧 **Linux dağıtımlarına göre filtreleme** (Arch, Ubuntu, Debian, Fedora vb.)
+- 🎓 **Adım adım öğrenme modülleri** (`/ogren` ve yeni `/linux` rehberi)
+- 📱 **Mobil uyumlu modern arayüz** (Dark mode, glassmorphism)
 - 🚀 **%100 Static Site Generation (SSG)**
 
 ---
@@ -86,10 +86,10 @@ Pengui tamamen statik site mimarisi ile çalışır. Bu sayede:
 - 🔎 SEO dostudur
 
 Teknik veriler:
-- **133** statik sayfa
-- **SSG** mimarisi
+- **344** statik sayfa (SSG)
+- **0** build hatası, **0** uyarı (Phase 8 QA Sweep Onaylı)
 - **< 1 saniye** yükleme süresi
-- **< 10ms** arama süresi
+- **< 10ms** arama süresi (İstemci taraflı useMemo optimizasyonu)
 
 ---
 
@@ -187,10 +187,16 @@ Pengui projesi AI destekli geliştirme ("AI-Assisted Coding") süreci ile tamame
 
 ---
 
-## 🎯 Yol Haritası
+## 🎯 Yol Haritası (Mevcut Durum)
 
-Planlanan geliştirmeler:
-- [ ] Daha fazla Linux komutu eklenmesi
+**Tamamlananlar:**
+- ✅ Altyapı, Next.js 15, Tailwind v4, Karanlık Tema
+- ✅ Öğrenim Modülleri (`/ogren` ve `/linux`)
+- ✅ Command Database Genişlemesi (Hedef 300 komuta ulaşıldı)
+- ✅ Faz 8: Kapsamlı QA Testi, Veri Bütünlüğü Doğrulaması ve Release Readiness
+
+**Planlanan Geliştirmeler:**
+- [ ] Vercel / Netlify Deployment (Public/Private Beta Release)
 - [ ] İnteraktif terminal simülasyonları
 - [ ] Linux quiz / test modülleri
 - [ ] Kullanıcı katkılarına açık açık kaynak geliştirme süreci (Topluluk desteği)

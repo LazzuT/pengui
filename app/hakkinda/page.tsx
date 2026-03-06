@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { getAllCommands } from "@/lib/commands";
 
 export const metadata: Metadata = {
     title: "Hakkında",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+    const commands = getAllCommands();
+
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
             {/* Breadcrumb */}
@@ -43,7 +46,7 @@ export default function AboutPage() {
                     </p>
                     <p className="text-slate-400 leading-relaxed">
                         <strong className="text-slate-300">Pengui</strong>, bu boşluğu doldurmak
-                        için oluşturuldu. Amacımız, en önemli 100 Linux komutunu basit Türkçe
+                        için oluşturuldu. Amacımız, en önemli {commands.length} Linux komutunu basit Türkçe
                         açıklamalar, gerçek kullanım örnekleri ve detaylı parametrelerle sunmaktır.
                     </p>
                 </div>

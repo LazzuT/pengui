@@ -36,15 +36,7 @@ export async function generateMetadata({
             siteName: "Pengui",
             locale: "tr_TR",
             type: "article",
-            // TODO: Generate og images later
-            images: [
-                {
-                    url: "https://pengui.org/og-default.png", // Varsayılan OG image
-                    width: 1200,
-                    height: 630,
-                    alt: `${command.command} komutu nedir?`,
-                }
-            ],
+
         },
         twitter: {
             card: "summary_large_image",
@@ -85,7 +77,13 @@ export default async function CommandPage({
             "@type": "Organization",
             "name": "Pengui"
         },
-        "datePublished": "2026-03-04"
+        "publisher": {
+            "@type": "Organization",
+            "name": "Pengui",
+            "url": "https://pengui.org"
+        },
+        "datePublished": "2026-03-04",
+        "dateModified": new Date().toISOString().split('T')[0]
     };
 
     return (

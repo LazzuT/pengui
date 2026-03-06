@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/maintenance', '/preview'],
     },
     sitemap: 'https://pengui.org/sitemap.xml',
   }

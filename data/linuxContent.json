@@ -1,0 +1,101 @@
+[
+    {
+        "id": "linux-nedir",
+        "slug": "linux-nedir",
+        "title": "Linux Nedir?",
+        "description": "Açık kaynak kodlu özgür işletim sistemi çekirdeği Linux'un ne olduğu ve tarihi hakkında temel bilgiler.",
+        "content": "Linux, bilgisayarlar, telefonlar, sunucular ve hatta elektrikli arabalar gibi birçok cihazda çalışan açık kaynaklı bir işletim sistemi çekirdeğidir (kernel). 1991 yılında Linus Torvalds tarafından hobi olarak başlatılan bu proje, bugün dünyanın en çok kullanılan altyapılarından biri haline gelmiştir.\n\n### Neden Linux Kullanmalıyım?\n- **Açık Kaynak:** Kodların tamamı herkes tarafından görülebilir ve değiştirilebilir.\n- **Ücretsiz:** Tamamen ücretsizdir ve lisans ücreti gerektirmez.\n- **Güvenlik:** Virüslere ve kötü amaçlı yazılımlara karşı oldukça dayanıklıdır.\n- **Özelleştirilebilir:** İhtiyacınıza göre sistemin her parçasını değiştirebilirsiniz.\n\nLinux aslında sadece çekirdeğin adıdır. Gündelik kullanımda karşılaştığımız Ubuntu, Fedora veya Arch gibi sistemler Linux tabanlı birer 'dağıtım' (distro) olarak anılır.",
+        "icon": "🐧",
+        "order": 1,
+        "readingTime": "3 dk",
+        "category": "Temel Kavramlar"
+    },
+    {
+        "id": "kernel-nedir",
+        "slug": "kernel-nedir",
+        "title": "Kernel (Çekirdek) Nedir?",
+        "description": "Donanım ile yazılım arasındaki iletişimi sağlayan işletim sisteminin kalbi.",
+        "content": "Kernel (Çekirdek), donanım (işlemci, bellek, disk vb.) ile bu donanımı kullanmak isteyen yazılımlar (tarayıcı, terminal, oyunlar) arasında köprü görevi gören en temel sistem yazılımıdır.\n\n### Çekirdeğin Temel Görevleri:\n1. **Bellek Yönetimi:** Hangi programın ne kadar RAM kullanacağını ayarlar.\n2. **Süreç (Process) Yönetimi:** İşlemciye (CPU) giden görevleri sıraya dizer.\n3. **Cihaz Sürücüleri:** Klavye, fare, ekran kartı gibi donanımları işletim sistemine tanıtır.\n4. **Sistem Çağrıları (System Calls):** Yazılımların donanımdan güvenli bir şekilde istekte bulunmasını sağlar.\n\nLinux'un kendisi aslında sadece bir Kernel'dir. Üzerine eklenen kabuk (shell), pencere yöneticisi ve diğer yazılımlar onu tam bir işletim sistemi haline getirir.",
+        "icon": "🧠",
+        "order": 2,
+        "readingTime": "4 dk",
+        "category": "Mimari"
+    },
+    {
+        "id": "terminal-nedir",
+        "slug": "terminal-nedir",
+        "title": "Terminal Nedir?",
+        "description": "Bilgisayarla metin tabanlı komutlar aracılığıyla iletişim kurmanın en hızlı yolu.",
+        "content": "Terminal (veya Konsol), bilgisayarınıza komutlar vererek işlemler yapmanızı sağlayan metin tabanlı bir arayüzdür. Gelişmiş kullanıcılar ve sistem yöneticileri için, grafiksel arayüze (GUI) kıyasla çok daha hızlı ve esnektir.\n\n### Neden Terminal Kullanılır?\n- **Hız:** Fare ile onlarca kez tıklayarak yapacağınız bir işlemi tek bir komutla tamamlayabilirsiniz.\n- **Otomasyon:** Birden fazla komutu bir araya getirerek işlemleri otomatikleştirebilirsiniz (Scripting).\n- **Uzak Bağlantı:** Uzaktaki bir sunucuya (SSH ile) bağlanıp onu yönetmenin tek yolu genellikle terminaldir.\n\nGeçmişte devasa ekranları olan fiziksel makinelere terminal denirken, günümüzde kullandığımız pencereli siyah ekranlar aslında birer **Terminal Emülatörü**dür.",
+        "icon": "💻",
+        "order": 3,
+        "readingTime": "3 dk",
+        "category": "Araçlar"
+    },
+    {
+        "id": "shell-nedir",
+        "slug": "shell-nedir",
+        "title": "Shell (Kabuk) Nedir?",
+        "description": "Kullanıcının yazdığı komutları işletim sistemine çeviren aracı yazılım.",
+        "content": "Shell (Kabuk), kullanıcının komut satırında yazdığı metinleri alıp, bunları işletim sisteminin (Kernel) anlayabileceği bir dile çeviren yazılımdır. Yani sizinle bilgisayar arasındaki bir çevirmen olarak düşünebilirsiniz.\n\nTerminal ekranını açarsınız (bu donanımsal arayüzdür), içine komutları yazar ve Enter'a basarsınız. O komutu alıp işleyen arka plandaki akla **Shell** denir.\n\nFarklı shell türleri vardır, bunlar komutları algılama biçimlerine veya sağladıkları ekstra özelliklere göre değişebilir. En bilinen shell örneği **Bash**'tir.",
+        "icon": "🐚",
+        "order": 4,
+        "readingTime": "3 dk",
+        "category": "Mimari"
+    },
+    {
+        "id": "bash-nedir",
+        "slug": "bash-nedir",
+        "title": "Bash Nedir?",
+        "description": "Linux dünyasının en popüler ve varsayılan kabuk (shell) programı.",
+        "content": "Bash (Bourne Again SHell), Linux ve macOS sistemlerinde en çok kullanılan, varsayılan komut satırı kabuğudur (shell). Çok eski bir kabuk olan UNIX Bourne shell'in (`sh`) geliştirilmiş, modernleştirilmiş halidir.\n\n### Temel Özellikleri:\n- **Yönlendirme:** Çıktıları bir dosyaya veya başka bir komuta kolayca aktarmanıza olanak tanır (Pipe `|` kullanımı).\n- **Scripting:** Tekrarlayan işleri otomatize etmek için döngüler (for, while) ve if/else bloklarıyla kendi programcıklarınızı yazmanızı sağlar (Bash Scripting).\n- **Geçmiş (History):** Daha önce yazdığınız komutları hafızasında tutarak sadece yukarı-aşağı yön tuşlarıyla tekrar çağırmanıza olanak tanır.\n\nBash haricinde Zsh, Fish gibi son yıllarda popülerleşen modern ve renkli alternatifleri de bulunmaktadır.",
+        "icon": "🛠️",
+        "order": 5,
+        "readingTime": "3 dk",
+        "category": "Araçlar"
+    },
+    {
+        "id": "root-nedir",
+        "slug": "root-nedir",
+        "title": "Root (Yönetici) Nedir?",
+        "description": "Sistem üzerindeki tüm yetkilere sahip olan süper kullanıcı hesabı.",
+        "content": "Root, Linux (ve genel olarak Unix tabanlı) sistemlerde var olan, sistem üzerindeki **her şeye** kayıtsız şartsız erişim izni bulunan süper kullanıcı hesabıdır. Windows'taki 'Administrator' hesabının çok daha güçlü bir versiyonudur.\n\n### Root'un Yetkileri Nelerdir?\n- İşletim sisteminin kalbine (kernel modüllerine) müdahale edebilir.\n- Diğer kullanıcıların dosyalarını okuyabilir, silebilir ve hesaplarını kapatabilir.\n- Sistemi tamamen çökertme potansiyeline sahip riskli komutları çalıştırabilir.\n\n**Tehlike:** Sisteme doğrudan `root` hesabı ile giriş yapmak çok tehlikelidir. Yapacağınız ufak bir yazım hatası tüm bilgisayarı bozabilir. Bu yüzden gündelik işler normal bir kullanıcı hesabıyla yapılırken, yönetici yetkisi gereken durumlarda `sudo` aracı kullanılır.",
+        "icon": "👑",
+        "order": 6,
+        "readingTime": "4 dk",
+        "category": "Yetkilendirme"
+    },
+    {
+        "id": "sudo-nedir",
+        "slug": "sudo-nedir",
+        "title": "Sudo Nedir?",
+        "description": "Normal kullanıcıların kısa süreliğine Root yetkileriyle komut çalıştırmasını sağlayan araç.",
+        "content": "Sudo (Superuser DO), izin verilmiş normal bir kullanıcının, sistem yöneticisi (`root`) yetkileriyle bir komut çalıştırmasını sağlayan harika bir araçtır.\n\nLinux'ta her işlemi yönetici olarak yapmak yerine, sadece kritik bir işlem (örneğin bir uygulama kurmak veya ağı ayarlamak) yapacağımız zaman komutun başına `sudo` yazarız. Böylece sistem bizden kendi parolamızı ister ve o komutluk bize geçici olarak Tanrı modu verir.\n\n### Örnek Kullanım:\n```bash\n# Yeni bir yazılım kurmak için root yetkisi gerekir.\nsudo apt install htop\n```\n\nBu felsefe güvenlik odaklıdır; zararlı bir yazılım indirirseniz bile, sistemin kalbine inmesi için sizin onayınıza ve parolanıza (sudo kullanmanıza) ihtiyaç duyar.",
+        "icon": "🔑",
+        "order": 7,
+        "readingTime": "3 dk",
+        "category": "Yetkilendirme"
+    },
+    {
+        "id": "distro-nedir",
+        "slug": "distro-nedir",
+        "title": "Linux Dağıtımı (Distro) Nedir?",
+        "description": "Linux çekirdeğinin etrafına inşa edilmiş farklı paket ve felsefelere sahip işletim sistemi paketleri.",
+        "content": "Dağıtım (Distro), Linux çekirdeğinin etrafına; paket yöneticisi, masaüstü ortamı (arayüz) ve varsayılan uygulamaların harmanlanarak kullanıma hazır son kullanıcı işletim sistemi haline getirilmiş paketleridir.\n\nPengui veritabanında da değindiğimiz gibi, yüzlerce Linux dağıtımı vardır ve hepsi farklı bir amaca hizmet eder.\n\n### Popüler Distro Felsefeleri:\n- **Ubuntu & Linux Mint:** Yeni başlayanlar için fare ile her şeyin yapılabildiği en kolay distrolardır.\n- **Debian:** Kararlılığa ve hiçbir zaman çökmemeye odaklanan, sunucuların vazgeçilmezi olan distrodur.\n- **Arch Linux:** Kullanıcıya boş bir siyah ekran kalıp olarak gelir. İçine sadece ama sadece ihtiyacınız olan programları sizin kurmanızı, böylece sistemi %100 özelleştirmenizi ister.\n- **Kali Linux:** İçinde hacker ve siber güvenlik yazılımları hazır olarak gelen özel yapım bir distrodur.",
+        "icon": "🌍",
+        "order": 8,
+        "readingTime": "5 dk",
+        "category": "Ekosistem"
+    },
+    {
+        "id": "paket-yoneticisi-nedir",
+        "slug": "paket-yoneticisi-nedir",
+        "title": "Paket Yöneticisi Nedir?",
+        "description": "Linux ortamında yazılımları tek bir komutla güvenle indirip kurmayı sağlayan sistem.",
+        "content": "Paket Yöneticisi (Package Manager), bilgisayarınıza yazılım indirme, kurma, güncelleme ve silme işlemlerini büyük bir güvenlik ve hızla gerçekleştiren komut satırı uygulamasıdır.\n\nİnternetteki bir siteden `.exe` veya `.dmg` indirmeye alışkın olanlar için bu durum başlarda garip gelebilir. Ancak günümüzdeki App Store veya Google Play Store mantığını yıllar öncesinden başlatan sistem aslında Linux paket yöneticileridir.\n\nDağıtımların ayrıştığı en büyük nokta budur:\n- Debian/Ubuntu tabanlı sistemler **APT** (`apt`) kullanır.\n- RedHat/Fedora sistemler **DNF** (`dnf`) kullanır.\n- Arch Linux ise **Pacman** (`pacman`) kullanır.\n\nİstediğiniz programı internette aramadan sadece terminale `sudo apt install firefox` yazarak (güvenilir kaynaklardan) tek saniyede kurabilirsiniz.",
+        "icon": "📦",
+        "order": 9,
+        "readingTime": "4 dk",
+        "category": "Ekosistem"
+    }
+]

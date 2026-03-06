@@ -38,7 +38,7 @@ export default function NotFound() {
                         Ana Sayfaya Dön
                     </Link>
                     <Link
-                        href="/kategori/dosya-yonetimi"
+                        href="/kategori"
                         className="w-full sm:w-auto px-6 py-3 bg-surface-card border border-border-subtle text-slate-300 font-semibold rounded-xl hover:border-terminal-green/50 hover:text-terminal-green transition-all"
                     >
                         Kategorilere Göz At

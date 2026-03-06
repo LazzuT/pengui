@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { getAllCommandSlugs, getAllCategorySlugs, getAllDistroSlugs } from "@/lib/commands";
 import { getAllLearningModules } from "@/lib/learning";
+import { getAllLinuxTopics } from "@/lib/linux";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = "https://pengui.org";
 
     // Ana sayfalar
@@ -26,7 +27,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${baseUrl}/kategori`,
+            lastModified: new Date(),
+            changeFrequency: "weekly",
+            priority: 0.8,
+        },
+        {
             url: `${baseUrl}/ogren`,
+            lastModified: new Date(),
+            changeFrequency: "weekly",
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/linux`,
             lastModified: new Date(),
             changeFrequency: "weekly",
             priority: 0.9,
@@ -65,5 +78,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    return [...pages, ...categories, ...distros, ...learningModules, ...commands];
+    // Linux Rehber Konuları
+    const linuxTopicsData = await getAllLinuxTopics();
+    const linuxTopics = linuxTopicsData.map((topic) => ({
+        url: `${baseUrl}/linux/${topic.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+    }));
+
+    return [...pages, ...categories, ...distros, ...learningModules, ...linuxTopics, ...commands];
 }

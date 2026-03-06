@@ -140,4 +140,16 @@ export const CATEGORIES: Category[] = [
     description: "Disk bölümleme, bağlama ve depolama yönetimi",
     icon: "💾",
   },
+  {
+    slug: "sistem-yonetimi",
+    name: "Sistem Yönetimi",
+    description: "Sistem yapılandırması, servisler ve genel yönetim araçları",
+    icon: "🖥️",
+  },
+  {
+    slug: "yetki-yonetimi",
+    name: "Yetki Yönetimi",
+    description: "Dosya erişim kontrol listeleri ve genişletilmiş yetkilendirme",
+    icon: "🛡️",
+  },
 ];

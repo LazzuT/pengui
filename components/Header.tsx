@@ -27,13 +27,23 @@ export default function Header() {
                             Ana Sayfa
                         </Link>
                         <Link
+                            href="/linux"
+                            className="text-sm text-slate-300 hover:text-terminal-green transition-colors relative group"
+                        >
+                            Linux Rehberi
+                            <span className="absolute -top-2 -right-3 flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                            </span>
+                        </Link>
+                        <Link
                             href="/ogren"
                             className="text-sm font-semibold text-terminal-green hover:opacity-80 transition-opacity"
                         >
                             Öğren
                         </Link>
                         <Link
-                            href="/kategori/dosya-yonetimi"
+                            href="/kategori"
                             className="text-sm text-slate-300 hover:text-terminal-green transition-colors"
                         >
                             Kategoriler
@@ -80,6 +90,14 @@ export default function Header() {
                                 Ana Sayfa
                             </Link>
                             <Link
+                                href="/linux"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-sm text-slate-300 hover:text-terminal-green transition-colors px-2 py-1 flex items-center justify-between"
+                            >
+                                Linux Rehberi
+                                <span className="px-1.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-400 text-[10px] uppercase font-bold tracking-wider">YENİ</span>
+                            </Link>
+                            <Link
                                 href="/ogren"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="text-sm font-semibold text-terminal-green hover:opacity-80 transition-opacity px-2 py-1"
@@ -87,7 +105,7 @@ export default function Header() {
                                 Öğren
                             </Link>
                             <Link
-                                href="/kategori/dosya-yonetimi"
+                                href="/kategori"
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="text-sm text-slate-300 hover:text-terminal-green transition-colors px-2 py-1"
                             >
