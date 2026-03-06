@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐧 Pengui  
+# 🐧 Pengui  (Geliştirme Devam Ediyor)
 **Türkçe Linux Komut Kütüphanesi ve Öğrenim Platformu**
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
