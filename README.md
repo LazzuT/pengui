@@ -199,6 +199,8 @@ Planlanan geliştirmeler:
 
 ## 📜 Lisans
 
+![License](https://img.shields.io/badge/license-MIT-green)
+
 MIT License
 
 Copyright (c) 2026 LazzuT
