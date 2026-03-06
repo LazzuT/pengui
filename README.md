@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐧 Pengui  (Geliştirme Devam Ediyor)
+# 🐧 Pengui (Açık Kaynak & Canlı Yayında)
 **Türkçe Linux Komut Kütüphanesi ve Öğrenim Platformu**
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
@@ -101,7 +101,7 @@ Teknik veriler:
 | **TypeScript** | Tip güvenliği |
 | **TailwindCSS** | Modern UI & Tasarım Sistemi |
 | **JSON Dataset** | Komut veri kaynağı (API Bağımsız) |
-| **Vercel** | Hosting (Önerilen) |
+| **Vercel** | Hosting |
 
 ---
 
@@ -114,7 +114,6 @@ data/         # JSON veri setleri (Kök data deposu)
 lib/          # Yardımcı veri getirme fonksiyonları
 types/        # TypeScript tipleri
 scripts/      # Kalite kontrol ve otomasyon scriptleri
-memory-bank/  # Proje bağlamı ve AI dokümantasyon alanı
 ```
 
 **Önemli dosyalar:**
@@ -172,6 +171,17 @@ npm start
 Pengui statik site olarak deploy edilir.  
 Önerilen platform: **Vercel** (veya Netlify/Cloudflare Pages)
 
+## 🤝 Katkıda Bulunma (Contributing)
+
+Pengui, kaliteli Linux içerikleri üretmek amacıyla tamamen **açık kaynak** topluluk katkısına açık bir projedir. İster yeni bir komut eklemek ister mevcut komutları düzeltmek isteyin, uzmanlığınız çok değerlidir!
+
+Projede **Kontrollü Açık Kaynak** (Governed Open Source) modeli uygulanmaktadır:
+- **Herkes Katkı Yapabilir:** Repoyu çatallayıp kendi geliştirmelerinizle bize anında **Pull Request (PR)** açabilirsiniz.
+- **Güvenli Yayın Modeli:** Kodların `main` dalına merge edilmesi ve `pengui.org` production ortamında canlıya alınması **yalnızca maintainer (proje sahipleri)** tarafından yapılır. 
+- Bu katı kontrol, projenin kalitesini korumayı amaçlar.
+
+Pengui'ye nasıl komut ekleneceğini, yerel test (build) süreçlerini ve veri seti standartlarını öğrenmek için lütfen önce [CONTRIBUTING.md](CONTRIBUTING.md) rehberimizi okuyun.
+
 ---
 
 ## 🤖 Build in Public
@@ -193,13 +203,13 @@ Pengui projesi AI destekli geliştirme ("AI-Assisted Coding") süreci ile tamame
 - ✅ Altyapı, Next.js 15, Tailwind v4, Karanlık Tema
 - ✅ Öğrenim Modülleri (`/ogren` ve `/linux`)
 - ✅ Command Database Genişlemesi (Hedef 300 komuta ulaşıldı)
-- ✅ Faz 8: Kapsamlı QA Testi, Veri Bütünlüğü Doğrulaması ve Release Readiness
-- ✅ **Canlı Yayın (Deploy):** Vercel üzerinden `pengui.org` aktif edildi.
+- ✅ Faz 8: QA Sweep, Veri Bütünlüğü, UI/UX Audit & Release Readiness (Phase 8.4 - 8.6 Onaylandı)
+- ✅ Vercel Deployment (Sürüm 1.0 Canlı Yayın - `pengui.org` aktif edildi)
 
 **Planlanan Geliştirmeler:**
 - [ ] İnteraktif terminal simülasyonları
 - [ ] Linux quiz / test modülleri
-- [ ] Kullanıcı katkılarına açık açık kaynak geliştirme süreci (Topluluk desteği)
+- [x] Kullanıcı katkılarına açık, sürdürülebilir açık kaynak yönetişim modelinin (Governed OSS) kurulması
 
 ---
 
