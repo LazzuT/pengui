@@ -2,7 +2,7 @@
   {
     "command": "ls",
     "slug": "ls",
-    "description_tr": "Dizin içeriğini listeler",
+    "description_tr": "Dosya ve dizinlerin içeriklerini detaylı biçimde listeler",
     "detail_tr": "ls komutu, belirtilen dizindeki dosya ve klasörleri listeler. Parametresiz kullanıldığında bulunduğunuz dizinin içeriğini gösterir. Farklı seçeneklerle dosya boyutları, izinleri, değiştirilme tarihleri gibi detaylı bilgiler de görüntülenebilir.",
     "syntax": "ls [seçenekler] [dizin]",
     "category": "dosya-yonetimi",
@@ -229,7 +229,7 @@
   {
     "command": "rm",
     "slug": "rm",
-    "description_tr": "Dosya ve dizinleri siler",
+    "description_tr": "Dosya, bağlantı ve dizinleri sistemden kalıcı olarak siler",
     "detail_tr": "rm komutu, dosya ve dizinleri kalıcı olarak silmek için kullanılır. Silinen dosyalar çöp kutusuna gitmez. Dikkatli kullanılmalıdır.",
     "syntax": "rm [seçenekler] dosya...",
     "category": "dosya-yonetimi",
@@ -278,7 +278,7 @@
   {
     "command": "mkdir",
     "slug": "mkdir",
-    "description_tr": "Yeni dizin oluşturur",
+    "description_tr": "Sistemde yeni ve iç içe klasör (dizin) yapıları oluşturur",
     "detail_tr": "mkdir komutu, yeni dizinler oluşturmak için kullanılır. -p ile iç içe dizin yapıları oluşturabilirsiniz.",
     "syntax": "mkdir [seçenekler] dizin...",
     "category": "dosya-yonetimi",
@@ -363,7 +363,7 @@
   {
     "command": "find",
     "slug": "find",
-    "description_tr": "Dosya ve dizinleri arar",
+    "description_tr": "Belirli kriterlere göre (isim, boyut, tarih) dosya ve dizinleri arar",
     "detail_tr": "find komutu, dosya sisteminde belirli kriterlere göre dosya ve dizin aramak için kullanılır. İsim, boyut, tarih ve izinlere göre filtreleme yapabilir.",
     "syntax": "find [yol] [ifade]",
     "category": "dosya-yonetimi",
@@ -501,7 +501,7 @@
   {
     "command": "grep",
     "slug": "grep",
-    "description_tr": "Dosyalarda metin arar",
+    "description_tr": "Metin dosyaları veya çıktılar içinde belirli kelime kalıplarını arar",
     "detail_tr": "grep komutu, dosyalar içinde belirli bir metin kalıbı aramak için kullanılır. Düzenli ifadeler destekler.",
     "syntax": "grep [seçenekler] kalıp [dosya...]",
     "category": "metin-isleme",
@@ -562,7 +562,7 @@
   {
     "command": "head",
     "slug": "head",
-    "description_tr": "Dosyanın ilk satırlarını gösterir",
+    "description_tr": "Bir dosyanın veya çıktının sadece en üstteki (baştaki) satırlarını gösterir",
     "detail_tr": "head komutu, dosyanın başından itibaren belirtilen sayıda satırı gösterir. Varsayılan olarak ilk 10 satırı gösterir.",
     "syntax": "head [seçenekler] [dosya...]",
     "category": "metin-isleme",
@@ -599,7 +599,7 @@
   {
     "command": "tail",
     "slug": "tail",
-    "description_tr": "Dosyanın son satırlarını gösterir",
+    "description_tr": "Bir dosyanın sadece en sondaki satırlarını (örneğin logları) canlı olarak gösterir",
     "detail_tr": "tail komutu, dosyanın sonundan itibaren belirtilen sayıda satırı gösterir. Log dosyalarını canlı izlemek için -f seçeneği çok kullanılır.",
     "syntax": "tail [seçenekler] [dosya...]",
     "category": "metin-isleme",
@@ -644,7 +644,7 @@
   {
     "command": "less",
     "slug": "less",
-    "description_tr": "Dosya içeriğini sayfa sayfa görüntüler",
+    "description_tr": "Büyük metin dosyalarını terminalde sayfa sayfa, yukarı/aşağı kaydırarak inceler",
     "detail_tr": "less komutu, büyük dosyaları sayfa sayfa görüntülemek için kullanılır. Yukarı-aşağı kaydırma ve arama yapabilirsiniz.",
     "syntax": "less [dosya]",
     "category": "metin-isleme",
@@ -807,7 +807,7 @@
   {
     "command": "sort",
     "slug": "sort",
-    "description_tr": "Satırları sıralar",
+    "description_tr": "Metin dosyalarının veya girdilerin satırlarını alfabetik/sayısal sıralar",
     "detail_tr": "sort komutu, dosya içeriğini veya standart girdideki satırları alfabetik veya sayısal olarak sıralar.",
     "syntax": "sort [seçenekler] [dosya...]",
     "category": "metin-isleme",
@@ -940,7 +940,7 @@
   {
     "command": "chgrp",
     "slug": "chgrp",
-    "description_tr": "Dosya grubunu değiştirir",
+    "description_tr": "Dosya veya dizinlerin ait olduğu kullanıcı grubunu değiştirir",
     "detail_tr": "chgrp komutu, dosya ve dizinlerin grup sahipliğini değiştirmek için kullanılır.",
     "syntax": "chgrp [seçenekler] grup dosya...",
     "category": "izinler",
@@ -1101,7 +1101,7 @@
   {
     "command": "wget",
     "slug": "wget",
-    "description_tr": "Dosya indirir",
+    "description_tr": "İnternet üzerinden (HTTP, HTTPS, FTP) arka planda dosya indirir",
     "detail_tr": "wget komutu, web üzerinden dosya indirmek için kullanılır. Kesilen indirmeleri devam ettirebilir ve özyinelemeli indirme yapabilir.",
     "syntax": "wget [seçenekler] URL",
     "category": "ag",
@@ -1276,7 +1276,7 @@
   {
     "command": "top",
     "slug": "top",
-    "description_tr": "Sistem süreçlerini canlı izler",
+    "description_tr": "Sistem kaynak (CPU, RAM) kullanımını gerçek zamanlı ve sürekli olarak izler",
     "detail_tr": "top komutu, çalışan süreçleri CPU ve bellek kullanımıyla birlikte canlı olarak izler.",
     "syntax": "top [seçenekler]",
     "category": "sistem-izleme",
@@ -1317,7 +1317,7 @@
   {
     "command": "htop",
     "slug": "htop",
-    "description_tr": "Gelişmiş süreç izleyici",
+    "description_tr": "Sistem kaynaklarını ve süreçleri renkli, etkileşimli biçimde izler",
     "detail_tr": "htop, top komutunun gelişmiş ve renkli bir alternatifidir. Fare desteği ve kolay süreç yönetimi sunar. Not: Bu komut çoğu dağıtımda varsayılan olarak kurulu gelmez. Kurulum: apt install htop / yum install htop / pacman -S htop.",
     "syntax": "htop [seçenekler]",
     "category": "sistem-izleme",
@@ -1354,7 +1354,7 @@
   {
     "command": "ps",
     "slug": "ps",
-    "description_tr": "Çalışan süreçleri listeler",
+    "description_tr": "Sistemde anlık olarak çalışan süreçlerin (işlemlerin) anlık durum bilgisini listeler",
     "detail_tr": "ps komutu, sistemde çalışan süreçlerin anlık bir görüntüsünü verir.",
     "syntax": "ps [seçenekler]",
     "category": "sistem-izleme",
@@ -1444,7 +1444,7 @@
   {
     "command": "du",
     "slug": "du",
-    "description_tr": "Dizin boyutunu gösterir",
+    "description_tr": "Dizinlerin ve dosyaların diskte ne kadar alan kapladığını tahmin eder",
     "detail_tr": "du komutu, dosya ve dizinlerin disk kullanımını hesaplar.",
     "syntax": "du [seçenekler] [dizin]",
     "category": "sistem-izleme",
@@ -1705,7 +1705,7 @@
   {
     "command": "tar",
     "slug": "tar",
-    "description_tr": "Dosyaları arşivler ve sıkıştırır",
+    "description_tr": "Birden fazla dosyayı tek bir arşiv (tarball) dosyasında birleştirir veya çıkarır",
     "detail_tr": "tar komutu, birden fazla dosyayı tek bir arşiv dosyasında birleştirmek ve sıkıştırmak için kullanılır.",
     "syntax": "tar [seçenekler] arşiv dosyalar...",
     "category": "arsivleme",
@@ -1762,7 +1762,7 @@
   {
     "command": "gzip",
     "slug": "gzip",
-    "description_tr": "Dosyaları sıkıştırır",
+    "description_tr": "Dosyaları küçülterek .gz uzantılı sıkıştırılmış dosyalara dönüştürür",
     "detail_tr": "gzip komutu, dosyaları Lempel-Ziv algoritmasıyla sıkıştırır. Sıkıştırılan dosyanın uzantısı .gz olur.",
     "syntax": "gzip [seçenekler] dosya...",
     "category": "arsivleme",
@@ -1807,7 +1807,7 @@
   {
     "command": "zip",
     "slug": "zip",
-    "description_tr": "ZIP arşivi oluşturur",
+    "description_tr": "Dosya ve klasörleri popüler ZIP formatında arşivleyip sıkıştırır",
     "detail_tr": "zip komutu, dosya ve dizinleri ZIP formatında arşivler ve sıkıştırır.",
     "syntax": "zip [seçenekler] arşiv.zip dosyalar...",
     "category": "arsivleme",
@@ -1848,7 +1848,7 @@
   {
     "command": "unzip",
     "slug": "unzip",
-    "description_tr": "ZIP arşivini açar",
+    "description_tr": "Sıkıştırılmış .zip uzantılı arşiv dosyalarını klasöre çıkartır",
     "detail_tr": "unzip komutu, ZIP formatındaki arşiv dosyalarını açar.",
     "syntax": "unzip [seçenekler] arşiv.zip",
     "category": "arsivleme",
@@ -1892,7 +1892,7 @@
   {
     "command": "kill",
     "slug": "kill",
-    "description_tr": "Süreçlere sinyal gönderir",
+    "description_tr": "Sürece sinyal (genellikle sonlandırma/çökertme sinyali) göndererek işlemi durdurur",
     "detail_tr": "kill komutu, çalışan süreçlere sinyal göndererek sonlandırma veya kontrol işlemleri yapar.",
     "syntax": "kill [sinyal] PID",
     "category": "surec-yonetimi",
@@ -2076,7 +2076,7 @@
   {
     "command": "useradd",
     "slug": "useradd",
-    "description_tr": "Yeni kullanıcı oluşturur",
+    "description_tr": "Sisteme yeni bir kullanıcı hesabı ve profil bilgileri tanımlar",
     "detail_tr": "useradd komutu, sisteme yeni bir kullanıcı hesabı eklemek için kullanılır.",
     "syntax": "useradd [seçenekler] kullanıcı_adı",
     "category": "kullanici-yonetimi",
@@ -2205,7 +2205,7 @@
   {
     "command": "su",
     "slug": "su",
-    "description_tr": "Kullanıcı değiştirir",
+    "description_tr": "Mevcut oturum içinde başka bir kullanıcının kimliğine (root) geçiş yapar",
     "detail_tr": "su komutu, mevcut oturumda başka bir kullanıcıya geçiş yapmak için kullanılır.",
     "syntax": "su [seçenekler] [kullanıcı]",
     "category": "kullanici-yonetimi",
@@ -2245,7 +2245,7 @@
   {
     "command": "mount",
     "slug": "mount",
-    "description_tr": "Dosya sistemini bağlar",
+    "description_tr": "Diskleri, USB sürücüleri veya ISO dosyalarını dosya sistemine bağlar",
     "detail_tr": "mount komutu, dosya sistemlerini (disk bölümleri, USB, ISO) belirtilen dizine bağlamak için kullanılır.",
     "syntax": "mount [seçenekler] aygıt dizin",
     "category": "disk-yonetimi",
@@ -2290,7 +2290,7 @@
   {
     "command": "umount",
     "slug": "umount",
-    "description_tr": "Dosya sistemini ayırır",
+    "description_tr": "Sisteme önceden bağlanmış olan cihazları (disk, USB) güvenle ayırır",
     "detail_tr": "umount komutu, bağlı bir dosya sistemini güvenli şekilde ayırmak için kullanılır.",
     "syntax": "umount [seçenekler] dizin",
     "category": "disk-yonetimi",
@@ -2407,7 +2407,7 @@
   {
     "command": "mkfs",
     "slug": "mkfs",
-    "description_tr": "Dosya sistemi oluşturur",
+    "description_tr": "Disk bölümlerini belirli bir formatta (ext4, fat vb.) biçimlendirir",
     "detail_tr": "mkfs komutu, disk bölümünde yeni bir dosya sistemi oluşturur. Bu işlem disk bölümündeki tüm verileri siler.",
     "syntax": "mkfs [seçenekler] aygıt",
     "category": "disk-yonetimi",
@@ -2444,7 +2444,7 @@
   {
     "command": "echo",
     "slug": "echo",
-    "description_tr": "Metni terminale yazdırır",
+    "description_tr": "Verilen metni veya değişkenin değerini standart çıktıya (terminale) yazdırır",
     "detail_tr": "echo komutu, belirtilen metni veya değişken değerini terminale yazdırır. Shell scriptlerinde sıkça kullanılır.",
     "syntax": "echo [seçenekler] [metin]",
     "category": "dosya-yonetimi",
@@ -2606,7 +2606,7 @@
   {
     "command": "diff",
     "slug": "diff",
-    "description_tr": "İki dosya arasındaki farkları gösterir",
+    "description_tr": "İki dosya veya dizin arasındaki satır bazlı farklılıkları karşılaştırarak sunar",
     "detail_tr": "diff komutu, iki dosya veya dizin arasındaki farkları satır satır karşılaştırarak gösterir. Kod değişikliklerini incelemek için çok kullanışlıdır.",
     "syntax": "diff [seçenekler] dosya1 dosya2",
     "category": "metin-isleme",
@@ -2718,7 +2718,7 @@
   {
     "command": "file",
     "slug": "file",
-    "description_tr": "Dosya tipini belirler",
+    "description_tr": "Bir dosyanın içeriğini analiz ederek uzantıdan bağımsız gerçek tipini belirler",
     "detail_tr": "file komutu, dosyanın içeriğini analiz ederek dosya tipini belirler. Uzantıya bakmaksızın gerçek dosya tipini söyler.",
     "syntax": "file [seçenekler] dosya...",
     "category": "dosya-yonetimi",
@@ -2754,7 +2754,7 @@
   {
     "command": "ln",
     "slug": "ln",
-    "description_tr": "Bağlantı (link) oluşturur",
+    "description_tr": "Dosyalar arasında kısayol (sembolik) veya fiziksel (hard) bağlantılar oluşturur",
     "detail_tr": "ln komutu, dosyalar arasında sabit (hard) veya sembolik (soft) bağlantılar oluşturur. Sembolik bağlantılar kısayollar gibi çalışır.",
     "syntax": "ln [seçenekler] hedef bağlantı_adı",
     "category": "dosya-yonetimi",
@@ -4760,12 +4760,12 @@
     ],
     "options": [
       {
-        "flag": "Virgülle ayrılmış CSV dosyasını tabloya çevirir",
-        "desc_tr": "-t"
+        "flag": "-t",
+        "desc_tr": "Virgülle ayrılmış CSV dosyasını tabloya çevirir"
       },
       {
-        "flag": "Girişi tablo (table) şeklinde formatlar",
-        "desc_tr": "-s"
+        "flag": "-s",
+        "desc_tr": "Girişi tablo (table) şeklinde formatlar"
       }
     ],
     "related": [
@@ -5056,8 +5056,8 @@
     ],
     "options": [
       {
-        "flag": "Tüm belgedeki satırları ayna görüntüsü gibi tersine döndürür",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Tüm belgedeki satırları ayna görüntüsü gibi tersine döndürür"
       }
     ],
     "related": [
@@ -5089,12 +5089,12 @@
     ],
     "options": [
       {
-        "flag": "En az 10 karakter uzunluğundaki metin dizilerini gösterir",
-        "desc_tr": "-n"
+        "flag": "-n",
+        "desc_tr": "En az 10 karakter uzunluğundaki metin dizilerini gösterir"
       },
       {
-        "flag": "Ayıklanacak olan minimum karakter uzunluğunu belirler",
-        "desc_tr": "-a"
+        "flag": "-a",
+        "desc_tr": "Ayıklanacak olan minimum karakter uzunluğunu belirler"
       }
     ],
     "related": [
@@ -7658,12 +7658,12 @@
     ],
     "options": [
       {
-        "flag": "Sürekli arka cephede koşan komutun izlerini ve betik başarılarını filtre listesinden denetler",
-        "desc_tr": "start"
+        "flag": "start",
+        "desc_tr": "Sürekli arka cephede koşan komutun izlerini ve betik başarılarını filtre listesinden denetler"
       },
       {
-        "flag": "Sistemin beklemede duran veya çökmüş çalışan daemon panosunu ayağa diriltir",
-        "desc_tr": "restart"
+        "flag": "restart",
+        "desc_tr": "Sistemin beklemede duran veya çökmüş çalışan daemon panosunu ayağa diriltir"
       }
     ],
     "related": [
@@ -7695,12 +7695,12 @@
     ],
     "options": [
       {
-        "flag": "Şu an girilen komutu tam kronometrede yarım saat beklentili kurup ateşler",
-        "desc_tr": "-m"
+        "flag": "-m",
+        "desc_tr": "Şu an girilen komutu tam kronometrede yarım saat beklentili kurup ateşler"
       },
       {
-        "flag": "Atanan shell veya eylem tamamlandığında veya hata verdiyse işverene arkaplan e-posta sistem dökümü bırakır",
-        "desc_tr": "-V"
+        "flag": "-V",
+        "desc_tr": "Atanan shell veya eylem tamamlandığında veya hata verdiyse işverene arkaplan e-posta sistem dökümü bırakır"
       }
     ],
     "related": [
@@ -8189,8 +8189,8 @@
     ],
     "options": [
       {
-        "flag": "Gzip paket açılmadığı ve uzantı sabit (zipped) kaldığı halde içeriği Text listesinde uçurur",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Gzip paket açılmadığı ve uzantı sabit (zipped) kaldığı halde içeriği Text listesinde uçurur"
       }
     ],
     "related": [
@@ -8307,12 +8307,12 @@
     ],
     "options": [
       {
-        "flag": "Tüm klasör ağacını hiçe çıkartıp düz klasöre pürüzsüz atar",
-        "desc_tr": "a"
+        "flag": "a",
+        "desc_tr": "Tüm klasör ağacını hiçe çıkartıp düz klasöre pürüzsüz atar"
       },
       {
-        "flag": "Tıpkı 7z yapısı add fonskiyonalitesi çalıştırır",
-        "desc_tr": "7z,zip,unzip"
+        "flag": "7z,zip,unzip",
+        "desc_tr": "Tıpkı 7z yapısı add fonskiyonalitesi çalıştırır"
       }
     ],
     "related": [
@@ -8340,12 +8340,12 @@
     ],
     "options": [
       {
-        "flag": "Mevcut olan arşivi hiçe değil de kendi adında yapısal deşifre eder",
-        "desc_tr": "a"
+        "flag": "a",
+        "desc_tr": "Mevcut olan arşivi hiçe değil de kendi adında yapısal deşifre eder"
       },
       {
-        "flag": "Güçlü arşiv formatını dosyadan bağrına ilave ettirip eziyetler",
-        "desc_tr": "7z,7za,tar"
+        "flag": "7z,7za,tar",
+        "desc_tr": "Güçlü arşiv formatını dosyadan bağrına ilave ettirip eziyetler"
       }
     ],
     "related": [
@@ -8373,12 +8373,12 @@
     ],
     "options": [
       {
-        "flag": "Uygulamaya dahil edilmiş paketleme eklentili dökumanı sisteme döker",
-        "desc_tr": "t"
+        "flag": "t",
+        "desc_tr": "Uygulamaya dahil edilmiş paketleme eklentili dökumanı sisteme döker"
       },
       {
-        "flag": "Orijinal arşivi silmeksizin neleri barındırıp tuttuğunu(Table) raporlatır",
-        "desc_tr": "tar,gcc,make"
+        "flag": "tar,gcc,make",
+        "desc_tr": "Orijinal arşivi silmeksizin neleri barındırıp tuttuğunu(Table) raporlatır"
       }
     ],
     "related": [
@@ -8409,12 +8409,12 @@
     ],
     "options": [
       {
-        "flag": "Mevcut Linux çöküş kurtarma disk imajı içindeki tüm dosyaları (in/directory) asıl lokasyonuna yaratır",
-        "desc_tr": "-o"
+        "flag": "-o",
+        "desc_tr": "Mevcut Linux çöküş kurtarma disk imajı içindeki tüm dosyaları (in/directory) asıl lokasyonuna yaratır"
       },
       {
-        "flag": "Çıkan çıktıları kopyalanacak bir yığın halinde archive eder (Out)",
-        "desc_tr": "-i"
+        "flag": "-i",
+        "desc_tr": "Çıkan çıktıları kopyalanacak bir yığın halinde archive eder (Out)"
       }
     ],
     "related": [
@@ -8479,8 +8479,8 @@
     ],
     "options": [
       {
-        "flag": "Diski tahribatsız bir auto-repair izinde ve müdahalesiz onarır",
-        "desc_tr": "-f"
+        "flag": "-f",
+        "desc_tr": "Diski tahribatsız bir auto-repair izinde ve müdahalesiz onarır"
       },
       {
         "flag": "Disk kirli olmasa da (Force) tam ve detaylı bir inode super block süzmesinden emreder",
@@ -8599,12 +8599,12 @@
     ],
     "options": [
       {
-        "flag": "Varsayılan ufak boot okuması hariç takılı tüm format mimarisi damgalarını (All) ufalatır",
-        "desc_tr": "-n"
+        "flag": "-n",
+        "desc_tr": "Varsayılan ufak boot okuması hariç takılı tüm format mimarisi damgalarını (All) ufalatır"
       },
       {
-        "flag": "Cihaza hiçbir zarar vermeden sadece kuru kuru ('No act') simülasyon olarak neleri patlatacağını text okumasını sunar",
-        "desc_tr": "fdisk,shred,dd"
+        "flag": "fdisk,shred,dd",
+        "desc_tr": "Cihaza hiçbir zarar vermeden sadece kuru kuru ('No act') simülasyon olarak neleri patlatacağını text okumasını sunar"
       }
     ],
     "related": [
@@ -8632,8 +8632,8 @@
     ],
     "options": [
       {
-        "flag": "Geçici veya harfli blok adresi yerine yeni formata İsim(Label) vererek kolay monunta bağlar",
-        "desc_tr": "-F"
+        "flag": "-F",
+        "desc_tr": "Geçici veya harfli blok adresi yerine yeni formata İsim(Label) vererek kolay monunta bağlar"
       },
       {
         "flag": "Bozulmuş dahi olsa, içinde hali hazırda veri var bile dese(Force) diski ezip formatlamaya yemin eder",
@@ -8665,8 +8665,8 @@
     ],
     "options": [
       {
-        "flag": "Diski formatlarken her şeyi ezerek ilerler zira xfs'de partitionlar çakışabilmektedir",
-        "desc_tr": "-L"
+        "flag": "-L",
+        "desc_tr": "Diski formatlarken her şeyi ezerek ilerler zira xfs'de partitionlar çakışabilmektedir"
       },
       {
         "flag": "Yüksek donanımlı diskine okunabilir isim basar",
@@ -8698,8 +8698,8 @@
     ],
     "options": [
       {
-        "flag": "Tablonun Fat16 mı yoksa Fat32 mimarisi taşıyacağını tayin kurgusunu verir",
-        "desc_tr": "-n"
+        "flag": "-n",
+        "desc_tr": "Tablonun Fat16 mı yoksa Fat32 mimarisi taşıyacağını tayin kurgusunu verir"
       },
       {
         "flag": "Cihaz takıldığında masaüstünde çıkacak etiketi (Adı) Name yordamından belirler",
@@ -8874,8 +8874,8 @@
     ],
     "options": [
       {
-        "flag": "Komut paket komutunun sadece ana binary (Run edilen) icra dosyasına yer lokasyonunu daraltır",
-        "desc_tr": "-m"
+        "flag": "-m",
+        "desc_tr": "Komut paket komutunun sadece ana binary (Run edilen) icra dosyasına yer lokasyonunu daraltır"
       },
       {
         "flag": "Uygulamanın yardım dökümanlarının (manual) konumlarını sadece okuyup verir",
@@ -9043,12 +9043,12 @@
     ],
     "options": [
       {
-        "flag": "Belirli ortamın sadece değişken (variable) kodlarını ezer",
-        "desc_tr": "-f"
+        "flag": "-f",
+        "desc_tr": "Belirli ortamın sadece değişken (variable) kodlarını ezer"
       },
       {
-        "flag": "Oluşturulmuş alias dışında spesifik fonksiyon kalıplarını bulup RAM çöplüğünden tasfiyelettirir",
-        "desc_tr": "export,env,set"
+        "flag": "export,env,set",
+        "desc_tr": "Oluşturulmuş alias dışında spesifik fonksiyon kalıplarını bulup RAM çöplüğünden tasfiyelettirir"
       }
     ],
     "related": [
@@ -9176,8 +9176,8 @@
     ],
     "options": [
       {
-        "flag": "Makineyi CPU stresine sürüklerken sonsuz loop döngüsünde merhaba basım satırı oluşturur",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Makineyi CPU stresine sürüklerken sonsuz loop döngüsünde merhaba basım satırı oluşturur"
       }
     ],
     "related": [
@@ -9360,7 +9360,7 @@
   {
     "command": "cmp",
     "slug": "cmp",
-    "description_tr": "Diff gibi ama koddan bağımsız iki binary veya data hedefini Bayt bazlı karşılaştıran sessiz tespitçidir",
+    "description_tr": "İki dosyayı bayt (byte) bazında en ince ayrıntısına kadar karşılaştırır",
     "detail_tr": "Linux imajları gibi 2 dosyanın içini text formatında değilde, kaçıncı byte verisinde spesifik kayma(fark) var onu direkt ekrana yazar.",
     "syntax": "cmp [seçenekler] a_dosyasi b_dosyasi",
     "category": "metin-isleme",
@@ -9409,8 +9409,8 @@
     ],
     "options": [
       {
-        "flag": "Yazılmış 3 text uzantısınındaki ayırıcı/ortak metinlerini (Conflict satırlarıyla) tek dosya basarcıyla harmanlar (Merge)",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Yazılmış 3 text uzantısınındaki ayırıcı/ortak metinlerini (Conflict satırlarıyla) tek dosya basarcıyla harmanlar (Merge)"
       },
       {
         "flag": "diff,cmp,patch",
@@ -9567,12 +9567,12 @@
     ],
     "options": [
       {
-        "flag": "İnsan formatlı boyutu bu kez bash içine eklenecek dev matematik baytına çevririr",
-        "desc_tr": "--to="
+        "flag": "--to=",
+        "desc_tr": "İnsan formatlı boyutu bu kez bash içine eklenecek dev matematik baytına çevririr"
       },
       {
-        "flag": "Ulaşılması hedeflenen matematik okunabilirlik sistem (iec/si) hedefini verir",
-        "desc_tr": "--from="
+        "flag": "--from=",
+        "desc_tr": "Ulaşılması hedeflenen matematik okunabilirlik sistem (iec/si) hedefini verir"
       }
     ],
     "related": [
@@ -9602,12 +9602,12 @@
     ],
     "options": [
       {
-        "flag": "Yazılımda şifreli encode olmuş text kompesini (Decode) diyerek Ali asıl değerine basar",
-        "desc_tr": "-d"
+        "flag": "-d",
+        "desc_tr": "Yazılımda şifreli encode olmuş text kompesini (Decode) diyerek Ali asıl değerine basar"
       },
       {
-        "flag": "Şifrelenmiş heceleri ASCII/Binary insan okunabilir köküne çözümler (Decode)",
-        "desc_tr": "-w"
+        "flag": "-w",
+        "desc_tr": "Şifrelenmiş heceleri ASCII/Binary insan okunabilir köküne çözümler (Decode)"
       }
     ],
     "related": [
@@ -9783,8 +9783,8 @@
     ],
     "options": [
       {
-        "flag": "Modern SysV sisteminden ayrı geleneksel UNIX tarzı blok (sum) dökümleri verir",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Modern SysV sisteminden ayrı geleneksel UNIX tarzı blok (sum) dökümleri verir"
       },
       {
         "flag": "cksum,md5sum,wc",
@@ -9963,8 +9963,8 @@
     ],
     "options": [
       {
-        "flag": "Portable yani her arayüzün okuyabileceği (Küsüratsız) süreyi text olarak çeker",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Portable yani her arayüzün okuyabileceği (Küsüratsız) süreyi text olarak çeker"
       },
       {
         "flag": "timeout,wait,date",
@@ -10055,8 +10055,8 @@
     ],
     "options": [
       {
-        "flag": "Timestamp özelliklerini ezip yeni modifiye zamanı basmasını durdurur(Keep)",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Timestamp özelliklerini ezip yeni modifiye zamanı basmasını durdurur(Keep)"
       },
       {
         "flag": "dos2unix,sed,tr",
@@ -10128,8 +10128,8 @@
     ],
     "options": [
       {
-        "flag": "Sistemin dışarıdan gelicek log veya yayın kanallarını bu terminal kabuğuna müsait kılar",
-        "desc_tr": ""
+        "flag": "",
+        "desc_tr": "Sistemin dışarıdan gelicek log veya yayın kanallarını bu terminal kabuğuna müsait kılar"
       }
     ],
     "related": [
@@ -10161,8 +10161,8 @@
     ],
     "options": [
       {
-        "flag": "Komutsu girdi komutunu terminal broadcast akışına (stdout) çeker",
-        "desc_tr": "-n"
+        "flag": "-n",
+        "desc_tr": "Komutsu girdi komutunu terminal broadcast akışına (stdout) çeker"
       },
       {
         "flag": "Duvar yazısına dahil olan (Broadcasting From Root) gibi default yazar bilgilendirme pankartını yok eder",
@@ -10221,8 +10221,8 @@
     ],
     "options": [
       {
-        "flag": "Şahsın full gerçekte kullanılan ad (Name) yordamını veritanına kayderer",
-        "desc_tr": "-p"
+        "flag": "-p",
+        "desc_tr": "Şahsın full gerçekte kullanılan ad (Name) yordamını veritanına kayderer"
       },
       {
         "flag": "Ofis masa veya ofis bina kodu donelerini doldurur (Phone vs)",
@@ -10363,12 +10363,12 @@
     ],
     "options": [
       {
-        "flag": "Hem Hata hem Orijinal çıktıyı(Standart out) hiçbir hafızaya sığdırmadan (Size 0) saliselik canlandırır",
-        "desc_tr": "-o"
+        "flag": "-o",
+        "desc_tr": "Hem Hata hem Orijinal çıktıyı(Standart out) hiçbir hafızaya sığdırmadan (Size 0) saliselik canlandırır"
       },
       {
-        "flag": "Standart çıktının bellek gecikmesini(Out) yapılandırır (L satır, 0 sıfır)",
-        "desc_tr": "-i"
+        "flag": "-i",
+        "desc_tr": "Standart çıktının bellek gecikmesini(Out) yapılandırır (L satır, 0 sıfır)"
       }
     ],
     "related": [
@@ -10383,9 +10383,9 @@
   {
     "command": "sponge",
     "slug": "sponge",
-    "description_tr": "Dosyayı okuyup işlerken aynı anda kendi üstüne (Overwrite) bozmadan yazdırmanıza izin verir",
-    "detail_tr": "Normalde `cat dosya Not: Bu komut moreutils paketinin bir parçasıdır ve varsayılan olarak kurulu gelmez. Kurulum: apt install moreutils.",
-    "syntax": "grep > dosya` derseniz bash dosyayı anında sıfırlar. Sponge, veriyi RAM'e (süngere) çeker, işlem bitince dosyanın üstüne basar.",
+    "description_tr": "Standart girdiyi okuyup tamamen hafızaya alır ve dosya yazma işlemi bittikten sonra hedef dosyayı günceller.",
+    "detail_tr": "sponge komutu, sistemde temel olarak Metin İşleme senaryolarında, dosyayı aynı anda hem okuyup hem yazmanız gerektiğinde (örneğin grep veya sed ile) dosyanın boşalmasını engellemek için tercih edilir. Not: Bu komut moreutils paketinin bir parçasıdır ve varsayılan olarak kurulu gelmez. Kurulum: apt install moreutils.",
+    "syntax": "$ [komut] | sponge [dosya]",
     "category": "metin-isleme",
     "examples": [
       {
@@ -10460,12 +10460,12 @@
     ],
     "options": [
       {
-        "flag": "Renk dizgesi değişken komutlarını Bash/Zsh destekleyecek shell satırına formatlar",
-        "desc_tr": "-p"
+        "flag": "-p",
+        "desc_tr": "Renk dizgesi değişken komutlarını Bash/Zsh destekleyecek shell satırına formatlar"
       },
       {
-        "flag": "O an geçerli veritabanındaki tüm RGB konfigürasyonlarını (Print) matrisinde yansıtır",
-        "desc_tr": "ls,env,export"
+        "flag": "ls,env,export",
+        "desc_tr": "O an geçerli veritabanındaki tüm RGB konfigürasyonlarını (Print) matrisinde yansıtır"
       }
     ],
     "related": [
@@ -10529,8 +10529,8 @@
     ],
     "options": [
       {
-        "flag": "Alınacak dil kaynak kütüğünü/haritasını (Input) tayin matrisine bildirir",
-        "desc_tr": "-f"
+        "flag": "-f",
+        "desc_tr": "Alınacak dil kaynak kütüğünü/haritasını (Input) tayin matrisine bildirir"
       },
       {
         "flag": "İnşa edilecek sonucun (UTF/Iso vb) karakter seti haritasının son çıktısını formatlar",
@@ -10658,8 +10658,8 @@
     ],
     "options": [
       {
-        "flag": "Var olan bozuklukları ekrana düz/Yalnızca Okuma stiliyle (Read) raporlar, dokundurmaz",
-        "desc_tr": "-s"
+        "flag": "-s",
+        "desc_tr": "Var olan bozuklukları ekrana düz/Yalnızca Okuma stiliyle (Read) raporlar, dokundurmaz"
       },
       {
         "flag": "Dosyayı kullanıcının IDsine(UID) göre baştan küçükten büyüğe derli toplu sıralar(Sort)",
@@ -10690,8 +10690,8 @@
     ],
     "options": [
       {
-        "flag": "Raporların Read-Only biçimde dokundurulmadan sunulmasını kitler",
-        "desc_tr": "-s"
+        "flag": "-s",
+        "desc_tr": "Raporların Read-Only biçimde dokundurulmadan sunulmasını kitler"
       },
       {
         "flag": "ID format bazlı gruplardaki sırayı Sort ederek veritabanı pürüssüzlünü parlatır",
@@ -10722,8 +10722,8 @@
     ],
     "options": [
       {
-        "flag": "Asıl verilerin default değil atanmış (Access) kök kurallarını çıkartır",
-        "desc_tr": "-d"
+        "flag": "-d",
+        "desc_tr": "Asıl verilerin default değil atanmış (Access) kök kurallarını çıkartır"
       },
       {
         "flag": "Eğer o klasörün altında açılacak yeni belgelere varsayılan otomatik bulaşmacı set eklentisi (Default) var mı onu okur",

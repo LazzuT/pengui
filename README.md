@@ -194,9 +194,9 @@ Pengui projesi AI destekli geliştirme ("AI-Assisted Coding") süreci ile tamame
 - ✅ Öğrenim Modülleri (`/ogren` ve `/linux`)
 - ✅ Command Database Genişlemesi (Hedef 300 komuta ulaşıldı)
 - ✅ Faz 8: Kapsamlı QA Testi, Veri Bütünlüğü Doğrulaması ve Release Readiness
+- ✅ **Canlı Yayın (Deploy):** Vercel üzerinden `pengui.org` aktif edildi.
 
 **Planlanan Geliştirmeler:**
-- [ ] Vercel / Netlify Deployment (Public/Private Beta Release)
 - [ ] İnteraktif terminal simülasyonları
 - [ ] Linux quiz / test modülleri
 - [ ] Kullanıcı katkılarına açık açık kaynak geliştirme süreci (Topluluk desteği)
