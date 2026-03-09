@@ -1,0 +1,43 @@
+name: 🐛 Bug Report (Hata Bildirimi)
+description: Sitede, arayüzde veya içeriğin gösteriminde bir hata ile karşılaştıysanız.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Ne oldu?
+      description: Karşılaştığınız hatayı kısaca açıklayın.
+      placeholder: Arama çubuğuna tıkladığımda dropdown menüsü alttaki metnin arkasında kalıyor...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Hatayı Tekrarlama Adımları
+      description: Bu hatayı nasıl tekrar görebileceğimizi adım adım anlatın.
+      placeholder: |
+        1. Ana sayfaya git
+        2. Mobilde arama çubuğuna 'ls' yaz
+        3. Sonuç listesinde scroll yap
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Tarayıcı / Cihaz
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile (iOS/Android)
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Ekran Görüntüleri (Opsiyonel)
+      description: Varsa hatayı gösteren bir ekran görüntüsünü buraya sürükleyebilirsiniz.
+    validations:
+      required: false

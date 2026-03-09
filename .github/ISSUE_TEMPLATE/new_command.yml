@@ -1,0 +1,26 @@
+name: 🐧 Yeni Komut İsteği
+description: Pengui kütüphanesine yeni bir Linux komutu eklenmesi talebi.
+title: "[Command]: "
+labels: ["new-command"]
+body:
+  - type: input
+    id: command-name
+    attributes:
+      label: Komut Adı
+      description: Hangi komut eklensin?
+      placeholder: tmux
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Neden Eklenmeli? (Kullanım Amacı)
+      description: Bu komutun Linux dünyasındaki önemini kısaca açıklayın.
+    validations:
+      required: true
+  - type: checkboxes
+    id: self-assign
+    attributes:
+      label: Bu komutu siz eklemek (PR açmak) ister misiniz?
+      options:
+        - label: Evet, bu görev için repoyu forplayıp PR açabilirim

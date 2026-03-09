@@ -41,7 +41,7 @@ export default function HomePage() {
         </div>
 
         {/* Search */}
-        <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
+        <div className="relative z-50 animate-slide-up" style={{ animationDelay: "0.1s" }}>
           <SearchBar commands={commands} />
         </div>
 

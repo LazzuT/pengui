@@ -1318,7 +1318,7 @@
     "command": "htop",
     "slug": "htop",
     "description_tr": "Sistem kaynaklarını ve süreçleri renkli, etkileşimli biçimde izler",
-    "detail_tr": "htop, top komutunun gelişmiş ve renkli bir alternatifidir. Fare desteği ve kolay süreç yönetimi sunar. Not: Bu komut çoğu dağıtımda varsayılan olarak kurulu gelmez. Kurulum: apt install htop / yum install htop / pacman -S htop.",
+    "detail_tr": "htop, top komutunun gelişmiş ve renkli bir alternatifidir. Fare desteği ve kolay süreç yönetimi sunar. Top komutunun aksine yatay ve dikey kaydırma yaparak tüm süreçleri bir arada görmenize olanak tanır.",
     "syntax": "htop [seçenekler]",
     "category": "sistem-izleme",
     "examples": [
@@ -1349,7 +1349,8 @@
     "difficulty": "kolay",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Kurulum: Çoğu modern sistemde varsayılan gelmez. Kullanmak için paket yöneticisinden (örn: apt install htop) yüklenmesi gerekir."
   },
   {
     "command": "ps",
@@ -6033,7 +6034,7 @@
     "command": "telnet",
     "slug": "telnet",
     "description_tr": "Uzak makinelere şifresiz düz metin üzerinden erişim veya haberleşme kanalı açar",
-    "detail_tr": "Eski tip switch yöneticilerinde SSH'in ilker versiyonu olan Telnet protokülü sağlar. Ancak günümüzde daha çok Mail(SMTP) veya Web(HTTP) sunucularını canlı test edebilmek için teşhis olarak uygulanır. Not: Telnet güvenli bir protokol değildir ve modern sistemlerde genellikle SSH tercih edilir. Birçok dağıtımda varsayılan olarak kurulu gelmez.",
+    "detail_tr": "Eski tip switch yöneticilerinde SSH'in ilker versiyonu olan Telnet protokülü sağlar. Ancak günümüzde ağ bağlantılarında portun iletişimde olup olmadığını manuel sınamak üzere (`telnet ipadresi port`) bir soket test aracına dönüşmüştür.",
     "syntax": "telnet [host] [port]",
     "category": "ag",
     "examples": [
@@ -6055,13 +6056,14 @@
     "difficulty": "orta",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Kritik Güvenlik: Telnet tüm verileri (şifreler dahil) düz metin (plain text) gönderir! Günümüzde ASLA şifreli sunucu veya cihazlara bağlanmak için kullanılmamalı, yerine `ssh` tercih edilmelidir."
   },
   {
     "command": "ftp",
     "slug": "ftp",
     "description_tr": "Dosya Transfer Protokolü aracılığı ile sunucularla temel dosya alım/verimi yapar",
-    "detail_tr": "Şifresiz ftp:// standartlarında bir barındırma sunucusuna bağlanarak put ve get yordamları ile komut sistemi klasörlerinden basit transfer operasyonu koşturur. Not: FTP güvenli bir protokol değildir. Modern sistemlerde sftp veya scp gibi şifreli alternatifler tercih edilmelidir.",
+    "detail_tr": "Şifresiz ftp:// standartlarında bir barındırma sunucusuna bağlanarak put ve get yordamları ile komut bazlı interaktif dosya okuma ve taşıması yapan bağlantı programıdır.",
     "syntax": "ftp [domain/ip]",
     "category": "ag",
     "examples": [
@@ -6083,7 +6085,8 @@
     "difficulty": "kolay",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Kritik Güvenlik: Tıpkı Telnet gibi şifresiz düz metin aktarımı yapar. Güvenli veri transferi için modern sistemlerde daima `sftp` (SSH FTP) veya `rsync` kullanılmalıdır."
   },
   {
     "command": "sftp",
@@ -6377,7 +6380,7 @@
     "command": "tcpdump",
     "slug": "tcpdump",
     "description_tr": "Sistemdeki network kartlarından geçen trafik verisini analiz eden süzücü Packet Sniffer aracı",
-    "detail_tr": "Giden, gelen veya sistemler arası geçen ham trafik paket bit'lerini (sniffer) şeffaf olarak monitörleyen ileri düzey sistem ağ analiz komutudur. Not: Bu komut bazı sunucu dağıtımlarında varsayılan gelir, ancak masaüstü sistemlerinde kurulum gerekebilir.",
+    "detail_tr": "Giden, gelen veya sistemler arası geçen ham trafik paket bit'lerini (sniffer) şeffaf olarak monitörleyen ve yakalayan ağ hata ayıklama aracıdır.",
     "syntax": "tcpdump [seçenekler]",
     "category": "ag",
     "examples": [
@@ -6407,13 +6410,14 @@
     "difficulty": "zor",
     "dangerous": true,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Dikkat: Ağı pasif (promiscuous) moda geçirip ham veri paketlerini analiz ettiği için mutlaka sistem yöneticisi (root/sudo) yetkisiyle çalıştırılmalıdır."
   },
   {
     "command": "nmap",
     "slug": "nmap",
     "description_tr": "Network Mapper; gelişmiş siber güvenlik port ve zafiyet tarama programıdır",
-    "detail_tr": "Sistemin, lokal ağın ya da yüzlerce global sunucunun açık portlarını, işletim sistemi sürümlerini (OS Fingerprinting) bulup haritalayan güçlü güvenlik tarayıcısıdır. Not: Bu komut varsayılan olarak kurulu gelmez, ayrıca kurulması gerekir (apt install nmap).",
+    "detail_tr": "Sistemin, lokal ağın ya da yüzlerce global sunucunun açık portlarını, işletim sistemi sürümlerini (OS fingerprinting) ve servis durumlarını taramak için kullanılan güvenlik odaklı profesyonel bir ağ haritalama aracıdır.",
     "syntax": "nmap [seçenekler] hedef",
     "category": "ag",
     "examples": [
@@ -6444,13 +6448,14 @@
     "difficulty": "zor",
     "dangerous": true,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Güvenlik: Güçlü bir port tarama aracıdır ve izinsiz ağlarda kullanılması suç teşkil edebilir. `sudo` yetkisi ile daha kapsamlı sonuçlar döndürür."
   },
   {
     "command": "whois",
     "slug": "whois",
     "description_tr": "Kayıtlı alan adları (domain) ve IP'ler hakkında sahiplik bilgisini sergiler",
-    "detail_tr": "İnternet üzerindeki bir alan adının hangi şirkete, isme ait olduğu ve kaydediliş veya bitiş (expires) günlerinin resmi WHOIS belgesini tarayarak gösterir. Not: Bu komut bazı dağıtımlarda varsayılan olarak kurulu gelmeyebilir. Kurulum: apt install whois.",
+    "detail_tr": "İnternet üzerindeki bir alan adının hangi şirkete, isme ait olduğu ve kaydediliş veya bitiş (expires) tarihlerini listeler. IP adresi girildiğinde ISP bilgilerini döndürür.",
     "syntax": "whois hedef_isim",
     "category": "ag",
     "examples": [
@@ -6472,7 +6477,8 @@
     "difficulty": "kolay",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Bazen minimal sunucu kurulumlarında varsayılan olarak yerleşik gelmez, manuel kurmanız gerekebilir (ör. `apt install whois`)."
   },
   {
     "command": "vmstat",
@@ -6546,13 +6552,14 @@
     "difficulty": "orta",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Kurulum: iostat komutu varsayılan gelmeyebilir. Debian/Ubuntu için `sudo apt install sysstat` ile kurmanız gerekir."
   },
   {
     "command": "iotop",
     "slug": "iotop",
     "description_tr": "Diski hangi uygulamanın aşırı derece meşgul ettiğini anlık canlı panelde listeler",
-    "detail_tr": "Top komutunun RAM kullananları listeleyen mantığının disk versiyonudur; Saniyede hangi uygulamanın diske(MB/s) kazı yaptığını real-time gösteren monitördür. Not: Bu araç varsayılan olarak kurulu gelmez. Kurulum: apt install iotop.",
+    "detail_tr": "Top komutunun RAM kullananları listeleyen mantığının disk versiyonudur; Saniyede hangi uygulamanın diske kaç bayt yazdığını veya okuduğunu canlı gösterir.",
     "syntax": "sudo iotop [seçenekler]",
     "category": "sistem-yonetimi",
     "examples": [
@@ -6583,7 +6590,8 @@
     "difficulty": "orta",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Dikkat: Kernel düzeyindeki I/O (Girdi/Çıktı) bilgilerine eriştiği için root veya sudo yetkisi gerektirir."
   },
   {
     "command": "mpstat",
@@ -6662,9 +6670,10 @@
     "command": "dstat",
     "slug": "dstat",
     "description_tr": "Sistem kaynaklarını anlık ve renkli olarak kapsamlı matriste gösterir",
-    "detail_tr": "vmstat, iostat ve netstat gibi komutların tek parça canlı ve estetik renkli olarak CPU-Disk-Net ağ verilerini yan yana harmanlayan en ideal dev-ops görüntüleyicisidir. Not: dstat bazı modern dağıtımlarda kaldırılmıştır. Alternatif olarak dool veya glances kullanılabilir.",
+    "detail_tr": "vmstat, iostat ve netstat gibi komutların tek parça canlı ve estetik renkli olarak CPU-Disk-Net ağ verilerini yan yana harmanlayan en ideal dev-ops görüntüleyicisidir.",
     "syntax": "dstat [seçenekler]",
     "category": "sistem-yonetimi",
+    "warning": "Bilgi: dstat bazı modern dağıtımların resmi depolarından kaldırılmıştır. Alternatif olarak dool veya glances kullanılabilir.",
     "examples": [
       {
         "code": "dstat -cmdn",
@@ -6699,7 +6708,7 @@
     "command": "atop",
     "slug": "atop",
     "description_tr": "Gelişmiş Performans Monitörü; süreçlerin detaylı disk ve ağ yüklerini loglar",
-    "detail_tr": "Klasik 'top' aracının aksine, kapandığı an uçan veriler yerine günlük audit tutan ve saniyesinde bile hangi spesifik uygulamanın hangi ağ paketini sıktığına inen acımasız analiz paneli. Not: Bu araç varsayılan olarak kurulu gelmez. Kurulum: apt install atop.",
+    "detail_tr": "Klasik 'top' aracının aksine, kapandığı an uçan veriler yerine günlük audit tutan ve saniyesinde bilinen tüm performans göstergelerini tek ekrana sıgdırabilen izleme aracı.",
     "syntax": "atop [seçenekler]",
     "category": "sistem-yonetimi",
     "examples": [
@@ -6730,13 +6739,14 @@
     "difficulty": "zor",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Kurulum: İleri seviye bir izleme aracı olduğu için haricen kurulmalıdır. Yoğun loglama yapabileceğinden disk alanını izlemek önemlidir."
   },
   {
     "command": "glances",
     "slug": "glances",
     "description_tr": "Sistemi tek bir canlı dashboard altında birleştiren modern yönetim paneli",
-    "detail_tr": "Sensör sıcaklıklarından asenkron konteyner (docker) yüklerine, ağ ve disk izlemeye dek tüm parçaları tek terminal sekmesinde özetleyen gelişmiş izleyicidir. Not: Bu Python tabanlı araç ayrıca kurulum gerektirir (apt install glances veya pip install glances).",
+    "detail_tr": "Sensör sıcaklıklarından asenkron konteyner (docker) yüklerine, ağ ve disk izlemeye dek tüm parçaları (CPU, disk, mem, sensors...) RESTful veya Web arayüzü seçeneğiyle de sunan Python tabanlı dashboard aracıdır.",
     "syntax": "glances [seçenekler]",
     "category": "sistem-yonetimi",
     "examples": [
@@ -6767,7 +6777,8 @@
     "difficulty": "kolay",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Kurulum/Web: Python tabanlıdır ve `pip install glances` vb. ile kurulabilir. `-w` flagi ile çalıştırıldığında kendi dahili web sunucusunu yayına açarak tarayıcı üzerinden kontrol imkanı verir."
   },
   {
     "command": "watch",
@@ -8259,9 +8270,10 @@
     "command": "7z",
     "slug": "7z",
     "description_tr": "En yüksek sıkıştırma oranlı ve harici format sağlayan 7-Zip araç yönetici arşiv komutu",
-    "detail_tr": "Hem şifreli (AES256) korunan arşive, hem de Microsoft kökenli iso ve msi dosyaları dahil açım formatında taranan evrensel çıkarıcıdır. Not: Bu komut varsayılan olarak kurulu gelmez. Kurulum: apt install p7zip-full.",
+    "detail_tr": "Hem şifreli (AES256) korunan arşive, hem de Microsoft kökenli iso ve msi dosyaları dahil açım formatında taranan evrensel çıkarıcıdır.",
     "syntax": "7z [komut] [hedef] [kaynak]",
     "category": "dosya-yonetimi",
+    "warning": "Bu komut varsayılan olarak kurulu gelmez. Kullanmak için p7zip-full paketini kurmanız gerekir.",
     "examples": [
       {
         "code": "7z a yedek.7z klasor/",
@@ -8296,7 +8308,7 @@
     "command": "7za",
     "slug": "7za",
     "description_tr": "7z komutunun otonom olarak (Standalone) eklentisiz herşeyi çözen hali",
-    "detail_tr": "Bazı sunucularda ekstra pluginleri kurulmamış eski paketlerde yalnızca saf 7Z, CAB, ISO okuma mimarisini tam kapasitede koşturan haldesidir. Not: Bu komut p7zip paketinin bir parçasıdır ve ayrıca kurulması gerekir.",
+    "detail_tr": "Bazı sunucularda ekstra pluginleri kurulmamış eski paketlerde yalnızca saf 7Z, CAB, ISO okuma mimarisine indirgenmiş yalnız (standalone) konsol versiyonudur.",
     "syntax": "7za [komut] [arsiv]",
     "category": "dosya-yonetimi",
     "examples": [
@@ -8323,15 +8335,17 @@
     "difficulty": "orta",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Bilgi: Genellikle varsayılan 7z (p7zip-full) paketinin minimal çekirdek versiyonunu temsil eder. Kompleks mimariler için tam p7zip paketi önerilir."
   },
   {
     "command": "7zr",
     "slug": "7zr",
     "description_tr": "Sadece 7z formatını destekleyen, bellek dostu minimal 7-Zip araç kütüphanesi",
-    "detail_tr": "7za'nın aksine ZIP veya RAR okumaz, sadece katı 7z sıkıştırmalarını çözmek (extract) ve oluşturmak için tasarlanmış en hafif linux daemonudur. Not: Bu komut p7zip paketinin hafif sürümüdür ve ayrıca kurulması gerekir.",
+    "detail_tr": "7za'nın aksine ZIP veya RAR okumaz, sadece katı 7z sıkıştırmalarını çözmek (extract) ve oluşturmak için tasarlanmış en hafif linux daemonudur.",
     "syntax": "7zr [komut] [arsiv]",
     "category": "dosya-yonetimi",
+    "warning": "Tam bağımsız çalışsa da, bu komut p7zip paketinin hafif sürümüdür ve manuel olarak kurulması gerekebilir.",
     "examples": [
       {
         "code": "7zr x paket.7z",
@@ -10274,7 +10288,7 @@
     "command": "finger",
     "slug": "finger",
     "description_tr": "Kullanıcıların sisteme giriş durumunu, ofis adını ve okutulmamış maillerini detaylandırır",
-    "detail_tr": "Daha çok eski ağlarda veya üniversitelerde \"Kim kimdir\" diyerek kişilerin gerçek isim, ofis numarası veya sisteme yazdığı notu (plan) çeken bilgi panosudur. Not: Bu komut modern Linux dağıtımlarında genellikle varsayılan olarak bulunmaz ve güvenlik gerekçesiyle kullanımı azalmıştır.",
+    "detail_tr": "Daha çok eski ağlarda veya üniversitelerde \"Kim kimdir\" diyerek kişilerin gerçek isim, ofis numarası veya genel bilgisayar loglarını çeken eski bir bilgi toplama aracıdır.",
     "syntax": "finger [seçenekler] kullanici",
     "category": "kullanici-yonetimi",
     "examples": [
@@ -10305,7 +10319,8 @@
     "difficulty": "kolay",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Güvenlik / Kullanım Dışı: Ciddi güvenlik bilgi sızıntılarına (enumeration attack) kapı araladığı için modern Linux sistemlerinde varsayılan olarak hizmet dışı (kapalı/kurulu değil) gelir."
   },
   {
     "command": "getent",
@@ -10384,7 +10399,7 @@
     "command": "sponge",
     "slug": "sponge",
     "description_tr": "Standart girdiyi okuyup tamamen hafızaya alır ve dosya yazma işlemi bittikten sonra hedef dosyayı günceller.",
-    "detail_tr": "sponge komutu, sistemde temel olarak Metin İşleme senaryolarında, dosyayı aynı anda hem okuyup hem yazmanız gerektiğinde (örneğin grep veya sed ile) dosyanın boşalmasını engellemek için tercih edilir. Not: Bu komut moreutils paketinin bir parçasıdır ve varsayılan olarak kurulu gelmez. Kurulum: apt install moreutils.",
+    "detail_tr": "sponge komutu, sistemde temel olarak Metin İşleme senaryolarında, dosyayı aynı anda hem okuyup hem yazarken içeriğin silinmesini engellemek ihtiyacı duyulduğunda tercih edilir. Dosyayı okumadan önce geçici bir bellekte (RAM veya temp) tutarak yazma işlemi tamamlanana kadar güvenli kalmasını sağlar.",
     "syntax": "$ [komut] | sponge [dosya]",
     "category": "metin-isleme",
     "examples": [
@@ -10406,7 +10421,8 @@
     "difficulty": "orta",
     "dangerous": false,
     "scope": "core",
-    "distros": []
+    "distros": [],
+    "warning": "Kurulum: `moreutils` paketinin bir parçasıdır. Kullanabilmek için bu paketin sisteminize yüklenmiş olması gerekir (örn: sudo apt install moreutils)."
   },
   {
     "command": "tac",

@@ -1,0 +1,20 @@
+name: ✨ Feature Request (Yeni Özellik Talebi)
+description: Siteye eklenmesini istediğiniz özellikler veya UI/UX tavsiyeleri için.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Özellik Talebi
+      description: Lütfen olmasını istediğiniz özelliği açıklayın.
+      placeholder: Linux rehberi sayfasına quiz yapısı eklenmeli çünkü...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatif Çözümler (Opsiyonel)
+      description: Bu özellik yerine düşünülebilecek başka yollar var mı?
+    validations:
+      required: false

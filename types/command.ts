@@ -22,6 +22,7 @@ export interface Command {
   related: string[];
   difficulty: "kolay" | "orta" | "zor";
   dangerous: boolean;
+  warning?: string;
   scope: "core" | "distro" | "tool";
   distros: string[];
 }

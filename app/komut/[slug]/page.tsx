@@ -11,6 +11,19 @@ import { getLearningModuleBySlug } from "@/lib/learning";
 import DangerWarning from "@/components/DangerWarning";
 import CopyButton from "@/components/CopyButton";
 
+// Yeni hafif uyarı bileşenimiz (sadece bu dosyada veya global olabilir, buraya inline koyalım)
+function InfoWarning({ text }: { text: string }) {
+    return (
+        <div className="mb-8 animate-fade-in bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 flex items-start gap-3">
+            <span className="text-xl mt-0.5">ℹ️</span>
+            <p className="text-sm text-slate-200 leading-relaxed max-w-[95%]">
+                <strong className="text-orange-400 font-semibold mr-1">Not:</strong>
+                <span dangerouslySetInnerHTML={{ __html: text.replace(/`([^`]+)`/g, '<code class="text-orange-300 bg-orange-500/10 px-1 py-0.5 rounded font-mono">$1</code>') }} />
+            </p>
+        </div>
+    );
+}
+
 // SSG: tüm komut slug'larını önceden oluştur
 export function generateStaticParams() {
     return getAllCommandSlugs().map((slug) => ({ slug }));
@@ -133,6 +146,9 @@ export default async function CommandPage({
             {/* Danger Warning */}
             {command.dangerous && <DangerWarning />}
 
+            {/* General Info / Install Warning */}
+            {command.warning && <InfoWarning text={command.warning} />}
+
             {/* Header */}
             <div className="mb-10 animate-fade-in">
                 <div className="flex items-center gap-4 mb-4 flex-wrap">
@@ -196,8 +212,8 @@ export default async function CommandPage({
                     <h2 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
                         <span>🔧</span> Seçenekler (Parametreler)
                     </h2>
-                    <div className="bg-surface-card border border-border-subtle rounded-xl overflow-hidden">
-                        <table className="w-full">
+                    <div className="bg-surface-card border border-border-subtle rounded-xl max-w-full overflow-x-auto">
+                        <table className="w-full text-left border-collapse min-w-[500px]">
                             <thead>
                                 <tr className="border-b border-border-subtle">
                                     <th className="text-left px-5 py-3 text-sm font-semibold text-slate-300">Parametre</th>

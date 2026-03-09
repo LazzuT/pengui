@@ -64,7 +64,7 @@ export default function SearchBar({
                 .map((item) => item.cmd);
 
             setResults(filtered.slice(0, 8));
-            setIsOpen(filtered.length > 0);
+            setIsOpen(true);
             setSelectedIndex(-1);
         },
         [commands]
@@ -127,6 +127,7 @@ export default function SearchBar({
     function navigateToCommand(slug: string) {
         setIsOpen(false);
         setQuery("");
+        inputRef.current?.blur();
         router.push(`/komut/${slug}`);
     }
 
@@ -183,30 +184,38 @@ export default function SearchBar({
             {isOpen && (
                 <div
                     ref={dropdownRef}
-                    className="absolute top-full left-0 right-0 mt-2 bg-surface-card border border-border-subtle rounded-xl shadow-2xl overflow-hidden z-50 animate-fade-in"
+                    className="absolute top-full left-0 right-0 mt-2 bg-[#1e293b] border border-[#334155] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-y-auto max-h-[50vh] z-[100] animate-fade-in"
                 >
-                    {results.map((cmd, index) => (
-                        <button
-                            key={cmd.command}
-                            onClick={() => navigateToCommand(cmd.command)}
-                            className={`w-full text-left px-4 py-3 flex items-center gap-3 transition-colors ${index === selectedIndex
-                                ? "bg-surface-hover border-l-2 border-terminal-green"
-                                : "hover:bg-surface-hover border-l-2 border-transparent"
-                                }`}
-                        >
-                            <code className="text-terminal-green font-mono text-sm font-semibold min-w-[80px]">
-                                {cmd.command}
-                            </code>
-                            <span className="text-slate-400 text-sm truncate">
-                                {cmd.description_tr}
-                            </span>
-                            <span
-                                className={`ml-auto text-xs px-2 py-0.5 rounded-full badge-${cmd.difficulty}`}
+                    {results.length === 0 && query.trim() !== "" ? (
+                        <div className="w-full text-center px-4 py-8 text-slate-400">
+                            <span className="text-2xl mb-2 block">🔍</span>
+                            <p className="text-sm font-medium text-slate-300 mb-1">Komut bulunamadı</p>
+                            <p className="text-xs">Daha genel terimlerle (örn. <span className="text-terminal-green">"dosya sil"</span> veya <span className="text-terminal-green">"port tara"</span>) aramayı deneyin.</p>
+                        </div>
+                    ) : (
+                        results.map((cmd, index) => (
+                            <button
+                                key={cmd.command}
+                                onClick={() => navigateToCommand(cmd.command)}
+                                className={`w-full text-left px-4 py-3 flex items-center gap-2 sm:gap-3 transition-colors ${index === selectedIndex
+                                    ? "bg-surface-hover border-l-2 border-terminal-green"
+                                    : "hover:bg-surface-hover border-l-2 border-transparent"
+                                    }`}
                             >
-                                {cmd.difficulty}
-                            </span>
-                        </button>
-                    ))}
+                                <code className="text-terminal-green font-mono text-sm font-semibold min-w-[60px] sm:min-w-[80px] shrink-0">
+                                    {cmd.command}
+                                </code>
+                                <span className="text-slate-400 text-sm truncate flex-1">
+                                    {cmd.description_tr}
+                                </span>
+                                <span
+                                    className={`ml-auto shrink-0 text-xs px-2 py-0.5 rounded-full badge-${cmd.difficulty}`}
+                                >
+                                    {cmd.difficulty}
+                                </span>
+                            </button>
+                        ))
+                    )}
                 </div>
             )}
         </div>
