@@ -57,7 +57,7 @@ export default function Footer() {
                         © {new Date().getFullYear()} Pengui — Tüm hakları saklıdır.
                     </p>
                     <p className="text-xs text-slate-500">
-                        Made with 💚 for the Turkish Linux community
+                        Türkçe Linux topluluğu için geliştirildi 💚
                     </p>
                 </div>
             </div>

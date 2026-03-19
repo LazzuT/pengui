@@ -1,0 +1,162 @@
+[
+  {
+    "slug": "ss",
+    "task": "Netch dinleyen (açık) portları ve servisleri gör",
+    "category": "ag-ve-internet",
+    "description": "Sisteminizde hangi portların dış bağlantılara açık olduğunu ve bu portları hangi programların kullandığını görmek, güvenlik ve ağ sorunlarını çözmek için en temel adımdır.",
+    "primary_command": "ss",
+    "primary_example": "ss -tulpn",
+    "alternatives": ["netstat", "lsof"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "du",
+    "task": "Dizindeki en büyük dosya ve klasörleri bul",
+    "category": "dosya-islemleri",
+    "description": "Diskiniz dolduğunda alanı boşa harcayan devasa log dosyalarını veya unutulmuş arşivleri hızlıca tespit etmenin en güvenilir yoludur.",
+    "primary_command": "du",
+    "primary_example": "du -h -d 1 | sort -hr",
+    "alternatives": ["find", "ls"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "tail",
+    "task": "Bir log dosyasını canlı olarak izle",
+    "category": "sistem-ve-yonetim",
+    "description": "Bir web sunucusu, veritabanı veya uygulamanın ürettiği logları, dosyaya yeni satırlar eklendikçe anlık (real-time) olarak terminalden takip edebilirsiniz.",
+    "primary_command": "tail",
+    "primary_example": "tail -f /var/log/syslog",
+    "alternatives": ["less", "cat"],
+    "difficulty": "kolay"
+  },
+  {
+    "slug": "kill",
+    "task": "Kilitlenen veya yanıt vermeyen süreci öldür",
+    "category": "surec-yonetimi",
+    "description": "Kontrolden çıkan, çok fazla CPU/RAM tüketen veya artık yanıt vermeyen bir programı zorla sonlandırarak sistemi rahatlatabilirsiniz.",
+    "primary_command": "kill",
+    "primary_example": "kill -9 <PID>",
+    "alternatives": ["killall", "pkill", "htop"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "df",
+    "task": "Toplam disk kullanımını ve boş alanı kontrol et",
+    "category": "sistem-ve-yonetim",
+    "description": "Bağlı olan tüm disk bölümlerinin toplam kapasitelerini, ne kadarının dolu olduğunu ve bağlantı noktalarını tek bakışta özetler.",
+    "primary_command": "df",
+    "primary_example": "df -h",
+    "alternatives": ["lsblk", "du"],
+    "difficulty": "kolay"
+  },
+  {
+    "slug": "ip",
+    "task": "Bilgisayarın lokal ve public IP adreslerini öğren",
+    "category": "ag-ve-internet",
+    "description": "Ağ yapılandırması sırasında cihazınızın modeme veya dış dünyaya hangi IP adresi ile bağlandığını hızlıca tespit etmek için kullanılır.",
+    "primary_command": "ip",
+    "primary_example": "ip addr show",
+    "alternatives": ["ifconfig", "curl"],
+    "difficulty": "kolay"
+  },
+  {
+    "slug": "grep",
+    "task": "Bir veya birden fazla dosyanın içinde metin ara",
+    "category": "arama-ve-bulma",
+    "description": "Hangi dosyada, hangi satırda aradığınız belirli bir kelimenin, hata kodunun veya değişkenin bulunduğunu tüm projeyi tarayarak saniyeler içinde bulmanızı sağlar.",
+    "primary_command": "grep",
+    "primary_example": "grep -r \"aranacak_kelime\" /klasor/yolu",
+    "alternatives": ["find", "awk"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "ps",
+    "task": "Belirli bir kullanıcının çalıştırdığı süreçleri listele",
+    "category": "surec-yonetimi",
+    "description": "Sistemde sadece belirlediğiniz spesifik bir kullanıcının (örneğin 'root' veya kendi hesabınız) arka planda çalıştırdığı işlemleri filtreler.",
+    "primary_command": "ps",
+    "primary_example": "ps -u kullanici_adi",
+    "alternatives": ["htop", "top"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "top",
+    "task": "Sistemde en çok RAM (Bellek) tüketen süreçleri gör",
+    "category": "surec-yonetimi",
+    "description": "Sistem yavaşladığında veya RAM dolduğunda, canavara dönüşen işlemleri tespit etmek için bellek kullanımına göre sıralı bir süreç listesi alırsınız.",
+    "primary_command": "top",
+    "primary_example": "top -o %MEM",
+    "alternatives": ["htop", "ps"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "chmod",
+    "task": "Bir script veya dosya için çalıştırma izni ver",
+    "category": "dosya-islemleri",
+    "description": "İndirdiğiniz veya kendi yazdığınız (.sh) script dosyalarının execution (çalıştırılma) yetkisini açarak terminalden tetiklenebilir hale getirir.",
+    "primary_command": "chmod",
+    "primary_example": "chmod +x script.sh",
+    "alternatives": ["chown"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "crontab",
+    "task": "Belirli zamanlarda otomatik tekrarlayacak görev oluştur",
+    "category": "sistem-ve-yonetim",
+    "description": "Her gece yedek alma, log temizleme veya haftalık sistem güncellemeleri gibi rutin işlerinizi arka planda siz olmadan otomatize eder.",
+    "primary_command": "crontab",
+    "primary_example": "crontab -e",
+    "alternatives": ["systemd"],
+    "difficulty": "zor"
+  },
+  {
+    "slug": "tar",
+    "task": "Sıkıştırılmış bir arşivi (tar.gz) klasöre çıkar",
+    "category": "dosya-islemleri",
+    "description": "Paket olarak indirdiğiniz .tar.gz veya .tar.xz formatındaki arşiv dosyalarını tek komutla bulunduğunuz dizine açar.",
+    "primary_command": "tar",
+    "primary_example": "tar -xzvf arsiv_adi.tar.gz",
+    "alternatives": ["unzip", "gzip"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "dig",
+    "task": "Bir domain'in arka plandaki DNS ve IP kaydını sorgula",
+    "category": "ag-ve-internet",
+    "description": "Alan adınızın sorunsuz yönlenip yönlenmediğini sınamak için DNS sunucularıyla konuşur ve A, MX, TXT kayıtlarını getirir.",
+    "primary_command": "dig",
+    "primary_example": "dig a pengui.org",
+    "alternatives": ["host", "nslookup", "ping"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "ssh",
+    "task": "Farklı bir bilgisayara (sunucuya) güvenli şekilde bağlan",
+    "category": "ag-ve-internet",
+    "description": "Dünyanın diğer ucundaki bir VPS veya lokal ağınızdaki Raspberry Pi'nin terminaline güvenli (şifreli) bir bağlantı tüneli açar.",
+    "primary_command": "ssh",
+    "primary_example": "ssh kullanici@ip_adresi",
+    "alternatives": ["scp", "ping"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "sed",
+    "task": "Bir dosyanın içindeki kelimeleri tek seferde toplu değiştir",
+    "category": "metin-islemleri",
+    "description": "Dosyayı kod editörüyle hiç açmadan, devasa konfigürasyon dosyalarındaki eski IP adreslerini yenisiyle milisaniyeler içinde değiştirmenizi sağlar.",
+    "primary_command": "sed",
+    "primary_example": "sed -i 's/eski_kelime/yeni_kelime/g' dosya.txt",
+    "alternatives": ["awk", "grep"],
+    "difficulty": "zor"
+  },
+  {
+    "slug": "wget",
+    "task": "Terminal üzerinden internetten dosya indir",
+    "category": "ag-ve-internet",
+    "description": "Arayüzü olmayan bir sunucudayken web üzerinden bir kurulum betiği, resim veya ISO kalıbı indirmenizin standart yoludur.",
+    "primary_command": "wget",
+    "primary_example": "wget https://ornek.com/dosya.zip",
+    "alternatives": ["curl"],
+    "difficulty": "kolay"
+  }
+]

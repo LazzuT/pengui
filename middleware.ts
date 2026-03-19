@@ -12,26 +12,28 @@ export function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    // Define paths that are always accessible
-    const isPreviewPage = request.nextUrl.pathname === '/preview';
-    const isMaintenancePage = request.nextUrl.pathname === '/maintenance';
+    // Check if maintenance mode is enabled via environment variable
+    const isMaintenanceEnabled = process.env.MAINTENANCE_MODE === 'true';
 
-    // Check for the access cookie
-    const accessCookie = request.cookies.get('pengui-access');
-    const isAuthorized = accessCookie?.value === 'true';
+    if (isMaintenanceEnabled) {
+        // Define paths that are always accessible
+        const isPreviewPage = request.nextUrl.pathname === '/preview';
+        const isMaintenancePage = request.nextUrl.pathname === '/maintenance';
 
-    // If authorized, and trying to access maintenance or preview page, reconsider?
-    // Let them be.
+        // Check for the access cookie
+        const accessCookie = request.cookies.get('pengui-access');
+        const isAuthorized = accessCookie?.value === 'true';
 
-    if (!isAuthorized) {
-        // If not authorized and trying to access anything other than preview/maintenance, redirect to maintenance
-        if (!isPreviewPage && !isMaintenancePage) {
-            return NextResponse.redirect(new URL('/maintenance', request.url));
-        }
-    } else {
-        // If authorized and trying to access maintenance page, maybe redirect to home? (UX improvement)
-        if (isMaintenancePage) {
-            return NextResponse.redirect(new URL('/', request.url));
+        if (!isAuthorized) {
+            // If not authorized and trying to access anything other than preview/maintenance, redirect to maintenance
+            if (!isPreviewPage && !isMaintenancePage) {
+                return NextResponse.redirect(new URL('/maintenance', request.url));
+            }
+        } else {
+            // If authorized and trying to access maintenance page, maybe redirect to home? (UX improvement)
+            if (isMaintenancePage) {
+                return NextResponse.redirect(new URL('/', request.url));
+            }
         }
     }
 

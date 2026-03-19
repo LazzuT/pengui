@@ -10,15 +10,31 @@ import {
 import { getLearningModuleBySlug } from "@/lib/learning";
 import DangerWarning from "@/components/DangerWarning";
 import CopyButton from "@/components/CopyButton";
+import FavoriteButton from "@/components/FavoriteButton";
 
 // Yeni hafif uyarı bileşenimiz (sadece bu dosyada veya global olabilir, buraya inline koyalım)
 function InfoWarning({ text }: { text: string }) {
+    // Güvenli render (HTML Injection'a karşı)
+    const renderSafeText = (str: string) => {
+        const parts = str.split(/`([^`]+)`/g);
+        return parts.map((part, index) => {
+            if (index % 2 === 1) {
+                return (
+                    <code key={index} className="text-orange-300 bg-orange-500/10 px-1 py-0.5 rounded font-mono">
+                        {part}
+                    </code>
+                );
+            }
+            return <span key={index}>{part}</span>;
+        });
+    };
+
     return (
         <div className="mb-8 animate-fade-in bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 flex items-start gap-3">
             <span className="text-xl mt-0.5">ℹ️</span>
             <p className="text-sm text-slate-200 leading-relaxed max-w-[95%]">
                 <strong className="text-orange-400 font-semibold mr-1">Not:</strong>
-                <span dangerouslySetInnerHTML={{ __html: text.replace(/`([^`]+)`/g, '<code class="text-orange-300 bg-orange-500/10 px-1 py-0.5 rounded font-mono">$1</code>') }} />
+                <span>{renderSafeText(text)}</span>
             </p>
         </div>
     );
@@ -151,10 +167,11 @@ export default async function CommandPage({
 
             {/* Header */}
             <div className="mb-10 animate-fade-in">
-                <div className="flex items-center gap-4 mb-4 flex-wrap">
+                <div className="flex items-center gap-3 mb-4 flex-wrap">
                     <h1 className="text-3xl sm:text-4xl font-bold font-mono text-terminal-green">
                         {command.command}
                     </h1>
+                    <FavoriteButton slug={command.slug} />
                     <span className={`text-xs px-3 py-1 rounded-full badge-${command.difficulty}`}>
                         {command.difficulty}
                     </span>

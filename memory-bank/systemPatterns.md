@@ -7,13 +7,14 @@
 │                   Next.js 15 App                │
 │             (App Router + 100% SSG)             │
 ├─────────────────────────────────────────────────┤
-│  Sayfalar (Routes — Statik 344 Sayfa)           │
+│  Sayfalar (Routes — Statik 344 Sayfa + Dinamik Rotalar)│
 │  ├── / (Ana Sayfa, Asistan, Terminal Öğren)     │
 │  ├── /komut/[slug] (Tasarım Detay SEO JSON-LD)  │
 │  ├── /kategori/[slug] (Kategori Listesi)        │
 │  ├── /distro (Dağıtımlar Ana Listesi)           │
 │  ├── /distro/[slug] (Dağıtıma Özel Komutlar)    │
 │  ├── /ogren/[slug] (Öğrenim Müfredatı Modülleri)│
+│  ├── /favoriler (Local-First Bookmark Hub)      │
 │  ├── /hakkinda (Build in public hikayesi)       │
 │  ├── /sitemap.xml & /robots.txt (Dinamik TS)    │
 │  └── /not-found.tsx (Özel Kayıp Penguen 404)    │

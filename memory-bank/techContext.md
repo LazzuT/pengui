@@ -18,7 +18,7 @@
 /home/ali/Projects/Works/linuxcommandweb
 
 # Geliştirme sunucusu
-npm run dev          # http://localhost:3000
+npm run dev          # http://localhost:3001
 
 # Kalite (QA) ve Derleme Süreci
 # CI/CD ortamlarında hatasız geçmesi beklenir
@@ -42,6 +42,7 @@ linuxcommandweb/
 │   ├── kategori/[slug]         # Kategori Ağaçları ve Hub
 │   ├── distro/[slug]           # Paket Yöneticisi Rotaları
 │   ├── ogren/[slug]            # 6 Adımlı Eğitim rotası
+│   ├── favoriler/              # Local Storage destekli Kayıtlı Komutlar Paneli
 │   └── hakkinda/               # Proje vizyonu
 ├── components/
 │   ├── Header.tsx (Pengui Mühürlü Logolar) & Footer.tsx

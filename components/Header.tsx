@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useFavorites } from "@/hooks/useFavorites";
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { favorites, isLoaded } = useFavorites();
 
     return (
         <header className="glass sticky top-0 z-50">
@@ -59,6 +61,20 @@ export default function Header() {
                             className="text-sm text-slate-300 hover:text-terminal-green transition-colors"
                         >
                             Hakkında
+                        </Link>
+                        
+                        {/* Desktop Favorites Link */}
+                        <Link
+                            href="/favoriler"
+                            className="text-sm text-slate-300 hover:text-amber-400 transition-colors flex items-center gap-1.5 ml-2 pl-4 border-l border-border-subtle"
+                        >
+                            <span>⭐</span>
+                            Favorilerim
+                            {isLoaded && favorites.length > 0 && (
+                                <span className="ml-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-dark border border-border-default text-slate-400 leading-none">
+                                    {favorites.length}
+                                </span>
+                            )}
                         </Link>
                     </nav>
 
@@ -125,6 +141,23 @@ export default function Header() {
                             >
                                 Hakkında
                             </Link>
+                            
+                            {/* Mobile Favorites Link */}
+                            <div className="border-t border-border-subtle mt-2 pt-2">
+                                <Link
+                                    href="/favoriler"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="text-sm text-slate-300 hover:text-amber-400 transition-colors px-2 py-1 flex items-center gap-2"
+                                >
+                                    <span>⭐</span>
+                                    <span>Favorilerim</span>
+                                    {isLoaded && favorites.length > 0 && (
+                                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-dark border border-border-default text-slate-400 leading-none">
+                                            {favorites.length}
+                                        </span>
+                                    )}
+                                </Link>
+                            </div>
                         </div>
                     </nav>
                 )}

@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐧 Pengui (Açık Kaynak & Canlı Yayında)
+# 🐧 Pengui (Açık Kaynak & Geliştirme Devam Ediyor)
 **Türkçe Linux Komut Kütüphanesi ve Öğrenim Platformu**
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
@@ -39,6 +39,8 @@ Amaç:
 - 🧭 **Kategori sistemi** (12 ana kategori, `/kategori` hub sayfası)
 - 🐧 **Linux dağıtımlarına göre filtreleme** (Arch, Ubuntu, Debian, Fedora vb.)
 - 🎓 **Adım adım öğrenme modülleri** (`/ogren` ve yeni `/linux` rehberi)
+- 🎯 **Görevden Komuta (Task-to-Command)** ("servisleri gör" yaz, komutu bul)
+- ⭐ **Local-First Favoriler** (Üyeliksiz, sadece tarayıcınızda kayıt)
 - 📱 **Mobil uyumlu modern arayüz** (Dark mode, glassmorphism)
 - 🚀 **%100 Static Site Generation (SSG)**
 

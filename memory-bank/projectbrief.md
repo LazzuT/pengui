@@ -15,11 +15,12 @@ Türkiye'de Linux öğrenmek isteyen yeni başlayanlara yardımcı olacak, sevim
 
 ## Temel Özellikler (Faz 4.7 İtibarıyla Tamamlanmıştır)
 1. **Linux Komut Kütüphanesi & Asistan** — En popüler, geniş çaplı 300 komut (Dosya, Ağ, Paket, vb.)
-2. **Akıllı Fuzzy Komut Arama** — Klavye navigasyonlu, debounce destekli ve asistan tabanlı (Örn: "ip adresi" -> `ifconfig`, "dizine git" -> `cd`)
-3. **Komut Detay Sayfaları** — Etkileşimli terminal kod blokları, argüman tabloları, gerçek hayat senaryoları ve SEO (Structured Data JSON-LD TechArticle)
-4. **Dağıtım (Distro) Spesifik Yapı** — Ubuntu, Debian, Arch ve Fedora paket yöneticileri (apt, pacman, dnf) özel mimariyle ayrıştırıldı.
-5. **Öğrenim Rotası (`/ogren`)** — "İlk komutlar", "Dosya hiyerarşisi" şeklinde müfredata adım adım dahil olma modülleri.
-6. **Hakkında / "Build in Public"** — UI tasarımlarını yapan asistanların dahil olduğu, AI ile tamamen açık geliştirme hikâyesi.
+2. **Görevden Komuta (Task-to-Command)** — "Açık portları listele" gibi Türkçe doğal görev cümleleriyle asistan üzerinden doğrudan komut eşleştirmesi.
+3. **Local-First Favoriler** — Kullanıcıların giriş yapmadan, doğrudan tarayıcı `localStorage` altyapısı ile komutları cihaza kaydetmesi.
+4. **Komut Detay Sayfaları** — Etkileşimli terminal kod blokları, argüman tabloları, gerçek hayat senaryoları ve SEO JSON-LD destekli UI.
+5. **Dağıtım (Distro) Spesifik Yapı** — Ubuntu, Debian, Arch ve Fedora paket yöneticileri (apt, pacman, dnf) ayrıştırıldı.
+6. **Öğrenim Rotası (`/ogren`)** — "İlk komutlar", "Dosya hiyerarşisi" şeklinde müfredata adım adım dahil olma modülleri.
+7. **Hakkında / "Build in Public"** — UI tasarımlarını yapan asistanların dahil olduğu geliştirme hikâyesi.
 
 ## Kapsam Dışı (v1.0 Launch Pakedi)
 - Backend / veritabanı (Mükemmel hız için %100 SSG hedeflendi)

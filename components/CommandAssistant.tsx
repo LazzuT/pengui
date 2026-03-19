@@ -3,26 +3,74 @@
 import { useState, useCallback } from "react";
 import Link from "next/link";
 import keywordsData from "@/data/commandKeywords.json";
+import tasksData from "@/data/tasks.json";
 import { Command } from "@/types/command";
+import { Task } from "@/types/task";
+import TaskCard from "@/components/TaskCard";
 
 interface CommandAssistantProps {
     commands: Command[];
 }
 
+// Seçili bazı popüler görevler (Empty State Chips)
+const POPULAR_TASKS = [
+    "Açık portları gör",
+    "Çalışan süreci öldür",
+    "En büyük dosyaları bul",
+    "İzin değiştir"
+];
+
 export default function CommandAssistant({ commands }: CommandAssistantProps) {
     const [query, setQuery] = useState("");
+    const [matchedTask, setMatchedTask] = useState<Task | null>(null);
     const [suggestion, setSuggestion] = useState<Command | null>(null);
 
     const keywords = keywordsData as Record<string, string>;
+    const tasks = tasksData as Task[];
 
     const findCommand = useCallback(
         (input: string) => {
             const q = input.toLowerCase().trim();
             if (!q) {
+                setMatchedTask(null);
                 setSuggestion(null);
                 return;
             }
 
+            let bestTask: Task | null = null;
+            let highestScore = 0;
+
+            tasks.forEach((t) => {
+                let score = 0;
+                
+                // 1. Exact primary command match (Highest Priority)
+                if (t.primary_command.toLowerCase() === q) score += 50;
+                
+                // 2. Exact alternative command match
+                if (t.alternatives.some((alt) => alt.toLowerCase() === q)) score += 40;
+                
+                // 3. Task title match
+                if (t.task.toLowerCase().includes(q)) score += 30;
+                
+                // 4. Description match (only for words > 3 chars)
+                if (q.length > 3 && t.description.toLowerCase().includes(q)) score += 10;
+                
+                if (score > highestScore) {
+                    highestScore = score;
+                    bestTask = t;
+                }
+            });
+
+            if (bestTask) {
+                setMatchedTask(bestTask);
+                setSuggestion(null);
+                return;
+            }
+
+            // Task eşleşmediyse temizle ve fallback ara
+            setMatchedTask(null);
+
+            // 2) Mevcut Keywords Logic (Fallback)
             // Exact keyword match first
             if (keywords[q]) {
                 const cmd = commands.find((c) => c.slug === keywords[q]);
@@ -45,7 +93,7 @@ export default function CommandAssistant({ commands }: CommandAssistantProps) {
             );
             setSuggestion(found || null);
         },
-        [commands, keywords]
+        [commands, keywords, tasks]
     );
 
     return (
@@ -72,32 +120,63 @@ export default function CommandAssistant({ commands }: CommandAssistantProps) {
                     />
                 </div>
 
-                {/* Suggestion */}
-                {suggestion && (
-                    <div className="mt-4 p-4 bg-surface-dark border border-terminal-green/30 rounded-xl animate-fade-in">
-                        <div className="text-xs text-slate-500 mb-2">Önerilen komut</div>
-                        <div className="terminal-block !mb-3">
-                            <code>
-                                <span className="prompt">$ </span>
-                                {suggestion.examples[0]?.code || suggestion.command}
-                            </code>
-                        </div>
-                        <p className="text-sm text-slate-400 mb-3">
-                            {suggestion.description_tr}
-                        </p>
-                        <Link
-                            href={`/komut/${suggestion.slug}`}
-                            className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent-hover transition-colors"
-                        >
-                            Detayları gör →
-                        </Link>
+                {/* Popular Task Chips (Empty State) */}
+                {!query && (
+                    <div className="mt-4 flex flex-wrap gap-2 sm:gap-3 animate-fade-in">
+                        {POPULAR_TASKS.map((pt) => (
+                            <button
+                                key={pt}
+                                onClick={() => {
+                                    setQuery(pt);
+                                    findCommand(pt);
+                                }}
+                                className="text-xs px-3 py-1.5 bg-surface-dark border border-border-default rounded-full text-slate-400 hover:text-white hover:border-terminal-green/50 transition-colors"
+                            >
+                                {pt}
+                            </button>
+                        ))}
                     </div>
                 )}
 
-                {query && !suggestion && (
-                    <div className="mt-4 p-4 bg-surface-dark border border-border-subtle rounded-xl">
+                {/* Task Match Result */}
+                {matchedTask && (
+                    <div className="mt-6 animate-fade-in">
+                        <TaskCard task={matchedTask} />
+                    </div>
+                )}
+
+                {/* Fallback Legacy Keyword Suggestion */}
+                {!matchedTask && suggestion && (
+                    <div className="mt-6 p-4 bg-surface-dark border border-terminal-green/30 rounded-xl animate-fade-in relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-3 opacity-10 blur-[1px] group-hover:opacity-20 transition-opacity">
+                            <span className="text-6xl">🐧</span>
+                        </div>
+                        <div className="relative z-10">
+                            <div className="text-xs text-slate-500 mb-2">Hızlı Komut Eşleşmesi</div>
+                            <div className="terminal-block !mb-3">
+                                <code>
+                                    <span className="prompt">$ </span>
+                                    {suggestion.examples[0]?.code || suggestion.command}
+                                </code>
+                            </div>
+                            <p className="text-sm text-slate-400 mb-3 pr-12">
+                                {suggestion.description_tr}
+                            </p>
+                            <Link
+                                href={`/komut/${suggestion.slug}`}
+                                className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent-hover transition-colors font-medium border-b border-accent/30 hover:border-accent pb-0.5"
+                            >
+                                Daha fazla detay ve parametreler →
+                            </Link>
+                        </div>
+                    </div>
+                )}
+
+                {/* No Results Fallback */}
+                {query && !matchedTask && !suggestion && (
+                    <div className="mt-6 p-4 bg-surface-dark/50 border border-border-default rounded-xl border-dashed">
                         <p className="text-sm text-slate-500">
-                            Eşleşen komut bulunamadı. Farklı bir ifade deneyin.
+                            Buna uygun bir görev veya komut bulamadım. Daha genel bir ifade yazmayı dener misiniz?
                         </p>
                     </div>
                 )}

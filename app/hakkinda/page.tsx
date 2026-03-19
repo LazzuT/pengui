@@ -46,7 +46,7 @@ export default function AboutPage() {
                     </p>
                     <p className="text-slate-400 leading-relaxed">
                         <strong className="text-slate-300">Pengui</strong>, bu boşluğu doldurmak
-                        için oluşturuldu. Amacımız, en önemli {commands.length} Linux komutunu basit Türkçe
+                        için oluşturuldu. Amacım, en önemli {commands.length} Linux komutunu basit Türkçe
                         açıklamalar, gerçek kullanım örnekleri ve detaylı parametrelerle sunmaktır.
                     </p>
                 </div>
@@ -137,12 +137,12 @@ export default function AboutPage() {
                     </h2>
                     <p className="text-sm text-slate-400 mb-4">
                         Bu projeye katkıda bulunmak, hata bildirmek veya öneride bulunmak
-                        isterseniz bize ulaşabilirsiniz.
+                        isterseniz bana ulaşabilirsiniz.
                     </p>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-surface-card border border-accent/30 rounded-lg text-accent text-sm hover:bg-surface-hover transition-colors cursor-pointer">
+                    <a href="mailto:lazzut@proton.me" className="inline-flex items-center gap-2 px-4 py-2 bg-surface-card border border-accent/30 rounded-lg text-accent text-sm hover:bg-surface-hover transition-colors cursor-pointer">
                         <span>📧</span>
-                        <span>iletisim@pengui.org</span>
-                    </div>
+                        <span>lazzut@proton.me</span>
+                    </a>
                 </div>
             </section>
         </div>
