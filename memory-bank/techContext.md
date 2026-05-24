@@ -4,12 +4,14 @@
 
 | Katman | Teknoloji | Versiyon | Detay |
 |--------|-----------|----------|--------|
-| Framework | Next.js (App Router) | 15.1+ | Route/Layout bazlı yapılar |
-| Dil | TypeScript | 5.x | Data validation'lı Strict Mode |
-| Stil | TailwindCSS | v4 | Modern glassmorphism plugin'leri |
-| Veri Kaynağı | Uzman JSON Mimarisi | — | `commands.json` (300 Komut) |
-| Kalite Denetimi | Custom TS Scripts | — | `validateCommands`, `brandCheck` |
-| Paket Yöneticisi | npm | — | NVM node=v20+ ile |
+| Framework | Next.js (App Router) | 16.1.6 | Route/Layout bazlı %100 SSG |
+| Dil | TypeScript | 5.x | Strict Mode |
+| UI | React | 19.2.3 | Server + Client Components |
+| Stil | TailwindCSS | v4 | Glassmorphism, dark mode |
+| Veri Kaynağı | JSON Mimarisi | — | `commands.json` (350 Komut, 387 KB), `commandKeywords.json` (537 keyword), `tasks.json` (22 görev) |
+| Kalite Denetimi | Custom TS Scripts | — | 17 script (validate, generate, merge, polish). `validateSearchMappings.ts` 22 sorguluk golden test seti içerir. |
+| Paket Yöneticisi | npm | — | NVM node=v24.14.0 |
+| Hosting | Vercel | — | SSG deploy, `pengui.org` domain |
 
 ## Geliştirme Ortamı
 
@@ -21,50 +23,92 @@
 npm run dev          # http://localhost:3001
 
 # Kalite (QA) ve Derleme Süreci
-# CI/CD ortamlarında hatasız geçmesi beklenir
-npx tsx scripts/validateCommands.ts # JSON test
-npx tsx scripts/brandCheck.ts       # Rebrand kalıntı testi
-npm run build                       # 344 Sayfalık SSG Üretimi
-npm run start                       # Next.js Prod Server
+npx tsx scripts/validateCommands.ts       # commands.json şema testi
+npx tsx scripts/validateTasks.ts          # tasks.json slug doğrulama
+npx tsx scripts/validateSearchMappings.ts # Golden test set (9 sorgu)
+npx tsx scripts/validateNewCommandsBatch.ts # Batch duplicate/schema
+npx tsx scripts/brandCheck.ts             # Rebrand kalıntı testi
+npm run build                             # ~394 Sayfalık SSG Üretimi
+npm run start                             # Next.js Prod Server
+
+# Yeni komut ekleme pipeline
+npm run generate:new-commands  # Batch JSON üret
+npm run validate:new-commands  # Batch doğrula
+npm run merge:new-commands     # commands.json'a merge et (backup'lı)
 ```
 
-## Mimari Klasör Yapısı (Build: 344 Sayfa)
+## Mimari Klasör Yapısı
 
 ```
 linuxcommandweb/
 ├── app/
 │   ├── layout.tsx              # Kök metadataBase(pengui.org), Inter font
 │   ├── globals.css             # Tailwind v4 injects
-│   ├── page.tsx                # Asistan giriş ekranı
+│   ├── page.tsx                # Ana sayfa + CommandAssistant
 │   ├── sitemap.ts & robots.ts  # SEO Dinamik Üretim
-│   ├── not-found.tsx           # Terminalde Kaybolan Maskot Penguen
-│   ├── komut/[slug]            # 300 Komut Sayfası (JSON-LD ile)
-│   ├── kategori/[slug]         # Kategori Ağaçları ve Hub
-│   ├── distro/[slug]           # Paket Yöneticisi Rotaları
-│   ├── ogren/[slug]            # 6 Adımlı Eğitim rotası
-│   ├── favoriler/              # Local Storage destekli Kayıtlı Komutlar Paneli
-│   └── hakkinda/               # Proje vizyonu
-├── components/
-│   ├── Header.tsx (Pengui Mühürlü Logolar) & Footer.tsx
-│   ├── SearchBar.tsx (Debounce & ArrowKey Handler)
-│   ├── CommandCard, CommandDetail, vb.
+│   ├── not-found.tsx           # Terminalde Kaybolan Maskot Penguen 404
+│   ├── komut/[slug]            # 350 Komut Sayfası (JSON-LD ile)
+│   ├── kategori/[slug]         # 12 Kategori Hub + Liste
+│   ├── distro/[slug]           # 4 Dağıtım Sayfası
+│   ├── ogren/[slug]            # 6 Adımlı Eğitim Rotası
+│   ├── linux/[slug]            # 9 Linux Rehber Makalesi
+│   ├── favoriler/              # Local Storage Favoriler Paneli
+│   ├── hakkinda/               # Build in Public hikayesi
+│   ├── maintenance/            # Bakım modu sayfası
+│   └── preview/                # Şifreli önizleme erişimi
+├── components/ (11 bileşen)
+│   ├── CommandAssistant.tsx     # Token-based scoring + keyword pre-check
+│   ├── SearchBar.tsx           # Debounce & ArrowKey arama
+│   ├── Header.tsx              # Navigasyon + mobil menü + favori badge
+│   ├── TaskCard.tsx            # Görev kartı render
+│   ├── FavoriteButton.tsx      # Toggle + toast notification
+│   ├── Footer.tsx, CommandCard.tsx, CopyButton.tsx,
+│   │   CategoryBadge.tsx, DangerWarning.tsx, LayoutWrapper.tsx
 ├── data/
-│   ├── commands.json           # ~81KB saf komut metinleri
-│   ├── commandKeywords.json    # Fuzzy Match algoritmaları lugatı
+│   ├── commands.json           # 350 komut (387 KB)
+│   ├── commandKeywords.json    # 537 keyword/alias eşleştirmesi (Faz 18 temizliği sonrası)
+│   ├── tasks.json              # 22 görev tanımı (Faz 18 ile +6)
+│   ├── linuxContent.json       # 9 rehber makalesi
+│   ├── backups/                # Merge öncesi timestamp'li backup
+│   ├── review/                 # Batch JSON dosyaları (onay için)
+│   └── raw/                    # whatis çıktısı (komut adayları)
+├── scripts/ (17 dosya)
+│   ├── validateCommands.ts     # Şema CI check
+│   ├── validateTasks.ts        # Task slug doğrulama
+│   ├── validateSearchMappings.ts # Golden test set
+│   ├── validateNewCommandsBatch.ts # Batch doğrulama
+│   ├── generateNewCommandsBatch.ts # Batch üretici
+│   ├── mergeNewCommandsBatch.ts    # Batch merge (backup'lı)
+│   ├── polishBatch.ts          # Batch kalite düzeltmeleri
+│   ├── polishBatch001InPlace.ts # detail_tr yeniden yazma
+│   ├── brandCheck.ts           # Eski marka kalıntı kontrolü
+│   └── compile_compact.js, enrich_commands.js, generate_keywords.js,
+│       merge_commands.js, repair_commands.js, select_commands.js
+├── hooks/
+│   └── useFavorites.ts         # localStorage hook (dual-state koruma)
 ├── lib/
-│   ├── commands.ts             # `getAllCommandSlugs()` vs okuyucu betikler
-│   └── learning.ts             # Müfredat rotaları `getNextModule()` okuyucusu
-├── scripts/                    # QA ve Kalite Araçları (TSX tabanlı)
-├── types/                      # Interfaces (Command, Distro vb)
+│   ├── commands.ts             # getAllCommandSlugs(), getCommandBySlug()
+│   ├── learning.ts             # getNextModule() müfredat okuyucu
+│   └── linux.ts                # Linux rehber veri okuyucu
+├── types/
+│   ├── command.ts              # Command, Category, Distro interfaces
+│   ├── task.ts                 # Task interface
+│   └── linux.ts                # LinuxContent interface
+├── middleware.ts               # MAINTENANCE_MODE env kontrolü
+├── .github/                    # CI/CD workflows, issue/PR şablonları, CODEOWNERS
 └── memory-bank/                # AI & Proje Bağlam Kütüphanesi
 ```
 
 ## Teknik Kısıtlamalar (Felsefe)
-- **Saf İstemci Optimizasyonu**: JSON verisinde fetch gecikmesini ortadan kaldırmak için, arama mekanizması ve `fuse.js` benzeri davranış `useMemo` React hook'u aracılığıyla sunucu bağımsız derlenir. Veri 1 MB'yi aşmadığı sürece muazzam ve en ucuz arama motoru sağlar.
-- **Statik Üretim (SSG)**: `/distro` gibi route'lar `generateStaticParams` metoduna sahiptir. Sayfaların 1. saniyede gelmesinin sebebi budur.
+- **Saf İstemci Optimizasyonu**: Arama mekanizması `useMemo` hook ile client-side çalışır. commands.json tüm verisi JS bundle'a dahildir (387 KB). 500+ komuta ulaşılırsa code splitting düşünülmeli.
+- **Statik Üretim (SSG)**: Tüm route'lar `generateStaticParams` ile build-time HTML'e dönüşür. Runtime SSR yoktur.
 
 ## Bağımlılıklar (Dev & Prod)
-- `next` — SSG
-- `@tailwindcss/postcss` & `tailwindcss` — CSS derleyici
-- `typescript` — Ortam Tipi Denetimi
-- `tsx` — (Dev) Scripts'leri NodeJS bağımsız tek tıkla çalıştırmaya yarayan modül.
+- `next` (16.1.6) — SSG framework
+- `react` + `react-dom` (19.2.3) — UI
+- `@tailwindcss/postcss` & `tailwindcss` (v4) — CSS derleyici
+- `typescript` (5.x) — Tip denetimi
+- `tsx` (dev) — Script çalıştırıcı
+- `eslint` + `eslint-config-next` — Lint
+- `@next/bundle-analyzer` — Bundle analizi
+- `cross-env` — Çapraz platform env değişkenleri

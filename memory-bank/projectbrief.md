@@ -13,27 +13,30 @@ Türkiye'de Linux öğrenmek isteyen yeni başlayanlara yardımcı olacak, sevim
 - Özel dağıtımların (Arch, Ubuntu vb.) paket yapılarına adaptasyon sağlamaya çalışanlar
 - Sertifikasyon sınavlarına (LPIC, CompTIA Linux+) hazırlananlar
 
-## Temel Özellikler (Faz 4.7 İtibarıyla Tamamlanmıştır)
-1. **Linux Komut Kütüphanesi & Asistan** — En popüler, geniş çaplı 300 komut (Dosya, Ağ, Paket, vb.)
-2. **Görevden Komuta (Task-to-Command)** — "Açık portları listele" gibi Türkçe doğal görev cümleleriyle asistan üzerinden doğrudan komut eşleştirmesi.
-3. **Local-First Favoriler** — Kullanıcıların giriş yapmadan, doğrudan tarayıcı `localStorage` altyapısı ile komutları cihaza kaydetmesi.
-4. **Komut Detay Sayfaları** — Etkileşimli terminal kod blokları, argüman tabloları, gerçek hayat senaryoları ve SEO JSON-LD destekli UI.
+## Temel Özellikler (v1.0 + Batch-001)
+1. **Linux Komut Kütüphanesi & Asistan** — 350 komut (300 orijinal + 50 Batch-001): dosya, ağ, paket, sistem, disk, çekirdek modülleri, güvenlik duvarı vb.
+2. **Görevden Komuta (Task-to-Command)** — "Açık portları listele" gibi Türkçe doğal görev cümleleriyle asistan üzerinden komut eşleştirmesi. Token-based scoring engine.
+3. **Local-First Favoriler** — Kullanıcıların giriş yapmadan, doğrudan tarayıcı localStorage ile komutları cihaza kaydetmesi.
+4. **Komut Detay Sayfaları** — Etkileşimli kod blokları, argüman tabloları, tehlike uyarıları, gerçek hayat örnekleri ve SEO JSON-LD.
 5. **Dağıtım (Distro) Spesifik Yapı** — Ubuntu, Debian, Arch ve Fedora paket yöneticileri (apt, pacman, dnf) ayrıştırıldı.
-6. **Öğrenim Rotası (`/ogren`)** — "İlk komutlar", "Dosya hiyerarşisi" şeklinde müfredata adım adım dahil olma modülleri.
-7. **Hakkında / "Build in Public"** — UI tasarımlarını yapan asistanların dahil olduğu geliştirme hikâyesi.
+6. **Öğrenim Rotası (`/ogren`)** — 6 modüllü müfredat: "İlk komutlar", "Dosya hiyerarşisi" vb.
+7. **Linux Rehberi (`/linux`)** — 9 konuda teorik içerik: "Kernel nedir", "Terminal nedir" vb.
+8. **Hakkında / "Build in Public"** — AI destekli geliştirme hikâyesi ve süreç şeffaflığı.
+9. **Yeni Komut Pipeline'ı** — Script-driven batch komut ekleme: generate → polish → validate → merge.
 
-## Kapsam Dışı (v1.0 Launch Pakedi)
-- Backend / veritabanı (Mükemmel hız için %100 SSG hedeflendi)
+## Kapsam Dışı (v1.0)
+- Backend / veritabanı (Mükemmel hız için %100 SSG)
 - Kullanıcı hesabı ve kimlik doğrulama
 - İngilizce içerik
 - Yorum / topluluk etkileşimi modülleri
 
 ## Başarı Kriterleri (Gerçekleşenler)
-- **300 komut** eksiksiz ve syntax, metadata testinden geçerek eklendi.
-- Komut arama `<10 ms` reaksiyon süresinde (istemci taraflı).
-- Harika karanlık mod / glassmorphism tabanlı **Mobil duyarlı** site.
-- **344 Route** 0 warning ve mükemmel Next.js build (`< 1s` optimizasyon süresi) çıktı.
-- Tamamen **`pengui.org`** alan adına özel SEO (sitemap.xml, robots, canonical ve og:image) altyapısı hazırlandı.
+- **350 komut** syntax, metadata ve şema testinden geçerek eklendi.
+- Komut arama `<10 ms` reaksiyon süresinde (istemci taraflı, token-based scoring).
+- Glassmorphism tabanlı karanlık mod, **mobil duyarlı** tasarım.
+- **~394 Route** 0 warning ve Next.js 16.1.6 build ile SSG üretimi.
+- Tamamen **`pengui.org`** alan adına özel SEO altyapısı (sitemap.xml, robots, canonical, og:image, JSON-LD).
+- Açık kaynak yönetişimi: CONTRIBUTING.md, CODEOWNERS, Issue/PR şablonları, CI workflows.
 
 ## Marka
 **Pengui** (`pengui.org`)
