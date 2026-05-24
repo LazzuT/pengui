@@ -1,7 +1,7 @@
 [
   {
     "slug": "ss",
-    "task": "Netch dinleyen (açık) portları ve servisleri gör",
+    "task": "Ağı dinleyen (açık) portları ve servisleri gör",
     "category": "ag-ve-internet",
     "description": "Sisteminizde hangi portların dış bağlantılara açık olduğunu ve bu portları hangi programların kullandığını görmek, güvenlik ve ağ sorunlarını çözmek için en temel adımdır.",
     "primary_command": "ss",
@@ -26,7 +26,7 @@
     "description": "Bir web sunucusu, veritabanı veya uygulamanın ürettiği logları, dosyaya yeni satırlar eklendikçe anlık (real-time) olarak terminalden takip edebilirsiniz.",
     "primary_command": "tail",
     "primary_example": "tail -f /var/log/syslog",
-    "alternatives": ["less", "cat"],
+    "alternatives": ["journalctl"],
     "difficulty": "kolay"
   },
   {
@@ -66,7 +66,7 @@
     "description": "Hangi dosyada, hangi satırda aradığınız belirli bir kelimenin, hata kodunun veya değişkenin bulunduğunu tüm projeyi tarayarak saniyeler içinde bulmanızı sağlar.",
     "primary_command": "grep",
     "primary_example": "grep -r \"aranacak_kelime\" /klasor/yolu",
-    "alternatives": ["find", "awk"],
+    "alternatives": ["awk"],
     "difficulty": "orta"
   },
   {
@@ -96,7 +96,7 @@
     "description": "İndirdiğiniz veya kendi yazdığınız (.sh) script dosyalarının execution (çalıştırılma) yetkisini açarak terminalden tetiklenebilir hale getirir.",
     "primary_command": "chmod",
     "primary_example": "chmod +x script.sh",
-    "alternatives": ["chown"],
+    "alternatives": [],
     "difficulty": "orta"
   },
   {
@@ -126,7 +126,7 @@
     "description": "Alan adınızın sorunsuz yönlenip yönlenmediğini sınamak için DNS sunucularıyla konuşur ve A, MX, TXT kayıtlarını getirir.",
     "primary_command": "dig",
     "primary_example": "dig a pengui.org",
-    "alternatives": ["host", "nslookup", "ping"],
+    "alternatives": ["host", "nslookup"],
     "difficulty": "orta"
   },
   {
@@ -136,7 +136,7 @@
     "description": "Dünyanın diğer ucundaki bir VPS veya lokal ağınızdaki Raspberry Pi'nin terminaline güvenli (şifreli) bir bağlantı tüneli açar.",
     "primary_command": "ssh",
     "primary_example": "ssh kullanici@ip_adresi",
-    "alternatives": ["scp", "ping"],
+    "alternatives": [],
     "difficulty": "orta"
   },
   {
@@ -158,5 +158,65 @@
     "primary_example": "wget https://ornek.com/dosya.zip",
     "alternatives": ["curl"],
     "difficulty": "kolay"
+  },
+  {
+    "slug": "ufw",
+    "task": "Güvenlik duvarını aç ve port izni ver",
+    "category": "ag-ve-internet",
+    "description": "iptables'in karmaşık sözdiziminden kaçınarak ufw ile güvenlik duvarını basit komutlarla yapılandırırsınız. Uzak sunucularda SSH portuna izin vermeden ufw'yu aktif etmek bağlantınızı kesebilir.",
+    "primary_command": "ufw",
+    "primary_example": "sudo ufw allow 22/tcp && sudo ufw enable",
+    "alternatives": ["iptables", "nft"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "nmcli",
+    "task": "Komut satırından WiFi ağına bağlan",
+    "category": "ag-ve-internet",
+    "description": "Sunucu kurulumlarında ya da masaüstü grafik arayüz erişimi olmadığında WiFi ağlarını listeleyip parolayla bağlanmak için nmcli ideal çözümdür.",
+    "primary_command": "nmcli",
+    "primary_example": "nmcli device wifi connect SSID password GIZLI_SIFRE",
+    "alternatives": ["iw", "iwctl"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "adduser",
+    "task": "Sisteme etkileşimli olarak yeni kullanıcı ekle",
+    "category": "sistem-ve-yonetim",
+    "description": "useradd'in ham haline göre adduser ev dizinini, varsayılan kabuğu ve şifre belirleme adımını otomatik olarak yöneten kullanıcı dostu Debian/Ubuntu aracıdır.",
+    "primary_command": "adduser",
+    "primary_example": "sudo adduser kullanici_adi",
+    "alternatives": ["useradd", "newusers"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "sensors",
+    "task": "Donanım sıcaklığı ve fan hızını gör",
+    "category": "sistem-ve-yonetim",
+    "description": "CPU sıcaklığı, anakart sensörleri ve fan hızlarını okuyarak aşırı ısınma sorunlarını veya termal throttle riskini tespit edersiniz. lm_sensors paketinin kurulu olması gerekir.",
+    "primary_command": "sensors",
+    "primary_example": "sensors",
+    "alternatives": ["lshw"],
+    "difficulty": "kolay"
+  },
+  {
+    "slug": "lshw",
+    "task": "Tüm donanımın detaylı envanterini çıkar",
+    "category": "sistem-ve-yonetim",
+    "description": "Anakartı açmadan CPU, RAM, ekran kartı, ağ adaptörü ve disk gibi tüm donanım bileşenlerinin marka/model/seri numarasını tek komutla listelersiniz.",
+    "primary_command": "lshw",
+    "primary_example": "sudo lshw -short",
+    "alternatives": ["dmidecode", "lscpu", "lspci"],
+    "difficulty": "orta"
+  },
+  {
+    "slug": "mkswap",
+    "task": "Swap dosyası oluştur ve etkinleştir",
+    "category": "sistem-ve-yonetim",
+    "description": "RAM yetersiz kaldığında sistem yavaşlamasını önlemek için bir dosyayı swap alanına çevirirsiniz. Swap dosyası, ayrı disk bölümü ayırmaktan daha esnek bir yöntemdir.",
+    "primary_command": "mkswap",
+    "primary_example": "sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile && sudo swapon /swapfile",
+    "alternatives": ["swapon", "fallocate"],
+    "difficulty": "orta"
   }
 ]
