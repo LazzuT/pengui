@@ -1,12 +1,21 @@
 {
-  "name": "komut-dev",
+  "name": "pengui",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:commands": "tsx scripts/validateCommands.ts",
+    "validate:search": "tsx scripts/validateSearchMappings.ts",
+    "validate:tasks": "tsx scripts/validateTasks.ts",
+    "validate:brand": "tsx scripts/brandCheck.ts",
+    "validate:new-commands": "tsx scripts/validateNewCommandsBatch.ts",
+    "validate": "npm run validate:commands && npm run validate:search && npm run validate:tasks && npm run validate:brand",
+    "generate:new-commands": "tsx scripts/generateNewCommandsBatch.ts",
+    "merge:new-commands": "tsx scripts/mergeNewCommandsBatch.ts",
+    "polish:batch001": "tsx scripts/polishBatch001InPlace.ts"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -23,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tailwindcss": "^4",
+    "tsx": "^4.22.3",
     "typescript": "^5"
   }
 }

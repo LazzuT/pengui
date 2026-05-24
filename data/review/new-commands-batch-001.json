@@ -1,0 +1,1769 @@
+[
+  {
+    "command": "lscpu",
+    "slug": "lscpu",
+    "description_tr": "İşlemci (CPU) mimarisi hakkında detaylı bilgi gösterir",
+    "detail_tr": "lscpu komutu, işlemci (CPU) mimarisi hakkında detaylı bilgi gösterir. Linux sistemlerinde sistem izleme ve donanım bilgisi alanında sıkça kullanılır.",
+    "syntax": "lscpu [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "lscpu",
+        "desc_tr": "İşlemci mimarisi, çekirdek sayısı ve hız bilgilerini gösterir"
+      },
+      {
+        "code": "lscpu -e",
+        "desc_tr": "Her mantıksal CPU hakkında tablo formatında bilgi verir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-e",
+        "desc_tr": "Tüm CPU bilgilerini tablo formatında gösterir"
+      },
+      {
+        "flag": "-p",
+        "desc_tr": "Ayrıştırılabilir (parseable) formatta çıktı verir"
+      },
+      {
+        "flag": "-J",
+        "desc_tr": "JSON formatında çıktı verir"
+      }
+    ],
+    "related": [
+      "lspci",
+      "lsusb",
+      "lshw",
+      "dmidecode",
+      "uname"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "lspci",
+    "slug": "lspci",
+    "description_tr": "Sistemdeki PCI aygıtlarını listeler",
+    "detail_tr": "lspci komutu, Sistemdeki PCI aygıtlarını listeler. Linux sistemlerinde sistem izleme ve donanım bilgisi alanında sıkça kullanılır.",
+    "syntax": "lspci [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "lspci",
+        "desc_tr": "Tüm PCI aygıtlarını kısa formatta listeler"
+      },
+      {
+        "code": "lspci -v",
+        "desc_tr": "PCI aygıtlarını detaylı bilgileriyle gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-v",
+        "desc_tr": "Detaylı bilgi gösterir"
+      },
+      {
+        "flag": "-k",
+        "desc_tr": "Her aygıtın kullandığı çekirdek modülünü gösterir"
+      },
+      {
+        "flag": "-nn",
+        "desc_tr": "Hem adı hem de sayısal kimliği gösterir"
+      }
+    ],
+    "related": [
+      "lscpu",
+      "lsusb",
+      "lshw",
+      "dmidecode"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "lsusb",
+    "slug": "lsusb",
+    "description_tr": "Bağlı USB aygıtlarını listeler",
+    "detail_tr": "lsusb komutu, Bağlı USB aygıtlarını listeler. Linux sistemlerinde sistem izleme ve donanım bilgisi alanında sıkça kullanılır.",
+    "syntax": "lsusb [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "lsusb",
+        "desc_tr": "Bağlı tüm USB aygıtlarını listeler"
+      },
+      {
+        "code": "lsusb -t",
+        "desc_tr": "USB aygıtlarını ağaç yapısında gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-v",
+        "desc_tr": "Detaylı bilgi gösterir"
+      },
+      {
+        "flag": "-t",
+        "desc_tr": "Ağaç yapısında gösterir"
+      }
+    ],
+    "related": [
+      "lscpu",
+      "lspci",
+      "lshw"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "lsmod",
+    "slug": "lsmod",
+    "description_tr": "Yüklü çekirdek modüllerini listeler",
+    "detail_tr": "lsmod komutu, Yüklü çekirdek modüllerini listeler. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "lsmod [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "lsmod",
+        "desc_tr": "Çekirdeğe yüklü tüm modülleri listeler"
+      },
+      {
+        "code": "lsmod | grep snd",
+        "desc_tr": "Ses ile ilgili yüklü modülleri filtreler"
+      }
+    ],
+    "options": [],
+    "related": [
+      "modprobe",
+      "modinfo",
+      "rmmod",
+      "insmod",
+      "depmod"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "modprobe",
+    "slug": "modprobe",
+    "description_tr": "Linux çekirdeğine modül ekler veya çıkarır",
+    "detail_tr": "modprobe komutu, Linux çekirdeğine modül ekler veya çıkarır. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır. Yanlış kullanıldığında sistem yapılandırmasını bozabileceği için dikkatli kullanılmalıdır.",
+    "syntax": "modprobe [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sudo modprobe vboxdrv",
+        "desc_tr": "VirtualBox çekirdek modülünü yükler"
+      },
+      {
+        "code": "sudo modprobe -r vboxdrv",
+        "desc_tr": "VirtualBox çekirdek modülünü kaldırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-r",
+        "desc_tr": "Modülü kaldırır (rmmod yerine önerilir)"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Yapılan işlemleri detaylı gösterir"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Kuru çalıştırma — gerçekte yüklemez"
+      }
+    ],
+    "related": [
+      "lsmod",
+      "modinfo",
+      "rmmod",
+      "insmod",
+      "depmod"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "modinfo",
+    "slug": "modinfo",
+    "description_tr": "Bir çekirdek modülü hakkında bilgi gösterir",
+    "detail_tr": "modinfo komutu, bir çekirdek modülü hakkında bilgi gösterir. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "modinfo [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "modinfo ext4",
+        "desc_tr": "ext4 dosya sistemi modülünün bilgilerini gösterir"
+      },
+      {
+        "code": "modinfo -p iwlwifi",
+        "desc_tr": "WiFi modülünün kabul ettiği parametreleri listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-p",
+        "desc_tr": "Modülün kabul ettiği parametreleri listeler"
+      },
+      {
+        "flag": "-F",
+        "desc_tr": "Sadece belirtilen alanı gösterir (ör: -F version)"
+      }
+    ],
+    "related": [
+      "lsmod",
+      "modprobe"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "depmod",
+    "slug": "depmod",
+    "description_tr": "Çekirdek modüllerinin bağımlılık dosyalarını oluşturur",
+    "detail_tr": "depmod komutu, Çekirdek modüllerinin bağımlılık dosyalarını oluşturur. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır. Yanlış kullanıldığında sistem yapılandırmasını bozabileceği için dikkatli kullanılmalıdır.",
+    "syntax": "depmod [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sudo depmod -a",
+        "desc_tr": "Tüm modüller için bağımlılık dosyalarını yeniden oluşturur"
+      },
+      {
+        "code": "sudo depmod -n",
+        "desc_tr": "Bağımlılıkları yazmadan sadece ekrana basar (dry-run)"
+      }
+    ],
+    "options": [],
+    "related": [
+      "lsmod",
+      "modprobe",
+      "modinfo"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "rmmod",
+    "slug": "rmmod",
+    "description_tr": "Çekirdekten bir modülü kaldırır",
+    "detail_tr": "rmmod komutu, Çekirdekten bir modülü kaldırır. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır. Kullanılan bir modülü kaldırmak donanım arızalarına neden olabilir.",
+    "syntax": "rmmod [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sudo rmmod usbhid",
+        "desc_tr": "usbhid modülünü çekirdekten kaldırır"
+      },
+      {
+        "code": "lsmod | grep usbhid",
+        "desc_tr": "Kaldırmadan önce modülün yüklü olduğunu ve bağımlılıklarını kontrol eder"
+      }
+    ],
+    "options": [],
+    "related": [
+      "lsmod",
+      "modprobe",
+      "insmod"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "insmod",
+    "slug": "insmod",
+    "description_tr": "Çekirdeğe bir modül dosyası yükler",
+    "detail_tr": "insmod komutu, çekirdeğe bir modül dosyası yükler. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır. Yanlış kullanıldığında sistem yapılandırmasını bozabileceği için dikkatli kullanılmalıdır.",
+    "syntax": "insmod [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sudo insmod /lib/modules/mymodule.ko",
+        "desc_tr": "Belirtilen modül dosyasını çekirdeğe yükler"
+      },
+      {
+        "code": "insmod --help",
+        "desc_tr": "Kullanım bilgilerini gösterir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "lsmod",
+      "modprobe",
+      "rmmod"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "sensors",
+    "slug": "sensors",
+    "description_tr": "Donanım sensörlerinden sıcaklık, fan hızı ve voltaj bilgilerini gösterir",
+    "detail_tr": "sensors komutu, Donanım sensörlerinden sıcaklık, fan hızı ve voltaj bilgilerini gösterir. Linux sistemlerinde sistem izleme ve donanım bilgisi alanında sıkça kullanılır.",
+    "syntax": "sensors [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "sensors",
+        "desc_tr": "CPU sıcaklığı, fan hızı ve voltaj bilgilerini gösterir"
+      },
+      {
+        "code": "watch -n 2 sensors",
+        "desc_tr": "Sensör değerlerini 2 saniyede bir canlı izler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-f",
+        "desc_tr": "Sıcaklıkları Fahrenheit cinsinden gösterir"
+      },
+      {
+        "flag": "-j",
+        "desc_tr": "JSON formatında çıktı verir"
+      }
+    ],
+    "related": [
+      "lscpu",
+      "lshw",
+      "dmidecode"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "dmidecode",
+    "slug": "dmidecode",
+    "description_tr": "BIOS/UEFI üzerinden donanım bilgilerini (RAM, anakart, BIOS) gösterir",
+    "detail_tr": "dmidecode komutu, BIOS/UEFI üzerinden donanım bilgilerini (RAM, anakart, BIOS) gösterir. Linux sistemlerinde sistem izleme ve donanım bilgisi alanında sıkça kullanılır.",
+    "syntax": "dmidecode [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "sudo dmidecode -t memory",
+        "desc_tr": "Takılı RAM modüllerinin bilgilerini gösterir"
+      },
+      {
+        "code": "sudo dmidecode -t bios",
+        "desc_tr": "BIOS/UEFI sürüm bilgilerini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-t memory",
+        "desc_tr": "Sadece RAM bilgilerini gösterir"
+      },
+      {
+        "flag": "-t bios",
+        "desc_tr": "Sadece BIOS bilgilerini gösterir"
+      },
+      {
+        "flag": "-t system",
+        "desc_tr": "Sistem üretici bilgilerini gösterir"
+      }
+    ],
+    "related": [
+      "lscpu",
+      "lspci",
+      "lshw",
+      "sensors"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "hwclock",
+    "slug": "hwclock",
+    "description_tr": "Donanım (BIOS) saatini okur veya ayarlar",
+    "detail_tr": "hwclock komutu, Donanım (BIOS) saatini okur veya ayarlar. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "hwclock [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sudo hwclock --show",
+        "desc_tr": "Donanım saatinin mevcut zamanını gösterir"
+      },
+      {
+        "code": "sudo hwclock --systohc",
+        "desc_tr": "Sistem saatini donanım saatine yazar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "--show",
+        "desc_tr": "Donanım saatini gösterir"
+      },
+      {
+        "flag": "--systohc",
+        "desc_tr": "Sistem saatini donanım saatine yazar"
+      },
+      {
+        "flag": "--hctosys",
+        "desc_tr": "Donanım saatini sistem saatine yazar"
+      }
+    ],
+    "related": [
+      "date",
+      "timedatectl"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "sysctl",
+    "slug": "sysctl",
+    "description_tr": "Çalışan çekirdeğin parametrelerini okur ve değiştirir",
+    "detail_tr": "sysctl komutu, çalışan çekirdeğin parametrelerini okur ve değiştirir. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır. Yanlış parametre değişikliği sistemin dengesizleşmesine yol açabilir.",
+    "syntax": "sysctl [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sysctl -a | head -20",
+        "desc_tr": "Tüm çekirdek parametrelerinin ilk 20 satırını gösterir"
+      },
+      {
+        "code": "sudo sysctl -w net.ipv4.ip_forward=1",
+        "desc_tr": "IP yönlendirmeyi geçici olarak aktif eder (yeniden başlatmada sıfırlanır, kalıcı yapmak için /etc/sysctl.conf düzenleyin)"
+      }
+    ],
+    "options": [],
+    "related": [
+      "uname"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ldconfig",
+    "slug": "ldconfig",
+    "description_tr": "Paylaşılan kütüphanelerin dinamik bağlayıcı önbelleğini günceller",
+    "detail_tr": "ldconfig komutu, Paylaşılan kütüphanelerin dinamik bağlayıcı önbelleğini günceller. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır. Hatalı yapılandırma uygulamaların çalışmamasına neden olabilir.",
+    "syntax": "ldconfig [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sudo ldconfig",
+        "desc_tr": "Paylaşılan kütüphane önbelleğini günceller"
+      },
+      {
+        "code": "ldconfig -p | grep libssl",
+        "desc_tr": "Önbellekte libssl kütüphanesini arar"
+      }
+    ],
+    "options": [],
+    "related": [],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "logrotate",
+    "slug": "logrotate",
+    "description_tr": "Sistem log dosyalarını döndürür, sıkıştırır ve yönetir",
+    "detail_tr": "logrotate komutu, Sistem log dosyalarını döndürür, sıkıştırır ve yönetir. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "logrotate [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "sudo logrotate /etc/logrotate.conf",
+        "desc_tr": "Log döndürme yapılandırmasını çalıştırır"
+      },
+      {
+        "code": "sudo logrotate -d /etc/logrotate.conf",
+        "desc_tr": "Ne yapılacağını gösterir ama uygulamaz (debug modu)"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Debug modu — ne yapılacağını gösterir ama uygulamaz"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "Döndürmeyi zorlar"
+      },
+      {
+        "flag": "-v",
+        "desc_tr": "Ayrıntılı çıktı verir"
+      }
+    ],
+    "related": [
+      "journalctl",
+      "cron"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "mkswap",
+    "slug": "mkswap",
+    "description_tr": "Bir disk bölümünü veya dosyayı takas (swap) alanı olarak hazırlar",
+    "detail_tr": "mkswap komutu, bir disk bölümünü veya dosyayı takas (swap) alanı olarak hazırlar. Linux sistemlerinde disk ve depolama yönetimi alanında sıkça kullanılır. DİKKAT: Yanlış disk veya bölüm seçimi veri kaybına yol açabilir.",
+    "syntax": "mkswap [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile",
+        "desc_tr": "Swap dosyası oluşturur ve swap alanı olarak hazırlar (güvenli yöntem)"
+      },
+      {
+        "code": "sudo mkswap /swapfile",
+        "desc_tr": "Mevcut bir dosyayı swap alanı olarak biçimlendirir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "swapon",
+      "swapoff",
+      "fallocate",
+      "free"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "swapon",
+    "slug": "swapon",
+    "description_tr": "Takas (swap) alanını etkinleştirir",
+    "detail_tr": "swapon komutu, Takas (swap) alanını etkinleştirir. Linux sistemlerinde disk ve depolama yönetimi alanında sıkça kullanılır. DİKKAT: Yanlış disk veya bölüm seçimi veri kaybına yol açabilir.",
+    "syntax": "swapon [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo swapon /dev/sda2",
+        "desc_tr": "Belirtilen swap bölümünü etkinleştirir"
+      },
+      {
+        "code": "swapon --show",
+        "desc_tr": "Aktif swap alanlarının özetini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "--show",
+        "desc_tr": "Aktif swap alanlarını gösterir"
+      },
+      {
+        "flag": "-a",
+        "desc_tr": "/etc/fstab içindeki tüm swap alanlarını etkinleştirir"
+      }
+    ],
+    "related": [
+      "mkswap",
+      "swapoff",
+      "free"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "swapoff",
+    "slug": "swapoff",
+    "description_tr": "Takas (swap) alanını devre dışı bırakır",
+    "detail_tr": "swapoff komutu, Takas (swap) alanını devre dışı bırakır. Linux sistemlerinde disk ve depolama yönetimi alanında sıkça kullanılır. Yeterli RAM yokken swap kapatmak sistemin kilitlenmesine neden olabilir.",
+    "syntax": "swapoff [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo swapoff /dev/sda2",
+        "desc_tr": "Belirtilen swap bölümünü devre dışı bırakır"
+      },
+      {
+        "code": "sudo swapoff -a",
+        "desc_tr": "Tüm swap alanlarını devre dışı bırakır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Tüm swap alanlarını devre dışı bırakır"
+      }
+    ],
+    "related": [
+      "mkswap",
+      "swapon",
+      "free"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "fstrim",
+    "slug": "fstrim",
+    "description_tr": "SSD disklerde kullanılmayan blokları serbest bırakarak performansı artırır",
+    "detail_tr": "fstrim komutu, SSD disklerde kullanılmayan blokları serbest bırakarak performansı artırır. Linux sistemlerinde disk ve depolama yönetimi alanında sıkça kullanılır.",
+    "syntax": "fstrim [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo fstrim -v /",
+        "desc_tr": "Kök dosya sisteminde SSD TRIM çalıştırır ve sonucu gösterir"
+      },
+      {
+        "code": "sudo fstrim -a",
+        "desc_tr": "Tüm bağlı dosya sistemlerinde TRIM çalıştırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-v",
+        "desc_tr": "Serbest bırakılan alan miktarını gösterir"
+      },
+      {
+        "flag": "-a",
+        "desc_tr": "Tüm bağlı dosya sistemlerinde çalıştırır"
+      }
+    ],
+    "related": [
+      "df",
+      "mount"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "losetup",
+    "slug": "losetup",
+    "description_tr": "Döngü (loop) aygıtlarını kurar ve yönetir",
+    "detail_tr": "losetup komutu, Döngü (loop) aygıtlarını kurar ve yönetir. Linux sistemlerinde disk ve depolama yönetimi alanında sıkça kullanılır. Yanlış kullanıldığında sistem yapılandırmasını bozabileceği için dikkatli kullanılmalıdır.",
+    "syntax": "losetup [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo losetup /dev/loop0 disk.img",
+        "desc_tr": "Disk imajını loop aygıtına bağlar"
+      },
+      {
+        "code": "losetup -a",
+        "desc_tr": "Aktif tüm loop aygıtlarını listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Aktif tüm loop aygıtlarını listeler"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Loop aygıtını ayırır"
+      },
+      {
+        "flag": "-f",
+        "desc_tr": "İlk boş loop aygıtını gösterir"
+      }
+    ],
+    "related": [
+      "mount",
+      "dd"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "blockdev",
+    "slug": "blockdev",
+    "description_tr": "Blok aygıtları üzerinde düşük seviye işlemler yapar",
+    "detail_tr": "blockdev komutu, Blok aygıtları üzerinde düşük seviye işlemler yapar. Linux sistemlerinde disk ve depolama yönetimi alanında sıkça kullanılır. DİKKAT: Yanlış disk veya bölüm seçimi veri kaybına yol açabilir.",
+    "syntax": "blockdev [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo blockdev --getsize64 /dev/sda",
+        "desc_tr": "Diskin toplam boyutunu bayt cinsinden gösterir"
+      },
+      {
+        "code": "sudo blockdev --getro /dev/sda",
+        "desc_tr": "Diskin salt okunur durumunu sorgular"
+      }
+    ],
+    "options": [],
+    "related": [
+      "fdisk",
+      "lsblk"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "cryptsetup",
+    "slug": "cryptsetup",
+    "description_tr": "LUKS şifreli disk bölümlerini oluşturur ve yönetir",
+    "detail_tr": "cryptsetup komutu, LUKS şifreli disk bölümlerini oluşturur ve yönetir. Linux sistemlerinde disk ve depolama yönetimi alanında sıkça kullanılır. DİKKAT: luksFormat işlemi seçilen bölümdeki tüm verileri geri dönüşümsüz olarak siler.",
+    "syntax": "cryptsetup [seçenekler]",
+    "category": "disk-yonetimi",
+    "examples": [
+      {
+        "code": "sudo cryptsetup luksFormat /dev/sdX",
+        "desc_tr": "Bölümü LUKS ile şifreler (DİKKAT: seçilen bölümdeki tüm verileri geri dönüşümsüz siler! Doğru diski seçtiğinizden emin olun)"
+      },
+      {
+        "code": "sudo cryptsetup luksOpen /dev/sdX mydata",
+        "desc_tr": "Şifreli bölümü açar ve /dev/mapper/mydata olarak erişilebilir yapar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "luksFormat",
+        "desc_tr": "Bölümü LUKS ile şifreler (DİKKAT: veri siler!)"
+      },
+      {
+        "flag": "luksOpen",
+        "desc_tr": "Şifreli bölümü açar"
+      },
+      {
+        "flag": "luksClose",
+        "desc_tr": "Açık şifreli bölümü kapatır"
+      }
+    ],
+    "related": [
+      "lsblk",
+      "mount",
+      "umount"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "nmcli",
+    "slug": "nmcli",
+    "description_tr": "NetworkManager için komut satırı aracı; WiFi ve ağ bağlantılarını yönetir",
+    "detail_tr": "nmcli komutu, NetworkManager için komut satırı aracı; WiFi ve ağ bağlantılarını yönetir. Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır.",
+    "syntax": "nmcli [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "nmcli device status",
+        "desc_tr": "Tüm ağ arayüzlerinin durumunu gösterir"
+      },
+      {
+        "code": "nmcli device wifi list",
+        "desc_tr": "Çevredeki WiFi ağlarını listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "device status",
+        "desc_tr": "Ağ arayüzlerinin durumunu gösterir"
+      },
+      {
+        "flag": "device wifi list",
+        "desc_tr": "Çevredeki WiFi ağlarını listeler"
+      },
+      {
+        "flag": "connection show",
+        "desc_tr": "Kayıtlı bağlantıları listeler"
+      }
+    ],
+    "related": [
+      "ip",
+      "ifconfig",
+      "networkctl",
+      "resolvectl"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ethtool",
+    "slug": "ethtool",
+    "description_tr": "Ethernet arayüzlerinin ayarlarını sorgular ve değiştirir",
+    "detail_tr": "ethtool komutu, Ethernet arayüzlerinin ayarlarını sorgular ve değiştirir. Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır.",
+    "syntax": "ethtool [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "ethtool eth0",
+        "desc_tr": "Ethernet arayüzünün hız ve bağlantı bilgilerini gösterir"
+      },
+      {
+        "code": "sudo ethtool -s eth0 speed 100",
+        "desc_tr": "Ethernet hızını 100 Mbit olarak ayarlar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-i",
+        "desc_tr": "Arayüzün sürücü bilgisini gösterir"
+      },
+      {
+        "flag": "-S",
+        "desc_tr": "Arayüz istatistiklerini gösterir"
+      }
+    ],
+    "related": [
+      "ip",
+      "ifconfig",
+      "nmcli"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "iptables",
+    "slug": "iptables",
+    "description_tr": "Linux çekirdek güvenlik duvarı (netfilter) kurallarını yönetir",
+    "detail_tr": "iptables komutu, Linux çekirdek güvenlik duvarı (netfilter) kurallarını yönetir. Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır. Uzaktan erişilen sunucularda yanlış kural bağlantınızı kesebilir.",
+    "syntax": "iptables [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "sudo iptables -L -n -v",
+        "desc_tr": "Mevcut güvenlik duvarı kurallarını detaylı listeler"
+      },
+      {
+        "code": "sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT",
+        "desc_tr": "HTTP (port 80) trafiğine izin verir (DİKKAT: uzaktan erişilen sunucularda SSH kuralı eklemeden flush yapmayın)"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-L",
+        "desc_tr": "Tüm kuralları listeler"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "IP adreslerini sayısal gösterir (DNS çözümlemez)"
+      },
+      {
+        "flag": "-F",
+        "desc_tr": "Tüm kuralları temizler (DİKKAT!)"
+      },
+      {
+        "flag": "-A",
+        "desc_tr": "Zincire yeni kural ekler"
+      }
+    ],
+    "related": [
+      "ufw",
+      "nft",
+      "ss",
+      "netstat"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "ufw",
+    "slug": "ufw",
+    "description_tr": "Basitleştirilmiş güvenlik duvarı yönetim aracı (Uncomplicated Firewall)",
+    "detail_tr": "ufw komutu, Basitleştirilmiş güvenlik duvarı yönetim aracı (Uncomplicated Firewall). Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır. Uzaktan erişilen sunucularda yanlış kural bağlantınızı kesebilir.",
+    "syntax": "ufw [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "sudo ufw status verbose",
+        "desc_tr": "Güvenlik duvarı durumunu ve kuralları gösterir"
+      },
+      {
+        "code": "sudo ufw allow 22/tcp",
+        "desc_tr": "SSH bağlantısına izin verir (DİKKAT: uzak sunucuda önce SSH izni vermeden UFW aktif etmeyin)"
+      }
+    ],
+    "options": [
+      {
+        "flag": "status",
+        "desc_tr": "Güvenlik duvarı durumunu gösterir"
+      },
+      {
+        "flag": "enable",
+        "desc_tr": "Güvenlik duvarını aktif eder"
+      },
+      {
+        "flag": "allow",
+        "desc_tr": "Belirtilen port/servise izin verir"
+      },
+      {
+        "flag": "deny",
+        "desc_tr": "Belirtilen port/servisi engeller"
+      }
+    ],
+    "related": [
+      "iptables",
+      "nft",
+      "ss"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "nft",
+    "slug": "nft",
+    "description_tr": "nftables güvenlik duvarı çerçevesini yönetir (iptables'ın modern halefi)",
+    "detail_tr": "nft komutu, Nftables güvenlik duvarı çerçevesini yönetir (iptables'ın modern halefi). Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır. Uzaktan erişilen sunucularda yanlış kural bağlantınızı kesebilir.",
+    "syntax": "nft [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "sudo nft list ruleset",
+        "desc_tr": "Tüm nftables kurallarını listeler"
+      },
+      {
+        "code": "sudo nft add table inet filter",
+        "desc_tr": "Yeni bir filtre tablosu oluşturur (DİKKAT: uzak sunucularda dikkatli kullanın)"
+      }
+    ],
+    "options": [],
+    "related": [
+      "iptables",
+      "ufw",
+      "ss"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "tc",
+    "slug": "tc",
+    "description_tr": "Ağ trafiği kontrol ve şekillendirme ayarlarını yönetir",
+    "detail_tr": "tc komutu, Ağ trafiği kontrol ve şekillendirme ayarlarını yönetir. Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır. Yanlış trafik kuralları ağ bağlantısını tamamen kesebilir.",
+    "syntax": "tc [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "tc qdisc show",
+        "desc_tr": "Mevcut trafik kontrol kurallarını gösterir"
+      },
+      {
+        "code": "sudo tc qdisc add dev eth0 root netem delay 100ms",
+        "desc_tr": "Ağ arayüzüne 100ms gecikme ekler (DİKKAT: test sonrası kuralı silmeyi unutmayın, aksi halde ağ yavaş kalır)"
+      }
+    ],
+    "options": [],
+    "related": [
+      "ip",
+      "iptables"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "iw",
+    "slug": "iw",
+    "description_tr": "Kablosuz (WiFi) ağ aygıtlarını yapılandırır ve bilgi gösterir",
+    "detail_tr": "iw komutu, Kablosuz (WiFi) ağ aygıtlarını yapılandırır ve bilgi gösterir. Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır.",
+    "syntax": "iw [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "iw dev",
+        "desc_tr": "Kablosuz ağ arayüzlerini listeler"
+      },
+      {
+        "code": "sudo iw dev wlan0 scan | grep SSID",
+        "desc_tr": "Çevredeki WiFi ağ isimlerini tarar"
+      }
+    ],
+    "options": [
+      {
+        "flag": "dev",
+        "desc_tr": "Kablosuz arayüzleri listeler"
+      },
+      {
+        "flag": "dev wlan0 scan",
+        "desc_tr": "Çevredeki WiFi ağlarını tarar"
+      },
+      {
+        "flag": "dev wlan0 info",
+        "desc_tr": "Arayüz bilgilerini gösterir"
+      }
+    ],
+    "related": [
+      "nmcli",
+      "ip",
+      "ifconfig"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "resolvectl",
+    "slug": "resolvectl",
+    "description_tr": "DNS çözümleme ayarlarını sorgular ve yapılandırır",
+    "detail_tr": "resolvectl komutu, DNS çözümleme ayarlarını sorgular ve yapılandırır. Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır.",
+    "syntax": "resolvectl [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "resolvectl status",
+        "desc_tr": "DNS çözümleme durumunu ve yapılandırmasını gösterir"
+      },
+      {
+        "code": "resolvectl query pengui.org",
+        "desc_tr": "Belirtilen alan adının DNS kaydını sorgular"
+      }
+    ],
+    "options": [
+      {
+        "flag": "status",
+        "desc_tr": "DNS yapılandırma durumunu gösterir"
+      },
+      {
+        "flag": "query",
+        "desc_tr": "Alan adı sorgusu yapar"
+      }
+    ],
+    "related": [
+      "dig",
+      "nslookup",
+      "host",
+      "networkctl"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "networkctl",
+    "slug": "networkctl",
+    "description_tr": "Ağ bağlantılarının durumunu sorgular ve yönetir",
+    "detail_tr": "networkctl komutu, Ağ bağlantılarının durumunu sorgular ve yönetir. Linux sistemlerinde ağ yapılandırması ve güvenlik alanında sıkça kullanılır.",
+    "syntax": "networkctl [seçenekler]",
+    "category": "ag",
+    "examples": [
+      {
+        "code": "networkctl status",
+        "desc_tr": "Tüm ağ bağlantılarının genel durumunu gösterir"
+      },
+      {
+        "code": "networkctl list",
+        "desc_tr": "Ağ arayüzlerini tablo halinde listeler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "status",
+        "desc_tr": "Ağ durumunu gösterir"
+      },
+      {
+        "flag": "list",
+        "desc_tr": "Ağ arayüzlerini listeler"
+      }
+    ],
+    "related": [
+      "nmcli",
+      "ip",
+      "resolvectl"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "adduser",
+    "slug": "adduser",
+    "description_tr": "Sisteme etkileşimli olarak yeni kullanıcı ekler (useradd'in kullanıcı dostu hali)",
+    "detail_tr": "adduser komutu, Sisteme etkileşimli olarak yeni kullanıcı ekler (useradd'in kullanıcı dostu hali). Linux sistemlerinde kullanıcı ve grup yönetimi alanında sıkça kullanılır. Yönetici grubuna eklenen kullanıcılar sisteme tam erişim kazanır.",
+    "syntax": "adduser [seçenekler]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo adduser ali",
+        "desc_tr": "ali adında yeni bir kullanıcı oluşturur ve ev dizinini hazırlar"
+      },
+      {
+        "code": "sudo adduser ali sudo",
+        "desc_tr": "ali kullanıcısını sudo grubuna ekler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "--home",
+        "desc_tr": "Ev dizini yolunu belirler"
+      },
+      {
+        "flag": "--shell",
+        "desc_tr": "Kullanıcının kabuğunu belirler"
+      },
+      {
+        "flag": "--disabled-password",
+        "desc_tr": "Şifresiz kullanıcı oluşturur"
+      }
+    ],
+    "related": [
+      "deluser",
+      "useradd",
+      "usermod",
+      "passwd"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "deluser",
+    "slug": "deluser",
+    "description_tr": "Sistemden bir kullanıcıyı ve opsiyonel olarak ev dizinini siler",
+    "detail_tr": "deluser komutu, Sistemden bir kullanıcıyı ve opsiyonel olarak ev dizinini siler. Linux sistemlerinde kullanıcı ve grup yönetimi alanında sıkça kullanılır. Kullanıcı silme işlemi geri alınamaz, ev dizini silinirse veriler kaybolur.",
+    "syntax": "deluser [seçenekler]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo deluser ali",
+        "desc_tr": "ali kullanıcısını sistemden siler (ev dizini kalır)"
+      },
+      {
+        "code": "sudo deluser --remove-home ali",
+        "desc_tr": "ali kullanıcısını ev diziniyle birlikte siler"
+      }
+    ],
+    "options": [
+      {
+        "flag": "--remove-home",
+        "desc_tr": "Ev dizinini de siler"
+      },
+      {
+        "flag": "--backup",
+        "desc_tr": "Silmeden önce yedek alır"
+      }
+    ],
+    "related": [
+      "adduser",
+      "userdel"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "addgroup",
+    "slug": "addgroup",
+    "description_tr": "Sisteme yeni bir grup ekler",
+    "detail_tr": "addgroup komutu, Sisteme yeni bir grup ekler. Linux sistemlerinde kullanıcı ve grup yönetimi alanında sıkça kullanılır. Yanlış kullanıldığında sistem yapılandırmasını bozabileceği için dikkatli kullanılmalıdır.",
+    "syntax": "addgroup [seçenekler]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo addgroup gelistiriciler",
+        "desc_tr": "gelistiriciler adında yeni bir grup oluşturur"
+      },
+      {
+        "code": "sudo addgroup --gid 1500 ozelgrup",
+        "desc_tr": "Belirtilen GID ile yeni grup oluşturur"
+      }
+    ],
+    "options": [],
+    "related": [
+      "delgroup",
+      "groupadd",
+      "groupmod"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "delgroup",
+    "slug": "delgroup",
+    "description_tr": "Sistemden bir grubu siler",
+    "detail_tr": "delgroup komutu, Sistemden bir grubu siler. Linux sistemlerinde kullanıcı ve grup yönetimi alanında sıkça kullanılır. Kullanıcıların bağlı olduğu bir grubu silmek erişim sorunlarına yol açabilir.",
+    "syntax": "delgroup [seçenekler]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo delgroup eskigrup",
+        "desc_tr": "Belirtilen grubu sistemden siler"
+      },
+      {
+        "code": "delgroup --help",
+        "desc_tr": "Kullanım seçeneklerini gösterir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "addgroup",
+      "groupdel"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "chpasswd",
+    "slug": "chpasswd",
+    "description_tr": "Toplu şekilde kullanıcı şifrelerini günceller",
+    "detail_tr": "chpasswd komutu, toplu şekilde kullanıcı şifrelerini günceller. Linux sistemlerinde kullanıcı ve grup yönetimi alanında sıkça kullanılır. Toplu şifre değişikliği dikkatli yapılmalıdır, hatalı giriş hesapları kilitleyebilir.",
+    "syntax": "chpasswd [seçenekler]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "echo 'ali:yenisifre123' | sudo chpasswd",
+        "desc_tr": "ali kullanıcısının şifresini toplu olarak günceller"
+      },
+      {
+        "code": "sudo chpasswd < sifre_listesi.txt",
+        "desc_tr": "Dosyadaki kullanıcı:şifre çiftlerini toplu uygular"
+      }
+    ],
+    "options": [],
+    "related": [
+      "passwd",
+      "adduser"
+    ],
+    "difficulty": "orta",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "vipw",
+    "slug": "vipw",
+    "description_tr": "Passwd veya group dosyasını güvenli şekilde düzenler",
+    "detail_tr": "vipw komutu, passwd veya group dosyasını güvenli şekilde düzenler. Linux sistemlerinde kullanıcı ve grup yönetimi alanında sıkça kullanılır. passwd/group dosyasını bozarsanız kimse sisteme giriş yapamayabilir.",
+    "syntax": "vipw [seçenekler]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo vipw",
+        "desc_tr": "/etc/passwd dosyasını güvenli şekilde düzenler"
+      },
+      {
+        "code": "sudo vipw -g",
+        "desc_tr": "/etc/group dosyasını güvenli şekilde düzenler"
+      }
+    ],
+    "options": [],
+    "related": [
+      "passwd",
+      "adduser",
+      "usermod"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "newusers",
+    "slug": "newusers",
+    "description_tr": "Bir dosyadan toplu olarak yeni kullanıcılar oluşturur",
+    "detail_tr": "newusers komutu, bir dosyadan toplu olarak yeni kullanıcılar oluşturur. Linux sistemlerinde kullanıcı ve grup yönetimi alanında sıkça kullanılır. Yanlış kullanıldığında sistem yapılandırmasını bozabileceği için dikkatli kullanılmalıdır.",
+    "syntax": "newusers [seçenekler]",
+    "category": "kullanici-yonetimi",
+    "examples": [
+      {
+        "code": "sudo newusers kullanici_listesi.txt",
+        "desc_tr": "Dosyadan toplu olarak yeni kullanıcılar oluşturur"
+      },
+      {
+        "code": "newusers --help",
+        "desc_tr": "Dosya formatı ve kullanım bilgilerini gösterir"
+      }
+    ],
+    "options": [],
+    "related": [
+      "adduser",
+      "useradd",
+      "chpasswd"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "mktemp",
+    "slug": "mktemp",
+    "description_tr": "Benzersiz adla geçici dosya veya dizin oluşturur",
+    "detail_tr": "mktemp komutu, benzersiz adla geçici dosya veya dizin oluşturur. Linux sistemlerinde dosya ve dizin işlemleri alanında sıkça kullanılır.",
+    "syntax": "mktemp [seçenekler]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "mktemp",
+        "desc_tr": "Benzersiz adla geçici dosya oluşturur ve yolunu yazdırır"
+      },
+      {
+        "code": "mktemp -d",
+        "desc_tr": "Benzersiz adla geçici dizin oluşturur"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Dosya yerine geçici dizin oluşturur"
+      },
+      {
+        "flag": "-t",
+        "desc_tr": "Şablon ile isim belirler"
+      },
+      {
+        "flag": "-p DIR",
+        "desc_tr": "Belirtilen dizinde oluşturur"
+      }
+    ],
+    "related": [
+      "touch",
+      "mkdir"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "fallocate",
+    "slug": "fallocate",
+    "description_tr": "Bir dosyaya önceden disk alanı ayırır veya serbest bırakır",
+    "detail_tr": "fallocate komutu, bir dosyaya önceden disk alanı ayırır veya serbest bırakır. Linux sistemlerinde dosya ve dizin işlemleri alanında sıkça kullanılır.",
+    "syntax": "fallocate [seçenekler]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "fallocate -l 1G testfile",
+        "desc_tr": "1 GB boyutunda bir dosya oluşturur (anında)"
+      },
+      {
+        "code": "fallocate -l 2G /swapfile",
+        "desc_tr": "Swap dosyası için 2 GB alan ayırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-l",
+        "desc_tr": "Ayrılacak boyutu belirler (ör: 1G, 512M)"
+      }
+    ],
+    "related": [
+      "truncate",
+      "dd",
+      "mkswap"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "rename",
+    "slug": "rename",
+    "description_tr": "Birden fazla dosyayı kurala göre toplu olarak yeniden adlandırır",
+    "detail_tr": "rename komutu, birden fazla dosyayı kurala göre toplu olarak yeniden adlandırır. Linux sistemlerinde dosya ve dizin işlemleri alanında sıkça kullanılır.",
+    "syntax": "rename [seçenekler]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "rename 's/.txt/.md/' *.txt",
+        "desc_tr": "Tüm .txt dosyalarının uzantısını .md olarak değiştirir"
+      },
+      {
+        "code": "rename 's/foto/resim/' *.jpg",
+        "desc_tr": "Dosya adlarındaki foto kelimesini resim ile değiştirir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-v",
+        "desc_tr": "Yeniden adlandırılan dosyaları gösterir"
+      },
+      {
+        "flag": "-n",
+        "desc_tr": "Kuru çalıştırma — değişiklikleri yapmadan gösterir"
+      }
+    ],
+    "related": [
+      "mv",
+      "find"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "xdg-open",
+    "slug": "xdg-open",
+    "description_tr": "Dosya veya URL'yi kullanıcının varsayılan uygulamasıyla açar",
+    "detail_tr": "xdg-open komutu, dosya veya URL'yi kullanıcının varsayılan uygulamasıyla açar. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "xdg-open [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "xdg-open belge.pdf",
+        "desc_tr": "PDF dosyasını varsayılan PDF okuyucuda açar"
+      },
+      {
+        "code": "xdg-open https://pengui.org",
+        "desc_tr": "URL'yi varsayılan tarayıcıda açar"
+      }
+    ],
+    "options": [],
+    "related": [
+      "file"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "tput",
+    "slug": "tput",
+    "description_tr": "Terminal özelliklerini sorgular ve renk/biçim ayarları yapar",
+    "detail_tr": "tput komutu, terminal özelliklerini sorgular ve renk/biçim ayarları yapar. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "tput [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "tput cols",
+        "desc_tr": "Terminal penceresinin sütun sayısını gösterir"
+      },
+      {
+        "code": "tput setaf 2; echo \"Yeşil metin\"; tput sgr0",
+        "desc_tr": "Terminalde yeşil renkli metin yazdırır"
+      }
+    ],
+    "options": [
+      {
+        "flag": "cols",
+        "desc_tr": "Terminal sütun sayısını gösterir"
+      },
+      {
+        "flag": "lines",
+        "desc_tr": "Terminal satır sayısını gösterir"
+      },
+      {
+        "flag": "setaf N",
+        "desc_tr": "Ön plan rengini ayarlar"
+      },
+      {
+        "flag": "sgr0",
+        "desc_tr": "Tüm renk/biçim ayarlarını sıfırlar"
+      }
+    ],
+    "related": [
+      "stty",
+      "echo"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "stty",
+    "slug": "stty",
+    "description_tr": "Terminal satır ayarlarını görüntüler ve değiştirir",
+    "detail_tr": "stty komutu, terminal satır ayarlarını görüntüler ve değiştirir. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "stty [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "stty -a",
+        "desc_tr": "Tüm terminal ayarlarını gösterir"
+      },
+      {
+        "code": "stty size",
+        "desc_tr": "Terminal penceresinin satır ve sütun sayısını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Tüm terminal ayarlarını gösterir"
+      },
+      {
+        "flag": "size",
+        "desc_tr": "Terminal boyutunu (satır sütun) gösterir"
+      }
+    ],
+    "related": [
+      "tput"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "lsb_release",
+    "slug": "lsb_release",
+    "description_tr": "Linux dağıtımının adını, sürümünü ve kod adını gösterir",
+    "detail_tr": "lsb_release komutu, Linux dağıtımının adını, sürümünü ve kod adını gösterir. Linux sistemlerinde sistem izleme ve donanım bilgisi alanında sıkça kullanılır.",
+    "syntax": "lsb_release [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "lsb_release -a",
+        "desc_tr": "Dağıtım adı, sürümü ve kod adı bilgilerini gösterir"
+      },
+      {
+        "code": "lsb_release -d",
+        "desc_tr": "Sadece dağıtım açıklamasını gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-a",
+        "desc_tr": "Tüm dağıtım bilgilerini gösterir"
+      },
+      {
+        "flag": "-d",
+        "desc_tr": "Sadece dağıtım açıklamasını gösterir"
+      },
+      {
+        "flag": "-r",
+        "desc_tr": "Sadece sürüm numarasını gösterir"
+      }
+    ],
+    "related": [
+      "uname",
+      "hostnamectl"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "efibootmgr",
+    "slug": "efibootmgr",
+    "description_tr": "UEFI önyükleme yöneticisi yapılandırmasını görüntüler ve değiştirir",
+    "detail_tr": "efibootmgr komutu, UEFI önyükleme yöneticisi yapılandırmasını görüntüler ve değiştirir. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır. Yanlış önyükleme sırası sistemi açılmaz hale getirebilir.",
+    "syntax": "efibootmgr [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "efibootmgr",
+        "desc_tr": "UEFI önyükleme sırasını ve girdilerini listeler"
+      },
+      {
+        "code": "sudo efibootmgr -o 0001,0002",
+        "desc_tr": "Önyükleme sırasını değiştirir (DİKKAT: yanlış sıra sistemi açılmaz hale getirebilir)"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-o",
+        "desc_tr": "Önyükleme sırasını ayarlar"
+      },
+      {
+        "flag": "-b",
+        "desc_tr": "Belirli bir önyükleme girdisini seçer"
+      },
+      {
+        "flag": "-B",
+        "desc_tr": "Belirli bir önyükleme girdisini siler"
+      }
+    ],
+    "related": [
+      "lsblk"
+    ],
+    "difficulty": "zor",
+    "dangerous": true,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "b2sum",
+    "slug": "b2sum",
+    "description_tr": "BLAKE2 algoritmasıyla dosya sağlama toplamı hesaplar ve doğrular",
+    "detail_tr": "b2sum komutu, BLAKE2 algoritmasıyla dosya sağlama toplamı hesaplar ve doğrular. Linux sistemlerinde dosya ve dizin işlemleri alanında sıkça kullanılır.",
+    "syntax": "b2sum [seçenekler]",
+    "category": "dosya-yonetimi",
+    "examples": [
+      {
+        "code": "b2sum dosya.iso",
+        "desc_tr": "Dosyanın BLAKE2 sağlama toplamını hesaplar"
+      },
+      {
+        "code": "b2sum -c checksum.txt",
+        "desc_tr": "Sağlama toplamlarını dosyadan doğrular"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-c",
+        "desc_tr": "Sağlama toplamlarını dosyadan doğrular"
+      }
+    ],
+    "related": [
+      "md5sum",
+      "sha256sum",
+      "sha512sum"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "base32",
+    "slug": "base32",
+    "description_tr": "Veriyi Base32 formatında kodlar veya çözer",
+    "detail_tr": "base32 komutu, veriyi Base32 formatında kodlar veya çözer. Linux sistemlerinde metin işleme ve dönüştürme alanında sıkça kullanılır.",
+    "syntax": "base32 [seçenekler]",
+    "category": "metin-isleme",
+    "examples": [
+      {
+        "code": "echo 'Merhaba' | base32",
+        "desc_tr": "Metni Base32 formatında kodlar"
+      },
+      {
+        "code": "echo 'JVXGC3TL' | base32 -d",
+        "desc_tr": "Base32 kodlanmış veriyi çözer"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-d",
+        "desc_tr": "Kodlanmış veriyi çözer (decode)"
+      },
+      {
+        "flag": "-w N",
+        "desc_tr": "Çıktıyı N sütunda kaydırır"
+      }
+    ],
+    "related": [
+      "base64"
+    ],
+    "difficulty": "kolay",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "fwupdmgr",
+    "slug": "fwupdmgr",
+    "description_tr": "Donanım yazılımı (firmware) güncellemelerini yönetir",
+    "detail_tr": "fwupdmgr komutu, Donanım yazılımı (firmware) güncellemelerini yönetir. Linux sistemlerinde sistem yönetimi ve yapılandırma alanında sıkça kullanılır.",
+    "syntax": "fwupdmgr [seçenekler]",
+    "category": "sistem-yonetimi",
+    "examples": [
+      {
+        "code": "fwupdmgr get-devices",
+        "desc_tr": "Firmware güncellenebilir aygıtları listeler"
+      },
+      {
+        "code": "fwupdmgr refresh && fwupdmgr get-updates",
+        "desc_tr": "Mevcut firmware güncellemelerini kontrol eder"
+      }
+    ],
+    "options": [
+      {
+        "flag": "get-devices",
+        "desc_tr": "Güncellenebilir aygıtları listeler"
+      },
+      {
+        "flag": "get-updates",
+        "desc_tr": "Mevcut güncellemeleri kontrol eder"
+      },
+      {
+        "flag": "refresh",
+        "desc_tr": "Firmware veritabanını günceller"
+      }
+    ],
+    "related": [
+      "uname",
+      "dmidecode"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  },
+  {
+    "command": "lshw",
+    "slug": "lshw",
+    "description_tr": "Donanım yapılandırmasının detaylı listesini gösterir",
+    "detail_tr": "lshw komutu, Donanım yapılandırmasının detaylı listesini gösterir. Linux sistemlerinde sistem izleme ve donanım bilgisi alanında sıkça kullanılır.",
+    "syntax": "lshw [seçenekler]",
+    "category": "sistem-izleme",
+    "examples": [
+      {
+        "code": "sudo lshw -short",
+        "desc_tr": "Tüm donanım bileşenlerini kısa tablo halinde gösterir"
+      },
+      {
+        "code": "sudo lshw -class network",
+        "desc_tr": "Sadece ağ donanımı bilgilerini gösterir"
+      }
+    ],
+    "options": [
+      {
+        "flag": "-short",
+        "desc_tr": "Kısa tablo formatında gösterir"
+      },
+      {
+        "flag": "-class",
+        "desc_tr": "Sadece belirli donanım sınıfını gösterir"
+      },
+      {
+        "flag": "-html",
+        "desc_tr": "HTML formatında çıktı verir"
+      }
+    ],
+    "related": [
+      "lscpu",
+      "lspci",
+      "lsusb",
+      "dmidecode"
+    ],
+    "difficulty": "orta",
+    "dangerous": false,
+    "scope": "core",
+    "distros": []
+  }
+]
