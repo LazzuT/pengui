@@ -3,7 +3,7 @@
 # 🐧 Pengui (Açık Kaynak & Geliştirme Devam Ediyor)
 **Türkçe Linux Komut Kütüphanesi ve Öğrenim Platformu**
 
-![Next.js](https://img.shields.io/badge/Next.js-14-black)
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-active-success)
 ![LazzuT](https://img.shields.io/badge/LazzuT-Developer-blue)
@@ -32,9 +32,9 @@ Amaç:
 
 ## ✨ Özellikler
 
-- 📚 **300 Linux komutu** (Detaylı parametre ve güvenilirlik notlarıyla)
+- 📚 **350 Linux komutu** (Detaylı parametre ve güvenilirlik notlarıyla)
 - 🔎 **Akıllı komut arama**
-- ⚡ **Fuzzy search destekli komut asistanı** (410+ alias ve keyword)
+- ⚡ **Token-based scoring destekli komut asistanı** (598 alias ve keyword)
 - 📖 **Detaylı komut açıklamaları**
 - 🧭 **Kategori sistemi** (12 ana kategori, `/kategori` hub sayfası)
 - 🐧 **Linux dağıtımlarına göre filtreleme** (Arch, Ubuntu, Debian, Fedora vb.)
@@ -88,8 +88,8 @@ Pengui tamamen statik site mimarisi ile çalışır. Bu sayede:
 - 🔎 SEO dostudur
 
 Teknik veriler:
-- **344** statik sayfa (SSG)
-- **0** build hatası, **0** uyarı (Phase 8 QA Sweep Onaylı)
+- **395** statik sayfa (SSG)
+- **0** build hatası, **0** uyarı (Faz 17 QA Onaylı)
 - **< 1 saniye** yükleme süresi
 - **< 10ms** arama süresi (İstemci taraflı useMemo optimizasyonu)
 
@@ -121,7 +121,9 @@ scripts/      # Kalite kontrol ve otomasyon scriptleri
 **Önemli dosyalar:**
 - `data/commands.json`
 - `data/commandKeywords.json`
+- `data/tasks.json`
 - `scripts/validateCommands.ts`
+- `scripts/validateSearchMappings.ts`
 - `scripts/brandCheck.ts`
 
 ---
@@ -130,14 +132,17 @@ scripts/      # Kalite kontrol ve otomasyon scriptleri
 
 Proje içinde dev-level kalite kontrol scriptleri bulunur.
 
-Komut veri setini (JSON şemasını) doğrulamak için:
+Tüm validasyonları tek seferde çalıştırmak için:
 ```bash
-npx tsx scripts/validateCommands.ts
+npm run validate
 ```
 
-Rebrand (eski marka) kontrolü için:
+Ayrı ayrı çalıştırmak için:
 ```bash
-npx tsx scripts/brandCheck.ts
+npm run validate:commands  # JSON şema doğrulama
+npm run validate:search   # Arama eşleşme kalitesi
+npm run validate:tasks    # Görev slug doğrulama
+npm run validate:brand    # Rebrand kalıntı kontrolü
 ```
 
 ---
@@ -194,6 +199,7 @@ Pengui projesi AI destekli geliştirme ("AI-Assisted Coding") süreci ile tamame
 - ChatGPT
 - Gemini
 - Claude
+- Antigravity
 
 **Amaç:** AI ajanı asistanlığında yazılım geliştirmenin (modern web, SSG, UI tasarım, QA stabilizasyonu) gerçek ve işlevsel bir örneğini herkese sergilemek.
 
@@ -202,11 +208,11 @@ Pengui projesi AI destekli geliştirme ("AI-Assisted Coding") süreci ile tamame
 ## 🎯 Yol Haritası (Mevcut Durum)
 
 **Tamamlananlar:**
-- ✅ Altyapı, Next.js 15, Tailwind v4, Karanlık Tema
+- ✅ Altyapı, Next.js 16, Tailwind v4, Karanlık Tema
 - ✅ Öğrenim Modülleri (`/ogren` ve `/linux`)
-- ✅ Command Database Genişlemesi (Hedef 300 komuta ulaşıldı)
+- ✅ Command Database Genişlemesi (350 komut — Batch-001 dahil)
 - ✅ Faz 8: QA Sweep, Veri Bütünlüğü, UI/UX Audit & Release Readiness (Phase 8.4 - 8.6 Onaylandı)
-- ✅ Vercel Deployment (Sürüm 1.0 Canlı Yayın - `pengui.org` aktif edildi)
+- ✅ Vercel Deployment hazır; `pengui.org` bakım modunda / private preview aşamasında
 
 **Planlanan Geliştirmeler:**
 - [ ] İnteraktif terminal simülasyonları
@@ -249,6 +255,7 @@ LazzuT
 
 [GitHub](https://github.com/LazzuT) •
 [Instagram](https://instagram.com/aliyilmazimben) •
+[Kişisel Sitem](https://aliylmz.me) •
 [Pengui](https://pengui.org)
 
 ---
