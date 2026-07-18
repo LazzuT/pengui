@@ -9,8 +9,8 @@ export interface LearningModule {
 
 export const learningModules: LearningModule[] = [
     {
-        slug: "terminal-nedir",
-        title: "Terminal Nedir?",
+        slug: "terminal-temelleri",
+        title: "Terminal Temelleri",
         description: "Linux terminali (CLI) hakkında temel bilgiler ve neden grafik arayüzden (GUI) farklı olduğu.",
         icon: "🖥️",
         content: `Terminal (veya komut satırı arayüzü - CLI), bilgisayarınızla metin tabanlı olarak iletişim kurmanızı sağlayan bir araçtır. 

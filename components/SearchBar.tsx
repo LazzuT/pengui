@@ -3,11 +3,18 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Command } from "@/types/command";
+import { Task } from "@/types/task";
+import keywordsData from "@/data/commandKeywords.json";
+import tasksData from "@/data/tasks.json";
+import { search as runSearch } from "@/lib/search";
 
 interface SearchBarProps {
     commands: Command[];
     placeholder?: string;
 }
+
+const keywords = keywordsData as Record<string, string>;
+const tasks = tasksData as Task[];
 
 export default function SearchBar({
     commands,
@@ -21,49 +28,20 @@ export default function SearchBar({
     const dropdownRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
 
-    // Debounced search with better fuzzy matching
+    // Arama, lib/search.ts ortak motorunu kullanır. Böylece arama çubuğu da
+    // keyword ve görev farkındalığı kazanır ("metin ara" -> grep gibi).
     const search = useCallback(
         (q: string) => {
-            const trimmed = q.toLowerCase().trim();
+            const trimmed = q.trim();
             if (!trimmed) {
                 setResults([]);
                 setIsOpen(false);
                 return;
             }
 
-            const searchTerms = trimmed.split(/\s+/);
+            const { results } = runSearch(trimmed, { commands, keywords, tasks });
 
-            const filtered = commands
-                .map((cmd) => {
-                    let score = 0;
-                    const commandName = cmd.command.toLowerCase();
-                    const commandDesc = cmd.description_tr.toLowerCase();
-
-                    // Tam eşleşme en yüksek puan
-                    if (commandName === trimmed) {
-                        score += 50;
-                    }
-                    // Kelimenin başında geçiyorsa
-                    else if (commandName.startsWith(trimmed)) {
-                        score += 20;
-                    }
-
-                    // Tüm kelimelerin geçme kontrolü
-                    const allTermsMatch = searchTerms.every(term =>
-                        commandName.includes(term) || commandDesc.includes(term)
-                    );
-
-                    if (allTermsMatch) {
-                        score += 10;
-                    }
-
-                    return { cmd, score };
-                })
-                .filter((item) => item.score > 0)
-                .sort((a, b) => b.score - a.score)
-                .map((item) => item.cmd);
-
-            setResults(filtered.slice(0, 8));
+            setResults(results.slice(0, 8));
             setIsOpen(true);
             setSelectedIndex(-1);
         },
@@ -161,6 +139,11 @@ export default function SearchBar({
                     className="w-full pl-12 pr-4 py-4 bg-surface-card border border-border-subtle rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-all text-sm sm:text-base"
                     aria-label="Komut ara"
                     autoComplete="off"
+                    role="combobox"
+                    aria-expanded={isOpen}
+                    aria-controls="searchbar-listbox"
+                    aria-autocomplete="list"
+                    aria-activedescendant={selectedIndex >= 0 ? `searchbar-option-${selectedIndex}` : undefined}
                 />
                 {query && (
                     <button
@@ -184,18 +167,24 @@ export default function SearchBar({
             {isOpen && (
                 <div
                     ref={dropdownRef}
+                    id="searchbar-listbox"
+                    role="listbox"
+                    aria-label="Arama sonuçları"
                     className="absolute top-full left-0 right-0 mt-2 bg-[#1e293b] border border-[#334155] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] overflow-y-auto max-h-[50vh] z-[100] animate-fade-in"
                 >
                     {results.length === 0 && query.trim() !== "" ? (
                         <div className="w-full text-center px-4 py-8 text-slate-400">
                             <span className="text-2xl mb-2 block">🔍</span>
                             <p className="text-sm font-medium text-slate-300 mb-1">Komut bulunamadı</p>
-                            <p className="text-xs">Daha genel terimlerle (örn. <span className="text-terminal-green">"dosya sil"</span> veya <span className="text-terminal-green">"port tara"</span>) aramayı deneyin.</p>
+                            <p className="text-xs">Daha genel terimlerle (örn. <span className="text-terminal-green">&quot;dosya sil&quot;</span> veya <span className="text-terminal-green">&quot;port tara&quot;</span>) aramayı deneyin.</p>
                         </div>
                     ) : (
                         results.map((cmd, index) => (
                             <button
                                 key={cmd.command}
+                                id={`searchbar-option-${index}`}
+                                role="option"
+                                aria-selected={index === selectedIndex}
                                 onClick={() => navigateToCommand(cmd.command)}
                                 className={`w-full text-left px-4 py-3 flex items-center gap-2 sm:gap-3 transition-colors ${index === selectedIndex
                                     ? "bg-surface-hover border-l-2 border-terminal-green"

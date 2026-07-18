@@ -1,7 +1,11 @@
 // Pengui — Veri erişim katmanı
 
 import commandsData from "@/data/commands.json";
+import keywordsData from "@/data/commandKeywords.json";
+import tasksData from "@/data/tasks.json";
 import { Command, CATEGORIES, Category, DISTROS, Distro } from "@/types/command";
+import { Task } from "@/types/task";
+import { search } from "@/lib/search";
 
 // Tüm komutları getir
 export function getAllCommands(): Command[] {
@@ -28,16 +32,16 @@ export function getCategoryBySlug(slug: string): Category | undefined {
     return CATEGORIES.find((cat) => cat.slug === slug);
 }
 
-// Komut arama (isim ve açıklama üzerinden)
+// Komut arama — ortak lib/search motorunu kullanır (keyword + görev farkındalıklı).
 export function searchCommands(query: string): Command[] {
-    const q = query.toLowerCase().trim();
+    const q = query.trim();
     if (!q) return getAllCommands();
 
-    return getAllCommands().filter(
-        (cmd) =>
-            cmd.command.toLowerCase().includes(q) ||
-            cmd.description_tr.toLowerCase().includes(q)
-    );
+    return search(q, {
+        commands: getAllCommands(),
+        keywords: keywordsData as Record<string, string>,
+        tasks: tasksData as Task[],
+    }).results;
 }
 
 // Tüm komut slug'larını getir (SSG için)

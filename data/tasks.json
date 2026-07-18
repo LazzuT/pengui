@@ -2,7 +2,7 @@
   {
     "slug": "ss",
     "task": "Ağı dinleyen (açık) portları ve servisleri gör",
-    "category": "ag-ve-internet",
+    "category": "ag",
     "description": "Sisteminizde hangi portların dış bağlantılara açık olduğunu ve bu portları hangi programların kullandığını görmek, güvenlik ve ağ sorunlarını çözmek için en temel adımdır.",
     "primary_command": "ss",
     "primary_example": "ss -tulpn",
@@ -12,7 +12,7 @@
   {
     "slug": "du",
     "task": "Dizindeki en büyük dosya ve klasörleri bul",
-    "category": "dosya-islemleri",
+    "category": "dosya-yonetimi",
     "description": "Diskiniz dolduğunda alanı boşa harcayan devasa log dosyalarını veya unutulmuş arşivleri hızlıca tespit etmenin en güvenilir yoludur.",
     "primary_command": "du",
     "primary_example": "du -h -d 1 | sort -hr",
@@ -22,7 +22,7 @@
   {
     "slug": "tail",
     "task": "Bir log dosyasını canlı olarak izle",
-    "category": "sistem-ve-yonetim",
+    "category": "sistem-yonetimi",
     "description": "Bir web sunucusu, veritabanı veya uygulamanın ürettiği logları, dosyaya yeni satırlar eklendikçe anlık (real-time) olarak terminalden takip edebilirsiniz.",
     "primary_command": "tail",
     "primary_example": "tail -f /var/log/syslog",
@@ -42,7 +42,7 @@
   {
     "slug": "df",
     "task": "Toplam disk kullanımını ve boş alanı kontrol et",
-    "category": "sistem-ve-yonetim",
+    "category": "sistem-yonetimi",
     "description": "Bağlı olan tüm disk bölümlerinin toplam kapasitelerini, ne kadarının dolu olduğunu ve bağlantı noktalarını tek bakışta özetler.",
     "primary_command": "df",
     "primary_example": "df -h",
@@ -52,7 +52,7 @@
   {
     "slug": "ip",
     "task": "Bilgisayarın lokal ve public IP adreslerini öğren",
-    "category": "ag-ve-internet",
+    "category": "ag",
     "description": "Ağ yapılandırması sırasında cihazınızın modeme veya dış dünyaya hangi IP adresi ile bağlandığını hızlıca tespit etmek için kullanılır.",
     "primary_command": "ip",
     "primary_example": "ip addr show",
@@ -62,7 +62,7 @@
   {
     "slug": "grep",
     "task": "Bir veya birden fazla dosyanın içinde metin ara",
-    "category": "arama-ve-bulma",
+    "category": "metin-isleme",
     "description": "Hangi dosyada, hangi satırda aradığınız belirli bir kelimenin, hata kodunun veya değişkenin bulunduğunu tüm projeyi tarayarak saniyeler içinde bulmanızı sağlar.",
     "primary_command": "grep",
     "primary_example": "grep -r \"aranacak_kelime\" /klasor/yolu",
@@ -92,7 +92,7 @@
   {
     "slug": "chmod",
     "task": "Bir script veya dosya için çalıştırma izni ver",
-    "category": "dosya-islemleri",
+    "category": "dosya-yonetimi",
     "description": "İndirdiğiniz veya kendi yazdığınız (.sh) script dosyalarının execution (çalıştırılma) yetkisini açarak terminalden tetiklenebilir hale getirir.",
     "primary_command": "chmod",
     "primary_example": "chmod +x script.sh",
@@ -102,17 +102,17 @@
   {
     "slug": "crontab",
     "task": "Belirli zamanlarda otomatik tekrarlayacak görev oluştur",
-    "category": "sistem-ve-yonetim",
+    "category": "sistem-yonetimi",
     "description": "Her gece yedek alma, log temizleme veya haftalık sistem güncellemeleri gibi rutin işlerinizi arka planda siz olmadan otomatize eder.",
     "primary_command": "crontab",
     "primary_example": "crontab -e",
-    "alternatives": ["systemd"],
+    "alternatives": ["systemctl"],
     "difficulty": "zor"
   },
   {
     "slug": "tar",
     "task": "Sıkıştırılmış bir arşivi (tar.gz) klasöre çıkar",
-    "category": "dosya-islemleri",
+    "category": "dosya-yonetimi",
     "description": "Paket olarak indirdiğiniz .tar.gz veya .tar.xz formatındaki arşiv dosyalarını tek komutla bulunduğunuz dizine açar.",
     "primary_command": "tar",
     "primary_example": "tar -xzvf arsiv_adi.tar.gz",
@@ -122,7 +122,7 @@
   {
     "slug": "dig",
     "task": "Bir domain'in arka plandaki DNS ve IP kaydını sorgula",
-    "category": "ag-ve-internet",
+    "category": "ag",
     "description": "Alan adınızın sorunsuz yönlenip yönlenmediğini sınamak için DNS sunucularıyla konuşur ve A, MX, TXT kayıtlarını getirir.",
     "primary_command": "dig",
     "primary_example": "dig a pengui.org",
@@ -132,7 +132,7 @@
   {
     "slug": "ssh",
     "task": "Farklı bir bilgisayara (sunucuya) güvenli şekilde bağlan",
-    "category": "ag-ve-internet",
+    "category": "ag",
     "description": "Dünyanın diğer ucundaki bir VPS veya lokal ağınızdaki Raspberry Pi'nin terminaline güvenli (şifreli) bir bağlantı tüneli açar.",
     "primary_command": "ssh",
     "primary_example": "ssh kullanici@ip_adresi",
@@ -142,7 +142,7 @@
   {
     "slug": "sed",
     "task": "Bir dosyanın içindeki kelimeleri tek seferde toplu değiştir",
-    "category": "metin-islemleri",
+    "category": "metin-isleme",
     "description": "Dosyayı kod editörüyle hiç açmadan, devasa konfigürasyon dosyalarındaki eski IP adreslerini yenisiyle milisaniyeler içinde değiştirmenizi sağlar.",
     "primary_command": "sed",
     "primary_example": "sed -i 's/eski_kelime/yeni_kelime/g' dosya.txt",
@@ -151,8 +151,8 @@
   },
   {
     "slug": "wget",
-    "task": "Terminal üzerinden internetten dosya indir",
-    "category": "ag-ve-internet",
+    "task": "İnternetten komut satırıyla dosya indir",
+    "category": "ag",
     "description": "Arayüzü olmayan bir sunucudayken web üzerinden bir kurulum betiği, resim veya ISO kalıbı indirmenizin standart yoludur.",
     "primary_command": "wget",
     "primary_example": "wget https://ornek.com/dosya.zip",
@@ -162,7 +162,7 @@
   {
     "slug": "ufw",
     "task": "Güvenlik duvarını aç ve port izni ver",
-    "category": "ag-ve-internet",
+    "category": "ag",
     "description": "iptables'in karmaşık sözdiziminden kaçınarak ufw ile güvenlik duvarını basit komutlarla yapılandırırsınız. Uzak sunucularda SSH portuna izin vermeden ufw'yu aktif etmek bağlantınızı kesebilir.",
     "primary_command": "ufw",
     "primary_example": "sudo ufw allow 22/tcp && sudo ufw enable",
@@ -172,17 +172,17 @@
   {
     "slug": "nmcli",
     "task": "Komut satırından WiFi ağına bağlan",
-    "category": "ag-ve-internet",
+    "category": "ag",
     "description": "Sunucu kurulumlarında ya da masaüstü grafik arayüz erişimi olmadığında WiFi ağlarını listeleyip parolayla bağlanmak için nmcli ideal çözümdür.",
     "primary_command": "nmcli",
     "primary_example": "nmcli device wifi connect SSID password GIZLI_SIFRE",
-    "alternatives": ["iw", "iwctl"],
+    "alternatives": ["iw"],
     "difficulty": "orta"
   },
   {
     "slug": "adduser",
     "task": "Sisteme etkileşimli olarak yeni kullanıcı ekle",
-    "category": "sistem-ve-yonetim",
+    "category": "sistem-yonetimi",
     "description": "useradd'in ham haline göre adduser ev dizinini, varsayılan kabuğu ve şifre belirleme adımını otomatik olarak yöneten kullanıcı dostu Debian/Ubuntu aracıdır.",
     "primary_command": "adduser",
     "primary_example": "sudo adduser kullanici_adi",
@@ -192,7 +192,7 @@
   {
     "slug": "sensors",
     "task": "Donanım sıcaklığı ve fan hızını gör",
-    "category": "sistem-ve-yonetim",
+    "category": "sistem-yonetimi",
     "description": "CPU sıcaklığı, anakart sensörleri ve fan hızlarını okuyarak aşırı ısınma sorunlarını veya termal throttle riskini tespit edersiniz. lm_sensors paketinin kurulu olması gerekir.",
     "primary_command": "sensors",
     "primary_example": "sensors",
@@ -202,7 +202,7 @@
   {
     "slug": "lshw",
     "task": "Tüm donanımın detaylı envanterini çıkar",
-    "category": "sistem-ve-yonetim",
+    "category": "sistem-yonetimi",
     "description": "Anakartı açmadan CPU, RAM, ekran kartı, ağ adaptörü ve disk gibi tüm donanım bileşenlerinin marka/model/seri numarasını tek komutla listelersiniz.",
     "primary_command": "lshw",
     "primary_example": "sudo lshw -short",
@@ -212,7 +212,7 @@
   {
     "slug": "mkswap",
     "task": "Swap dosyası oluştur ve etkinleştir",
-    "category": "sistem-ve-yonetim",
+    "category": "sistem-yonetimi",
     "description": "RAM yetersiz kaldığında sistem yavaşlamasını önlemek için bir dosyayı swap alanına çevirirsiniz. Swap dosyası, ayrı disk bölümü ayırmaktan daha esnek bir yöntemdir.",
     "primary_command": "mkswap",
     "primary_example": "sudo fallocate -l 2G /swapfile && sudo chmod 600 /swapfile && sudo mkswap /swapfile && sudo swapon /swapfile",

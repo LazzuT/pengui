@@ -2446,7 +2446,7 @@
     "command": "echo",
     "slug": "echo",
     "description_tr": "Verilen metni veya değişkenin değerini standart çıktıya (terminale) yazdırır",
-    "detail_tr": "echo komutu, belirtilen metni veya değişken değerini terminale yazdırır. Shell scriptlerinde sıkça kullanılır.",
+    "detail_tr": "echo komutu, kendisine verilen metni veya bir değişkenin değerini standart çıktıya (genellikle terminal ekranına) yazdırır. Kabuk (shell) betiklerinde kullanıcıyı bilgilendirmek, değişken içeriğini görüntülemek veya çıktıyı bir dosyaya yönlendirmek için en sık kullanılan komutlardan biridir.",
     "syntax": "echo [seçenekler] [metin]",
     "category": "dosya-yonetimi",
     "examples": [
@@ -9540,8 +9540,8 @@
   {
     "command": "factor",
     "slug": "factor",
-    "description_tr": "Değerleri matematiksel olarak birincil (Asal) çarpanlarına ayrıştırarak hexe yazar",
-    "detail_tr": "İster 15, ister trilyon basamaklı bir şifre kombinasyonu verin anında onu hangi asal sayılara parçalanabileceğini matrisler.",
+    "description_tr": "Verilen bir tam sayıyı asal çarpanlarına ayırır ve ekrana yazar",
+    "detail_tr": "factor komutu, kendisine verilen bir tam sayıyı asal çarpanlarına ayırır ve sonucu ekrana yazdırır. Örneğin 60 sayısı için '60: 2 2 3 5' çıktısını verir. Sayı teorisi alıştırmalarında, matematiksel hesaplamalarda ve bir sayının asal olup olmadığını betiklerle kontrol etmek için kullanılır.",
     "syntax": "factor [sayi]",
     "category": "metin-isleme",
     "examples": [
@@ -12687,7 +12687,7 @@
     "command": "tput",
     "slug": "tput",
     "description_tr": "Terminal özelliklerini sorgular ve renk/biçim ayarları yapar",
-    "detail_tr": "tput, terminal özelliklerini sorgular ve kontrol eder. Sütun/satır sayısını öğrenmek, metin rengini değiştirmek veya imleci konumlandırmak için betiklerde sıkça kullanılır.",
+    "detail_tr": "tput, terminalin yeteneklerini (terminfo veritabanı üzerinden) sorgulayan ve denetleyen bir araçtır. Ekrandaki sütun/satır sayısını öğrenmek, yazı rengini ve biçimini değiştirmek, imleci istenen konuma taşımak veya ekranı temizlemek için kabuk betiklerinde sıkça kullanılır.",
     "syntax": "tput [seçenekler]",
     "category": "sistem-yonetimi",
     "examples": [
