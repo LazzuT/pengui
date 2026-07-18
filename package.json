@@ -15,6 +15,7 @@
     "validate": "npm run validate:commands && npm run validate:search && npm run validate:tasks && npm run validate:brand",
     "generate:new-commands": "tsx scripts/generateNewCommandsBatch.ts",
     "merge:new-commands": "tsx scripts/mergeNewCommandsBatch.ts",
+    "polish:batch": "tsx scripts/polishBatch.ts",
     "polish:batch001": "tsx scripts/polishBatch001InPlace.ts"
   },
   "dependencies": {

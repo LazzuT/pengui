@@ -5,6 +5,7 @@ import path from 'path';
 interface Task {
     slug: string;
     task: string;
+    category: string;
     description: string;
     primary_command: string;
     alternatives: string[];
@@ -12,6 +13,14 @@ interface Task {
 
 const tasksPath = path.join(process.cwd(), 'data/tasks.json');
 const commandsPath = path.join(process.cwd(), 'data/commands.json');
+
+// types/command.ts içindeki CATEGORIES ile aynı 12 kategori namespace'i.
+// tasks.json kategorileri bu küme dışına çıkmamalı (namespace tutarlılığı).
+const VALID_CATEGORIES = new Set([
+    'dosya-yonetimi', 'metin-isleme', 'izinler', 'ag', 'sistem-izleme',
+    'paket-yonetimi', 'kullanici-yonetimi', 'arsivleme', 'surec-yonetimi',
+    'disk-yonetimi', 'sistem-yonetimi', 'yetki-yonetimi',
+]);
 
 function validateTasks() {
     let hasErrors = false;
@@ -44,6 +53,28 @@ function validateTasks() {
         // 2. Slug & Primary command relation verification
         if (!validSlugs.has(task.slug)) {
             console.error(`❌ Task #${itemNumber} ('${task.task}') points to an invalid slug: '${task.slug}'`);
+            hasErrors = true;
+        }
+
+        // 2b. primary_command must reference an existing command
+        if (task.primary_command && !validSlugs.has(task.primary_command)) {
+            console.error(`❌ Task #${itemNumber} ('${task.task}') primary_command points to a non-existent command: '${task.primary_command}'`);
+            hasErrors = true;
+        }
+
+        // 2c. Every alternative must reference an existing command
+        if (Array.isArray(task.alternatives)) {
+            task.alternatives.forEach((alt) => {
+                if (!validSlugs.has(alt)) {
+                    console.error(`❌ Task #${itemNumber} ('${task.task}') has an alternative that points to a non-existent command: '${alt}'`);
+                    hasErrors = true;
+                }
+            });
+        }
+
+        // 2d. Category must be from the shared 12-category namespace
+        if (!task.category || !VALID_CATEGORIES.has(task.category)) {
+            console.error(`❌ Task #${itemNumber} ('${task.task}') has an invalid category: '${task.category}'. Must be one of the 12 command categories.`);
             hasErrors = true;
         }
 

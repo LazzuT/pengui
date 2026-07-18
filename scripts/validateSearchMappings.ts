@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { search } from '../lib/search';
 
 /**
  * Search Mapping Validator
@@ -22,7 +23,7 @@ const FORBIDDEN_SINGLE_WORDS = new Set([
     "dosya", "sistem", "metin", "büyük", "uzun", "gelişmiş",
     "arka", "isme", "isim", "çalışan", "süreci", "mevcut",
     // Faz 18 expansion: previously-poisoned auto-generated keys
-    "linux", "unix", "shell", "terminal", "network",
+    "linux", "shell", "network",
     "sistemi", "sistemin", "kullanıcı", "kullanıcılar", "kullanıcının",
     "sadece", "klasik", "kayıp", "belirtilen", "atanmış",
     "herhangi", "gelecekte", "değerleri", "geleneksel", "microsoft",
@@ -38,7 +39,7 @@ const FORBIDDEN_SINGLE_WORDS = new Set([
     "aynı", "tracerouteın", "kaydedilmişscript", "periyodikzamanlı",
     "hard", "klasör", "dosyaları", "dosyanın", "dosyaların",
     "satırlardaki", "metni", "programlar", "programları",
-    "atanmış", "varsayılan", "diff", "şu",
+    "varsayılan", "diff", "şu",
     // Risk listesinde olan ama tek başına anlamsız olanlar
     "göster", "ekle",
 ]);
@@ -52,6 +53,8 @@ const ALLOWED_BROAD_SINGLE_WORDS = new Set([
     "tarih", "saat", "zaman", "takvim", "geçmiş",
     "neredeyim", "indirme", "silme", "sırala",
     "arşivle", "soketler", "firewall", "luks", "lvfs",
+    // Küratörlü tek-kelime eşleşmeler (exact-match short-circuit ile güvenli)
+    "unix", "terminal",
 ]);
 
 interface GoldenTest {
@@ -181,6 +184,36 @@ function validate() {
             }
         } else {
             console.log(`ℹ️  "${test.query}" → no keyword match (will rely on task matching)`);
+        }
+    }
+
+    // 5. Golden test set: tam pipeline (lib/search ortak motoru, task-scoring dahil)
+    console.log('\n--- Golden Test Set (Full Engine: keyword + task scoring) ---');
+    for (const test of GOLDEN_TESTS) {
+        const result = search(test.query, {
+            commands: commands as any,
+            keywords,
+            tasks: tasks as any,
+        });
+
+        // Motorun çözdüğü komut: önce görev primary_command, sonra tek öneri, sonra ilk sonuç
+        const resolved =
+            result.matchedTask?.primary_command ||
+            result.suggestion?.slug ||
+            result.results[0]?.slug ||
+            null;
+
+        if (!resolved) {
+            console.warn(`⚠️  ENGINE: "${test.query}" → no match`);
+            warnings++;
+        } else if (test.forbidden.includes(resolved)) {
+            console.error(`❌ ENGINE FAIL: "${test.query}" → ${resolved} (FORBIDDEN)`);
+            errors++;
+        } else if (resolved === test.expected_primary || test.acceptable.includes(resolved)) {
+            console.log(`✅ "${test.query}" → ${resolved} [${result.confidence}]`);
+        } else {
+            console.warn(`⚠️  ENGINE: "${test.query}" → ${resolved} (expected: ${test.expected_primary}) [${result.confidence}]`);
+            warnings++;
         }
     }
 

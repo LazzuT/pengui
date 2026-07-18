@@ -68,4 +68,5 @@ if (!foundAny) {
     console.log('\n✅ Tebrikler! Eski markaya ait hiçbir kalıntı bulunamadı.');
 } else {
     console.log('\n❌ Lütfen yukarıdaki dosyaları kontrol edin.');
+    process.exit(1);
 }

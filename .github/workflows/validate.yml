@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   validate:
@@ -21,8 +25,8 @@ jobs:
       - name: Bağımlılıkları Yükle (Install Dependencies)
         run: npm ci
 
-      - name: Veri Seti Validasyonu (Validate JSON Dataset)
-        run: npx tsx scripts/validateCommands.ts
+      - name: Tüm Validatör Zinciri (commands + search + tasks + brand)
+        run: npm run validate
 
       - name: Next.js Proje Build Testi (Build Project)
         run: npm run build

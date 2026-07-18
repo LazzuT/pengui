@@ -200,6 +200,7 @@ Pengui projesi AI destekli geliştirme ("AI-Assisted Coding") süreci ile tamame
 - Gemini
 - Claude
 - Antigravity
+- Cursor
 
 **Amaç:** AI ajanı asistanlığında yazılım geliştirmenin (modern web, SSG, UI tasarım, QA stabilizasyonu) gerçek ve işlevsel bir örneğini herkese sergilemek.
 
