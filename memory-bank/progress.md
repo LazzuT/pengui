@@ -78,6 +78,18 @@
 - [ ] **Pipeline script'leri commit'lenmeli:** `generateNewCommandsBatch.ts`, `mergeNewCommandsBatch.ts`, `polishBatch.ts`, `polishBatch001InPlace.ts`, `polishDetailData.json`, `newCommandsConfig.json`, `validateNewCommandsBatch.ts`, `validateSearchMappings.ts`, `data/review/new-commands-batch-001.json` halen untracked.
 - [ ] **Build doğrulama:** Faz 18 sonrası `npm run build` ve `npm run validate` lokal yeşil onayı.
 
+### Faz 19 (Search Convergence + SEO + A11y + Hijyen)
+- [x] **Ortak arama motoru `lib/search.ts`:** CommandAssistant + SearchBar + `searchCommands()` tek motoru kullanıyor. SearchBar artık keyword/görev farkındalıklı.
+- [x] **Motor iyileştirmeleri:** Disambiguation (`wifi`/`firewall`/`swap`/`kullanıcı`) motora taşındı (`search()` artık `disambiguation` döndürüyor). Tam komut adı önceliği eklendi (`ls`→ls komutu; `grep`→grep görevi korunur).
+- [x] **Test aracı:** `scripts/searchPlayground.ts` — motoru CLI'dan sorgu bataryası/tekil sorgu ile test etmek için.
+- [x] **Golden test genişletildi:** 23 sorgu için hem keyword-fallback hem tam motor (task-scoring) simüle ediliyor; 23/23 geçer. Kısa-token yanlış pozitifi (`network→df`) düzeltildi; `unix→uname`, `terminal→stty` curated.
+- [x] **Validatör + CI sertleştirme:** `validateTasks.ts` alternatives + category denetliyor; `brandCheck.ts` exit 1; CI tam `validate` zinciri + push/workflow_dispatch. `systemd→systemctl`, `iwctl` kaldırıldı; task kategorileri 12'li namespace'e hizalandı.
+- [x] **SEO paketi:** Canonical override (kök sızıntısı kapatıldı), `og-image.png` + metadata, `manifest.ts` + viewport, `BreadcrumbList` + `CollectionPage` JSON-LD, `loading.tsx`/`error.tsx`, `linux/[slug]` kod bloğu render + palet.
+- [x] **A11y:** CopyButton görünürlük, FavoriteButton dinamik aria-label/aria-pressed, CommandAssistant aria-live, SearchBar combobox/listbox, disambiguation kartı.
+- [x] **İçerik/hijyen:** `factor`/`echo`/`tput` yeniden yazıldı; `terminal-nedir`→`terminal-temelleri`; 6 legacy JS `scripts/_legacy/`'ye; `penguizz.zip` silindi; `.env.example` izlenebilir.
+- [x] **Doğrulama:** build 396 sayfa 0 hata; validate yeşil (5 önceden var olan örnek uyarısı hariç).
+- [ ] **Commit:** Oturum değişiklikleri kullanıcı tarafından commit'lenecek.
+
 ## Kalan İşler (Remaining Tasks)
 
 ### Acil (Faz 18 Kapanışı)
@@ -85,11 +97,10 @@
 - [ ] `npm run validate` ve `npm run build` çıktılarını doğrula.
 - [ ] Release smoke test check-listi yaz; bakım modunu (MAINTENANCE_MODE=false) kapatma kararı al.
 
-### Orta Vadeli (Faz 19 — Search Convergence)
-- [ ] `lib/search.ts` ortak arama motoru çıkar; SearchBar ve CommandAssistant ortak skorlama kullansın (tasks ve commandKeywords her ikisinde de).
-- [ ] Bundle boyutu izleme: commands.json 387 KB; 500+ komutta code splitting düşünülmeli.
-- [ ] Repo hijyeni: `pengui.zip` ve `commands.json.backup` lokalde temizlenmeli (gitignore zaten örtüyor).
-- [ ] 5 pre-existing example warning'i düzeltilmeli (groupdel, batch, xzcat, dumpe2fs, tac).
+### Orta Vadeli
+- [x] `lib/search.ts` ortak arama motoru çıkarıldı (Faz 19).
+- [ ] Bundle boyutu izleme: commands.json ~381 KB; 500+ komutta code splitting düşünülmeli.
+- [ ] 5 pre-existing example warning'i düzeltilmeli (groupdel, batch, xzcat, dumpe2fs, tac) — validate'te uyarı olarak görünüyor, bloklamıyor.
 
 ### Uzun Vadeli (Roadmap)
 - [ ] Opsiyonel araç modülleri: Regex deneme asistanı, CRON oluşturucu asistanı vb.

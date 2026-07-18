@@ -34,7 +34,7 @@ Türkiye'de Linux öğrenmek isteyen yeni başlayanlara yardımcı olacak, sevim
 - **350 komut** syntax, metadata ve şema testinden geçerek eklendi.
 - Komut arama `<10 ms` reaksiyon süresinde (istemci taraflı, token-based scoring).
 - Glassmorphism tabanlı karanlık mod, **mobil duyarlı** tasarım.
-- **~394 Route** 0 warning ve Next.js 16.1.6 build ile SSG üretimi.
+- **~396 Route** 0 hata ile Next.js 16.1.6 build ve SSG üretimi (manifest dahil).
 - Tamamen **`pengui.org`** alan adına özel SEO altyapısı (sitemap.xml, robots, canonical, og:image, JSON-LD).
 - Açık kaynak yönetişimi: CONTRIBUTING.md, CODEOWNERS, Issue/PR şablonları, CI workflows.
 

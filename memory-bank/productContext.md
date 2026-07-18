@@ -12,7 +12,7 @@ Türkiye'de Linux öğrenmek isteyen kişiler için Türkçe, düzenli, modern v
 | Problem | Çözüm |
 |---------|-------|
 | Türkçe kaynak azlığı | Tamamen Türkçe, basit jargonla yazılmış 350 komut açıklaması |
-| Bilgiye hızlı erişim zorluğu | Token-based scoring engine, keyword pre-check, fuzzy search ve 598 keyword eşleştirmesi |
+| Bilgiye hızlı erişim zorluğu | Ortak `lib/search.ts` token-based scoring engine, keyword pre-check, fuzzy search ve 539 keyword eşleştirmesi |
 | "Ne yapmak istiyorum ama komutu bilmiyorum" | Görevden Komuta (Task-to-Command): "Açık portları listele" → `ss` |
 | Örneksiz, kuru dokümantasyon | Her komut için 2+ pratik terminal örneği, tehlike uyarıları |
 | Yeni başlayanlar için karmaşık yapı | Sadeleştirilmiş arayüz, 6 adımlı eğitim rotası (`/ogren`), 9 Linux rehberi (`/linux`) |

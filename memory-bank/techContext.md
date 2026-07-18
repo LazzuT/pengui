@@ -8,8 +8,8 @@
 | Dil | TypeScript | 5.x | Strict Mode |
 | UI | React | 19.2.3 | Server + Client Components |
 | Stil | TailwindCSS | v4 | Glassmorphism, dark mode |
-| Veri Kaynağı | JSON Mimarisi | — | `commands.json` (350 Komut, 387 KB), `commandKeywords.json` (537 keyword), `tasks.json` (22 görev) |
-| Kalite Denetimi | Custom TS Scripts | — | 17 script (validate, generate, merge, polish). `validateSearchMappings.ts` 22 sorguluk golden test seti içerir. |
+| Veri Kaynağı | JSON Mimarisi | — | `commands.json` (350 Komut), `commandKeywords.json` (539 keyword), `tasks.json` (22 görev) |
+| Kalite Denetimi | Custom TS Scripts | — | Validate/generate/merge/polish script'leri (legacy JS'ler `scripts/_legacy/`'de). `validateSearchMappings.ts` 23 sorguluk golden test seti içerir (hem keyword fallback hem `lib/search` tam motoru simüle edilir). |
 | Paket Yöneticisi | npm | — | NVM node=v24.14.0 |
 | Hosting | Vercel | — | SSG deploy, `pengui.org` domain |
 
@@ -25,7 +25,7 @@ npm run dev          # http://localhost:3001
 # Kalite (QA) ve Derleme Süreci
 npx tsx scripts/validateCommands.ts       # commands.json şema testi
 npx tsx scripts/validateTasks.ts          # tasks.json slug doğrulama
-npx tsx scripts/validateSearchMappings.ts # Golden test set (9 sorgu)
+npx tsx scripts/validateSearchMappings.ts # Golden test set (23 sorgu)
 npx tsx scripts/validateNewCommandsBatch.ts # Batch duplicate/schema
 npx tsx scripts/brandCheck.ts             # Rebrand kalıntı testi
 npm run build                             # ~394 Sayfalık SSG Üretimi
@@ -66,29 +66,30 @@ linuxcommandweb/
 │   │   CategoryBadge.tsx, DangerWarning.tsx, LayoutWrapper.tsx
 ├── data/
 │   ├── commands.json           # 350 komut (387 KB)
-│   ├── commandKeywords.json    # 537 keyword/alias eşleştirmesi (Faz 18 temizliği sonrası)
+│   ├── commandKeywords.json    # 539 keyword/alias eşleştirmesi
 │   ├── tasks.json              # 22 görev tanımı (Faz 18 ile +6)
 │   ├── linuxContent.json       # 9 rehber makalesi
 │   ├── backups/                # Merge öncesi timestamp'li backup
 │   ├── review/                 # Batch JSON dosyaları (onay için)
 │   └── raw/                    # whatis çıktısı (komut adayları)
-├── scripts/ (17 dosya)
+├── scripts/
 │   ├── validateCommands.ts     # Şema CI check
-│   ├── validateTasks.ts        # Task slug doğrulama
-│   ├── validateSearchMappings.ts # Golden test set
+│   ├── validateTasks.ts        # Task slug + alternatives + category doğrulama
+│   ├── validateSearchMappings.ts # Golden test set (keyword fallback + tam motor)
 │   ├── validateNewCommandsBatch.ts # Batch doğrulama
 │   ├── generateNewCommandsBatch.ts # Batch üretici
 │   ├── mergeNewCommandsBatch.ts    # Batch merge (backup'lı)
 │   ├── polishBatch.ts          # Batch kalite düzeltmeleri
 │   ├── polishBatch001InPlace.ts # detail_tr yeniden yazma
-│   ├── brandCheck.ts           # Eski marka kalıntı kontrolü
-│   └── compile_compact.js, enrich_commands.js, generate_keywords.js,
-│       merge_commands.js, repair_commands.js, select_commands.js
+│   ├── brandCheck.ts           # Eski marka kalıntı kontrolü (artık exit 1)
+│   ├── searchPlayground.ts     # Arama motoru manuel test aracı (CLI)
+│   └── _legacy/                # Artık kullanılmayan 6 eski JS aracı (arşiv)
 ├── hooks/
 │   └── useFavorites.ts         # localStorage hook (dual-state koruma)
 ├── lib/
-│   ├── commands.ts             # getAllCommandSlugs(), getCommandBySlug()
-│   ├── learning.ts             # getNextModule() müfredat okuyucu
+│   ├── commands.ts             # getAllCommandSlugs(), getCommandBySlug(), searchCommands() (lib/search'i kullanır)
+│   ├── search.ts               # Ortak arama motoru (CommandAssistant + SearchBar + searchCommands)
+│   ├── learning.ts             # getAllLearningModules(), getLearningModuleBySlug()
 │   └── linux.ts                # Linux rehber veri okuyucu
 ├── types/
 │   ├── command.ts              # Command, Category, Distro interfaces
