@@ -65,7 +65,7 @@ export async function generateMetadata({
             siteName: "Pengui",
             locale: "tr_TR",
             type: "article",
-
+            images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${command.command} komutu` }],
         },
         twitter: {
             card: "summary_large_image",
@@ -115,11 +115,28 @@ export default async function CommandPage({
         "dateModified": new Date().toISOString().split('T')[0]
     };
 
+    // Schema.org BreadcrumbList — SERP rich snippet için
+    const breadcrumbJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://pengui.org" },
+            ...(category
+                ? [{ "@type": "ListItem", "position": 2, "name": category.name, "item": `https://pengui.org/kategori/${category.slug}` }]
+                : []),
+            { "@type": "ListItem", "position": category ? 3 : 2, "name": command.command, "item": `https://pengui.org/komut/${command.slug}` },
+        ],
+    };
+
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8">

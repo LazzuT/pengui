@@ -41,16 +41,12 @@ body {
 }
 
 .terminal-block::before {
-  content: "";
+  content: "● ● ●";
   display: flex;
   gap: 6px;
   padding: 10px 14px 8px;
   background-color: #1a1a2e;
   border-bottom: 1px solid var(--color-border-subtle);
-}
-
-.terminal-block::before {
-  content: "● ● ●";
   font-size: 10px;
   letter-spacing: 4px;
   color: var(--color-terminal-dim);

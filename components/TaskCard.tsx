@@ -56,7 +56,7 @@ export default function TaskCard({ task }: TaskCardProps) {
                                 <Link
                                     key={alt}
                                     href={`/komut/${alt}`}
-                                    className="text-xs px-2 py-1 bg-surface-dark border border-border-default rounded-md text-slate-300 hover:border-accent hover:text-accent transition-colors"
+                                    className="text-xs px-2 py-1 bg-surface-dark border border-border-subtle rounded-md text-slate-300 hover:border-accent hover:text-accent transition-colors"
                                 >
                                     {alt}
                                 </Link>

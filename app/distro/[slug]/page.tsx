@@ -30,7 +30,9 @@ export async function generateMetadata({
             url: `https://pengui.org/distro/${slug}`,
             siteName: "Pengui",
             locale: "tr_TR",
+            images: [{ url: "/og-image.png", width: 1200, height: 630, alt: distro.name }],
         },
+        alternates: { canonical: `https://pengui.org/distro/${slug}` },
     };
 }
 

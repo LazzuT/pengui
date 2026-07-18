@@ -11,7 +11,9 @@ export const metadata: Metadata = {
         url: "https://pengui.org/distro",
         siteName: "Pengui",
         locale: "tr_TR",
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pengui" }],
     },
+    alternates: { canonical: "https://pengui.org/distro" },
 };
 
 export default function DistroPage() {

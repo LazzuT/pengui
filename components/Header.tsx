@@ -71,7 +71,7 @@ export default function Header() {
                             <span>⭐</span>
                             Favorilerim
                             {isLoaded && favorites.length > 0 && (
-                                <span className="ml-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-dark border border-border-default text-slate-400 leading-none">
+                                <span className="ml-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-dark border border-border-subtle text-slate-400 leading-none">
                                     {favorites.length}
                                 </span>
                             )}
@@ -152,7 +152,7 @@ export default function Header() {
                                     <span>⭐</span>
                                     <span>Favorilerim</span>
                                     {isLoaded && favorites.length > 0 && (
-                                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-dark border border-border-default text-slate-400 leading-none">
+                                        <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-surface-dark border border-border-subtle text-slate-400 leading-none">
                                             {favorites.length}
                                         </span>
                                     )}

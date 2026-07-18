@@ -5,13 +5,31 @@ import { getAllLearningModules } from "@/lib/learning";
 export const metadata: Metadata = {
     title: "Linux Öğrenme Rotası",
     description: "Sıfırdan ileri seviyeye Linux terminalini ve dosya sistemini adım adım öğrenin.",
+    alternates: { canonical: "https://pengui.org/ogren" },
 };
 
 export default function OgrenPage() {
     const modules = getAllLearningModules();
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Linux Öğrenme Rotası",
+        description: "Sıfırdan ileri seviyeye Linux terminalini ve dosya sistemini adım adım öğrenin.",
+        url: "https://pengui.org/ogren",
+        hasPart: modules.map((m) => ({
+            "@type": "LearningResource",
+            name: m.title,
+            url: `https://pengui.org/ogren/${m.slug}`,
+        })),
+    };
+
     return (
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="text-center mb-12 animate-slide-up">
                 <h1 className="text-4xl sm:text-5xl font-bold mb-4">
                     Linux <span className="text-terminal-green">Öğrenme Rotası</span>

@@ -30,8 +30,8 @@ export default function CopyButton({ text }: CopyButtonProps) {
     return (
         <button
             onClick={handleCopy}
-            className="absolute top-2 right-2 p-1.5 rounded-md bg-surface-hover/80 hover:bg-surface-hover text-slate-400 hover:text-white transition-all opacity-0 group-hover:opacity-100"
-            aria-label="Kopyala"
+            className="absolute top-2 right-2 p-1.5 rounded-md bg-surface-hover/80 hover:bg-surface-hover text-slate-400 hover:text-white transition-all opacity-70 group-hover:opacity-100 focus-visible:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+            aria-label={copied ? "Kopyalandı" : "Panoya kopyala"}
             title="Kopyala"
         >
             {copied ? (

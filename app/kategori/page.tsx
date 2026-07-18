@@ -7,14 +7,32 @@ export const metadata: Metadata = {
     title: "Kategoriler",
     description:
         "Linux komutlarını kategorilere göre keşfedin. Dosya yönetimi, ağ, sistem izleme ve daha fazlası.",
+    alternates: { canonical: "https://pengui.org/kategori" },
 };
 
 export default function KategoriPage() {
     const categories = getAllCategories();
     const categoryCounts = getCommandCountByCategory();
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Kategoriler",
+        description: "Linux komutlarını kategorilere göre keşfedin.",
+        url: "https://pengui.org/kategori",
+        hasPart: categories.map((c) => ({
+            "@type": "CollectionPage",
+            name: c.name,
+            url: `https://pengui.org/kategori/${c.slug}`,
+        })),
+    };
+
     return (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8">
                 <Link href="/" className="hover:text-terminal-green transition-colors">

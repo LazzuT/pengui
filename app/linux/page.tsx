@@ -5,6 +5,7 @@ import { getAllLinuxTopics } from '@/lib/linux';
 export const metadata: Metadata = {
     title: 'Linux Rehberi',
     description: 'Linux temel kavramları, işletim sistemi mimarisi ve terimler hakkında kapsamlı Türkçe rehber.',
+    alternates: { canonical: 'https://pengui.org/linux' },
 };
 
 export default async function LinuxIndexPage() {
@@ -21,14 +22,31 @@ export default async function LinuxIndexPage() {
 
     const categoryNames = Object.keys(categoriesObj);
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Linux Rehberi",
+        description: "Linux temel kavramları, işletim sistemi mimarisi ve terimler hakkında kapsamlı Türkçe rehber.",
+        url: "https://pengui.org/linux",
+        hasPart: topics.map((t) => ({
+            "@type": "TechArticle",
+            name: t.title,
+            url: `https://pengui.org/linux/${t.slug}`,
+        })),
+    };
+
     return (
         <div className="max-w-5xl mx-auto px-4 py-12 md:py-20">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <h1 className="text-4xl md:text-5xl font-bold font-sans tracking-tight text-white mb-6 drop-shadow-sm">
                     Linux Rehberi
                 </h1>
                 <p className="text-zinc-400 text-lg max-w-2xl mx-auto font-sans">
-                    Linux'un ne olduğundan en derin çekirdek mimarisine kadar uzanan temel eğitim materyalleri.
+                    Linux&apos;un ne olduğundan en derin çekirdek mimarisine kadar uzanan temel eğitim materyalleri.
                 </p>
             </div>
 

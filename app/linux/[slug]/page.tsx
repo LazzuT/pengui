@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
@@ -25,7 +26,7 @@ export async function generateMetadata({
     }
 
     return {
-        title: `${topic.title} | Pengui Linux Rehberi`,
+        title: `${topic.title} — Linux Rehberi`,
         description: topic.description,
         openGraph: {
             title: `${topic.title} | Pengui Linux Rehberi`,
@@ -34,6 +35,7 @@ export async function generateMetadata({
             siteName: 'Pengui',
             locale: 'tr_TR',
             type: 'article',
+            images: [{ url: '/og-image.png', width: 1200, height: 630, alt: topic.title }],
         },
         twitter: {
             card: 'summary_large_image',
@@ -58,42 +60,72 @@ export default async function LinuxTopicPage({
         notFound();
     }
 
-    // Parse markdown-like syntax for the current JSON payload (supporting simple newlines, bold, bullets)
-    // This helps to convert the raw strings into readable HTML until a robust MDX parser is placed
-    const formattedContent = topic.content
-        .split('\n')
-        .map((paragraph, index) => {
-            if (paragraph.startsWith('### ')) {
-                return (
-                    <h3 key={index} className="text-2xl font-bold text-zinc-100 mt-8 mb-4 font-sans border-b border-zinc-800/50 pb-2">
-                        {paragraph.replace('### ', '')}
-                    </h3>
-                );
-            }
+    // Basit markdown ayrıştırıcı: başlık, liste, satır içi kod, kalın metin ve
+    // çok satırlı (``` ile çevrili) kod bloklarını destekler.
+    const lines = topic.content.split('\n');
+    const formattedContent: ReactNode[] = [];
+    let codeBuffer: string[] | null = null;
 
-            if (paragraph.startsWith('- ')) {
-                // Parse bold texts inside lists
-                const boldParsed = paragraph.replace('**', '<strong class="text-zinc-200">').replace('**', '</strong>');
-                return (
-                    <li key={index} className="text-zinc-300 leading-relaxed font-sans list-disc list-inside mb-2" dangerouslySetInnerHTML={{ __html: boldParsed.replace('- ', '') }} />
+    lines.forEach((paragraph, index) => {
+        // Kod bloğu sınırı (```): aç/kapat
+        if (paragraph.trim().startsWith('```')) {
+            if (codeBuffer === null) {
+                codeBuffer = [];
+            } else {
+                formattedContent.push(
+                    <pre key={`code-${index}`} className="bg-surface-dark border border-border-subtle rounded-xl p-4 my-4 overflow-x-auto">
+                        <code className="text-terminal-green font-mono text-sm leading-relaxed whitespace-pre">
+                            {codeBuffer.join('\n')}
+                        </code>
+                    </pre>
                 );
+                codeBuffer = null;
             }
+            return;
+        }
 
-            // Detect code blocks (rudimentary regex for triple backticks)
-            if (paragraph.startsWith('```')) {
-                return null; // A more comprehensive markdown parser would be needed for perfect block generation. This fits our current JSON.
-            }
+        // Kod bloğu içindeysek satırı tampona ekle
+        if (codeBuffer !== null) {
+            codeBuffer.push(paragraph);
+            return;
+        }
 
-            // Standard text with bold support
-            if (paragraph.trim() !== '') {
-                const boldParsed = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-zinc-200">$1</strong>');
-                const codeParsed = boldParsed.replace(/`(.*?)`/g, '<code class="bg-zinc-800/50 text-indigo-300 px-1.5 py-0.5 rounded-md font-mono text-sm">$1</code>');
-                return (
-                    <p key={index} className="text-zinc-400 text-lg leading-relaxed font-sans mb-4" dangerouslySetInnerHTML={{ __html: codeParsed }} />
-                );
-            }
-            return null;
-        });
+        if (paragraph.startsWith('### ')) {
+            formattedContent.push(
+                <h3 key={index} className="text-2xl font-bold text-zinc-100 mt-8 mb-4 font-sans border-b border-zinc-800/50 pb-2">
+                    {paragraph.replace('### ', '')}
+                </h3>
+            );
+            return;
+        }
+
+        if (paragraph.startsWith('- ')) {
+            const boldParsed = paragraph.replace('**', '<strong class="text-zinc-200">').replace('**', '</strong>');
+            formattedContent.push(
+                <li key={index} className="text-zinc-300 leading-relaxed font-sans list-disc list-inside mb-2" dangerouslySetInnerHTML={{ __html: boldParsed.replace('- ', '') }} />
+            );
+            return;
+        }
+
+        if (paragraph.trim() !== '') {
+            const boldParsed = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-zinc-200">$1</strong>');
+            const codeParsed = boldParsed.replace(/`(.*?)`/g, '<code class="bg-surface-dark text-terminal-green px-1.5 py-0.5 rounded-md font-mono text-sm">$1</code>');
+            formattedContent.push(
+                <p key={index} className="text-zinc-400 text-lg leading-relaxed font-sans mb-4" dangerouslySetInnerHTML={{ __html: codeParsed }} />
+            );
+        }
+    });
+
+    // Kapanmamış kod bloğu kaldıysa yine de render et
+    if (codeBuffer !== null) {
+        formattedContent.push(
+            <pre key="code-tail" className="bg-surface-dark border border-border-subtle rounded-xl p-4 my-4 overflow-x-auto">
+                <code className="text-terminal-green font-mono text-sm leading-relaxed whitespace-pre">
+                    {(codeBuffer as string[]).join('\n')}
+                </code>
+            </pre>
+        );
+    }
 
     // JSON-LD TechArticle Construction
     const jsonLd = {
@@ -114,7 +146,7 @@ export default async function LinuxTopicPage({
             }
         },
         url: `https://pengui.org/linux/${topic.slug}`,
-        datePublished: new Date().toISOString().split('T')[0], // For SSG, dynamically setting the build date roughly
+        datePublished: '2026-03-06', // İçeriğin ilk yayın tarihi (sabit)
         dateModified: new Date().toISOString().split('T')[0],
     };
 
@@ -128,7 +160,7 @@ export default async function LinuxTopicPage({
             <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <Link
                     href="/linux"
-                    className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-indigo-400 transition-colors bg-zinc-900/50 hover:bg-zinc-800/50 px-3 py-1.5 rounded-lg border border-zinc-800/50"
+                    className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-terminal-green transition-colors bg-zinc-900/50 hover:bg-zinc-800/50 px-3 py-1.5 rounded-lg border border-zinc-800/50"
                 >
                     <svg className="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -145,7 +177,7 @@ export default async function LinuxTopicPage({
                         </div>
                         <div>
                             <div className="flex items-center justify-center md:justify-start gap-3 mb-3">
-                                <span className="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md">
+                                <span className="text-xs font-bold uppercase tracking-wider text-terminal-green bg-terminal-green/10 px-2.5 py-1 rounded-md">
                                     {topic.category}
                                 </span>
                                 <span className="text-xs font-semibold text-zinc-500 font-mono tracking-wider flex items-center">

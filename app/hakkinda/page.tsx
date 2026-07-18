@@ -6,6 +6,7 @@ export const metadata: Metadata = {
     title: "Hakkında",
     description:
         "Pengui hakkında bilgi. AI destekli geliştirme süreci ve proje hikâyesi.",
+    alternates: { canonical: "https://pengui.org/hakkinda" },
 };
 
 export default function AboutPage() {
@@ -70,7 +71,7 @@ export default function AboutPage() {
                     </p>
                     <div className="flex flex-wrap gap-3 pt-2">
                         <span className="px-3 py-1.5 bg-surface-dark border border-border-subtle rounded-lg text-xs text-slate-400">
-                            Next.js 15
+                            Next.js 16
                         </span>
                         <span className="px-3 py-1.5 bg-surface-dark border border-border-subtle rounded-lg text-xs text-slate-400">
                             TypeScript

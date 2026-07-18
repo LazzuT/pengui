@@ -22,7 +22,7 @@ export default function NotFound() {
 
                 {/* Headings */}
                 <h1 className="text-3xl sm:text-4xl font-bold text-slate-200 mb-4">
-                    Terminal'de kayboldunuz!
+                    Terminal&apos;de kayboldunuz!
                 </h1>
                 <p className="text-lg text-slate-400 max-w-md mx-auto mb-8 leading-relaxed">
                     Aradığınız komut veya sayfa sistemde bulunamadı. Belki yanlış bir dizin (klasör) yazdınız ya da henüz bu komutu desteklemiyoruz.

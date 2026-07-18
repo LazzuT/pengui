@@ -11,7 +11,7 @@ const initialState = {
 };
 
 export default function PreviewPage() {
-    const [state, formAction, isPending] = useActionState(async (prevState: any, formData: FormData) => {
+    const [state, formAction, isPending] = useActionState(async (prevState: { error: string | null }, formData: FormData) => {
         const result = await loginWithPassword(formData);
         if (result && result.error) {
             return { error: result.error };

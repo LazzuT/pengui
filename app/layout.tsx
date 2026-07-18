@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
@@ -39,15 +39,23 @@ export const metadata: Metadata = {
     siteName: "Pengui",
     locale: "tr_TR",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pengui — Türkçe Linux komut kütüphanesi" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Pengui — Linux terminalini birlikte öğrenelim",
     description: "Linux terminaline yeni mi başlıyorsun? Pengui ile komutları basit açıklamalar ve gerçek kullanım örnekleriyle keşfet.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://pengui.org",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0f172a",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

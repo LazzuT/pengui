@@ -32,13 +32,14 @@ export default function FavoriteButton({ slug }: FavoriteButtonProps) {
         <div className="relative inline-flex items-center">
             <button
                 onClick={handleClick}
+                aria-pressed={isActive}
                 className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent/50 ${
                     isActive 
                     ? "bg-amber-400/20 text-amber-400 border border-amber-400/30 hover:bg-amber-400/30" 
-                    : "bg-surface-dark border border-border-default text-slate-400 hover:text-amber-400 hover:border-amber-400/30"
+                    : "bg-surface-dark border border-border-subtle text-slate-400 hover:text-amber-400 hover:border-amber-400/30"
                 }`}
-                title="Favorilere Ekle"
-                aria-label="Favorilere Ekle"
+                title={isActive ? "Favorilerden çıkar" : "Favorilere ekle"}
+                aria-label={isActive ? "Favorilerden çıkar" : "Favorilere ekle"}
             >
                 <svg
                     className={`w-5 h-5 transition-transform duration-300 ${isActive ? "fill-current scale-110" : "fill-transparent"}`}
@@ -54,7 +55,7 @@ export default function FavoriteButton({ slug }: FavoriteButtonProps) {
 
             {/* Subtle Toast Feedback */}
             {showToast && (
-                <div className="absolute top-1/2 -right-3 sm:-right-4 transform translate-x-full -translate-y-1/2 flex items-center bg-surface-dark border border-border-default/50 rounded-md px-3 py-1.5 shadow-lg animate-fade-in z-10 whitespace-nowrap">
+                <div className="absolute top-1/2 -right-3 sm:-right-4 transform translate-x-full -translate-y-1/2 flex items-center bg-surface-dark border border-border-subtle/50 rounded-md px-3 py-1.5 shadow-lg animate-fade-in z-10 whitespace-nowrap">
                     <span className="text-xs font-medium text-emerald-400">Favorilere Eklendi</span>
                 </div>
             )}

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getLearningModuleBySlug, getAllLearningModules } from "@/lib/learning";
-import { getAllCommands, getCommandBySlug } from "@/lib/commands";
+import { getCommandBySlug } from "@/lib/commands";
 import CommandCard from "@/components/CommandCard";
 
 export function generateStaticParams() {
@@ -15,13 +15,14 @@ export async function generateMetadata({
     params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
     const { slug } = await params;
-    const module = getLearningModuleBySlug(slug);
+    const mod = getLearningModuleBySlug(slug);
 
-    if (!module) return { title: "Modül Bulunamadı" };
+    if (!mod) return { title: "Modül Bulunamadı" };
 
     return {
-        title: `${module.title} | Linux Öğren | Pengui`,
-        description: module.description,
+        title: `${mod.title} — Linux Öğren`,
+        description: mod.description,
+        alternates: { canonical: `https://pengui.org/ogren/${slug}` },
     };
 }
 
@@ -31,13 +32,13 @@ export default async function LearningModulePage({
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
-    const module = getLearningModuleBySlug(slug);
+    const mod = getLearningModuleBySlug(slug);
 
-    if (!module) {
+    if (!mod) {
         notFound();
     }
 
-    const commandsList = (module.commands || [])
+    const commandsList = (mod.commands || [])
         .map(cmdSlug => getCommandBySlug(cmdSlug))
         .filter((c): c is NonNullable<typeof c> => c !== undefined);
 
@@ -59,18 +60,18 @@ export default async function LearningModulePage({
                     Öğren
                 </Link>
                 <span>/</span>
-                <span className="text-slate-300">{module.title}</span>
+                <span className="text-slate-300">{mod.title}</span>
             </nav>
 
             {/* Header */}
             <div className="mb-10 animate-fade-in">
                 <div className="flex items-center gap-4 mb-4">
-                    <span className="text-4xl">{module.icon}</span>
+                    <span className="text-4xl">{mod.icon}</span>
                     <h1 className="text-3xl sm:text-4xl font-bold text-slate-200">
-                        {module.title}
+                        {mod.title}
                     </h1>
                 </div>
-                <p className="text-lg text-slate-400">{module.description}</p>
+                <p className="text-lg text-slate-400">{mod.description}</p>
             </div>
 
             {/* Content */}
@@ -79,7 +80,7 @@ export default async function LearningModulePage({
                     {/* Basit bir markdown işleyici yerine direkt bölerek render edelim veya react-markdown da kurulabilirdi,
                         ancak string'i basit HTML formatına dönüştürelim (basit markdown formatımız var) */}
                     <div dangerouslySetInnerHTML={{
-                        __html: module.content
+                        __html: mod.content
                             .replace(/### (.*?)\n/g, '<h3>$1</h3>')
                             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                             .replace(/\*(.*?)\*/g, '<em>$1</em>')

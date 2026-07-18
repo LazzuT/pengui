@@ -55,7 +55,7 @@ export default function FavoritesClient() {
                     ))}
                 </div>
             ) : (
-                <div className="text-center py-20 px-4 bg-surface-dark border border-border-default rounded-2xl border-dashed animate-fade-in">
+                <div className="text-center py-20 px-4 bg-surface-dark border border-border-subtle rounded-2xl border-dashed animate-fade-in">
                     <div className="text-6xl mb-4 opacity-50 grayscale">🐧</div>
                     <h2 className="text-xl font-semibold text-slate-200 mb-2">Henüz favori komutunuz yok</h2>
                     <p className="text-slate-400 max-w-md mx-auto mb-6">

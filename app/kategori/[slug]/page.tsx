@@ -28,6 +28,7 @@ export async function generateMetadata({
     return {
         title: `${category.name} Komutları`,
         description: `${category.name} — ${category.description}. Linux ${category.name.toLowerCase()} komutlarını Türkçe öğrenin.`,
+        alternates: { canonical: `https://pengui.org/kategori/${slug}` },
     };
 }
 
